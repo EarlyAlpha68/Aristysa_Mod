@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "cED",
+        "GAE",
+        "YGc"
+    ],
+    "key": {
+        "c": {
+            "item": "minecraft:copper_ingot"
+        },
+        "E": {
+            "item": "minecraft:emerald"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "G": {
+            "item": "minecraft:glass_pane"
+        },
+        "A": {
+            "item": "aristysa:micro_chip"
+        },
+        "Y": {
+            "item": "aristysa:subdermal_armor_1"
+        }
+    },
+    "result": {
+        "item": "aristysa:optical_camo_1",
+        "count": 1
+    }
+}

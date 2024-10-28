@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "G#D",
+        "BN#",
+        "ABG"
+    ],
+    "key": {
+        "G": {
+            "item": "aristysa:lead_ingot"
+        },
+        "#": {
+            "item": "minecraft:echo_shard"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "B": {
+            "item": "minecraft:bone"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
+        },
+        "A": {
+            "item": "aristysa:golemarm_2"
+        }
+    },
+    "result": {
+        "item": "aristysa:golemarm_3",
+        "count": 1
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#SQ",
+        "iRS",
+        "Qi#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:diamond"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "Q": {
+            "item": "minecraft:slime_ball"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "R": {
+            "item": "minecraft:rotten_flesh"
+        }
+    },
+    "result": {
+        "item": "aristysa:synthetic_muscle",
+        "count": 1
+    }
+}

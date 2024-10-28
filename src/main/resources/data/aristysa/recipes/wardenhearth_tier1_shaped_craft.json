@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#n#",
+        "ANA",
+        "#n#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:echo_shard"
+        },
+        "n": {
+            "item": "aristysa:micro_chip"
+        },
+        "A": {
+            "item": "aristysa:synthetic_muscle"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
+        }
+    },
+    "result": {
+        "item": "aristysa:wardenhearth_1",
+        "count": 1
+    }
+}

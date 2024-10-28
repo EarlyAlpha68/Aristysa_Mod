@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " gD",
+        "EAg",
+        "cE "
+    ],
+    "key": {
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "E": {
+            "item": "minecraft:echo_shard"
+        },
+        "A": {
+            "item": "aristysa:optical_camo_2"
+        },
+        "c": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "result": {
+        "item": "aristysa:optical_camo_3",
+        "count": 1
+    }
+}

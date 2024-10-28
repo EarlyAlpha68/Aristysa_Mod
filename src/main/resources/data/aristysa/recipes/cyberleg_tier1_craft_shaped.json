@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "aAa",
+        "ANA",
+        "DAa"
+    ],
+    "key": {
+        "a": {
+            "item": "aristysa:lead_ingot"
+        },
+        "A": {
+            "item": "aristysa:synthetic_muscle"
+        },
+        "N": {
+            "item": "aristysa:micro_chip"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "aristysa:cyberleg_1",
+        "count": 1
+    }
+}

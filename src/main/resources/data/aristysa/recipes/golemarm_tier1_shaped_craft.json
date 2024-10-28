@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "gAn",
+        "ADA",
+        "cAg"
+    ],
+    "key": {
+        "g": {
+            "item": "aristysa:lead_ingot"
+        },
+        "A": {
+            "item": "aristysa:synthetic_muscle"
+        },
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "D": {
+            "item": "aristysa:micro_chip"
+        },
+        "c": {
+            "item": "minecraft:copper_ingot"
+        }
+    },
+    "result": {
+        "item": "aristysa:golemarm_1",
+        "count": 1
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "aristysa:raw_lead_block",
+    "aristysa:lead_block",
+    "aristysa:lead_ore",
+    "aristysa:deepslate_lead_ore"
+  ]
+}

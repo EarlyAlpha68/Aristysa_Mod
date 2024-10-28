@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "aristysa",
+	"version": "${version}",
+	"name": "Aristysa",
+	"description": "A mod that add multiple cyberware implant.",
+	"authors": [
+		"EarlyAlpha"
+	],
+	"license": "CC BY-NC-ND",
+	"icon": "assets/aristysa/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.earlyalpha.aristysa.Aristysa"
+		],
+		"client": [
+			"net.earlyalpha.aristysa.AristysaClient"
+		],
+		"fabric-datagen": [
+			"net.earlyalpha.aristysa.AristysaDataGenerator"
+		]
+	},
+	"mixins": [
+		"aristysa.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

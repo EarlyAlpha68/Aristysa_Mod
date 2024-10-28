@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "aiA",
+        "ARi",
+        "DAa"
+    ],
+    "key": {
+        "a": {
+            "item": "aristysa:lead_ingot"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "R": {
+            "item": "aristysa:cyberleg_1"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "aristysa:cyberleg_2",
+        "count": 1
+    }
+}

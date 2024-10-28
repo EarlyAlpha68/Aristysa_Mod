@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " #C",
+        "AU#",
+        "DA "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:repeater"
+        },
+        "C": {
+            "item": "minecraft:comparator"
+        },
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "U": {
+            "item": "aristysa:optical_camo_1"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "aristysa:optical_camo_2",
+        "count": 1
+    }
+}

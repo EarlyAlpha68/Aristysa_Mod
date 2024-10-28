@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "aNn",
+        "NAN",
+        "DNa"
+    ],
+    "key": {
+        "a": {
+            "item": "aristysa:lead_ingot"
+        },
+        "N": {
+            "item": "minecraft:netherite_scrap"
+        },
+        "n": {
+            "item": "minecraft:netherite_ingot"
+        },
+        "A": {
+            "item": "aristysa:cyberleg_2"
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "aristysa:cyberleg_3",
+        "count": 1
+    }
+}

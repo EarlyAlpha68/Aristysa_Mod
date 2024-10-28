@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1,
+  "ingredient": {
+    "item": "aristysa:deepslate_lead_ore"
+  },
+  "result": "aristysa:lead_ingot"
+}

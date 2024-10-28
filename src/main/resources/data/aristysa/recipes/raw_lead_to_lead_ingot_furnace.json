@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 1,
+  "ingredient": {
+    "item": "aristysa:raw_lead"
+  },
+  "result": "aristysa:lead_ingot"
+}
