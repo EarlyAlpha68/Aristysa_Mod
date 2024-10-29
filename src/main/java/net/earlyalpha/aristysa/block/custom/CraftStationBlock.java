@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class CraftStationBlock extends BlockWithEntity implements BlockEntityProvider {
-    private static final VoxelShape SHAPE = Block.createCuboidShape(0,0,0,16,17,32);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(0,0,0,16,16,16);
     public CraftStationBlock(Settings settings) {
         super(settings);
     }
