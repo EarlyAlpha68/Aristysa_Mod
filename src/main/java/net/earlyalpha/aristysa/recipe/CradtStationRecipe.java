@@ -1,6 +1,5 @@
 package net.earlyalpha.aristysa.recipe;
 
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -11,7 +10,7 @@ import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class TestRecipe implements Recipe<SimpleInventory> {
+public class CradtStationRecipe implements Recipe<SimpleInventory> {
     private final Ingredient input0;
     private final Ingredient input1;
     private final Ingredient input2;
@@ -19,11 +18,11 @@ public class TestRecipe implements Recipe<SimpleInventory> {
     private final ItemStack outputStack;
     private final Identifier id;
 
-    public TestRecipe(Ingredient input0, Ingredient input1, Ingredient input2, Ingredient input3, ItemStack outputStack, Identifier id){
+    public CradtStationRecipe(Ingredient input0, Ingredient input1, Ingredient input2, Ingredient input3, ItemStack outputStack, Identifier id){
         this.input0 = input0;
         this.input1 = input1;
         this.input2 = input2;
-        this.input3 = input2;
+        this.input3 = input3;
         this.outputStack = outputStack;
         this.id = id;
 
@@ -75,7 +74,7 @@ public class TestRecipe implements Recipe<SimpleInventory> {
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
-    public static class Type implements RecipeType<TestRecipe>{
+    public static class Type implements RecipeType<CradtStationRecipe>{
         private Type() {}
         public static final Type INSTANCE = new Type();
         public static final String ID = "test_recipe";

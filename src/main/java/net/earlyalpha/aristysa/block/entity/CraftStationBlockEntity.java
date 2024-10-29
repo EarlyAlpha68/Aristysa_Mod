@@ -1,12 +1,11 @@
 package net.earlyalpha.aristysa.block.entity;
 
 import net.earlyalpha.aristysa.item.ModItems;
-import net.earlyalpha.aristysa.recipe.TestRecipe;
+import net.earlyalpha.aristysa.recipe.CradtStationRecipe;
 import net.earlyalpha.aristysa.screen.CraftStationScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -90,11 +89,11 @@ public class CraftStationBlockEntity extends BlockEntity implements ExtendedScre
     public void tick(World world, BlockPos pos, BlockState state) {
         if(!world.isClient()) {
             if (isOutputSlotEmptyOrReceivable()) {
-                Optional<TestRecipe> match = world.getRecipeManager()
-                        .getFirstMatch(TestRecipe.Type.INSTANCE, new SimpleInventory(getItems().toArray(new ItemStack[0])), world);
+                Optional<CradtStationRecipe> match = world.getRecipeManager()
+                        .getFirstMatch(CradtStationRecipe.Type.INSTANCE, new SimpleInventory(getItems().toArray(new ItemStack[0])), world);
 
                 if (match.isPresent()) {
-                    TestRecipe recipe = match.get();
+                    CradtStationRecipe recipe = match.get();
                     if (canCraftRecipe(recipe)) {
                         craftRecipe(recipe);
                         markDirty(world, pos, state); // Update the block entity's data
@@ -125,12 +124,12 @@ public class CraftStationBlockEntity extends BlockEntity implements ExtendedScre
 
     }
 
-    private boolean canCraftRecipe(TestRecipe recipe) {
+    private boolean canCraftRecipe(CradtStationRecipe recipe) {
         ItemStack result = recipe.getOutput(DynamicRegistryManager.EMPTY);
         return canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
     }
 
-    private void craftRecipe(TestRecipe recipe) {
+    private void craftRecipe(CradtStationRecipe recipe) {
         // Decrease input slots based on recipe requirements
         for (int i = INPUT_SLOT_1; i <= INPUT_SLOT_4; i++) {
             this.removeStack(i, 1);
