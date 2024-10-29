@@ -9,6 +9,7 @@ import net.earlyalpha.aristysa.item.ModItems;
 import net.earlyalpha.aristysa.networking.NetworkingsMessages;
 import net.earlyalpha.aristysa.networking.packet.Nbt_TagC2SPacket;
 import net.earlyalpha.aristysa.networking.packet.Nbt_Tag_S2CPacket;
+import net.earlyalpha.aristysa.recipe.ModRecipes;
 import net.earlyalpha.aristysa.screen.ModScreenHandlers;
 import net.earlyalpha.aristysa.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
@@ -38,5 +39,6 @@ public class Aristysa implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 		ModWorldGeneration.generateModWorldGen();
+		ModRecipes.registerRecipes();
 	}
 }

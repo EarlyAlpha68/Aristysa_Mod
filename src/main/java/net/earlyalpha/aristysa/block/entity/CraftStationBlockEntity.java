@@ -1,6 +1,7 @@
 package net.earlyalpha.aristysa.block.entity;
 
 import net.earlyalpha.aristysa.item.ModItems;
+import net.earlyalpha.aristysa.recipe.TestRecipe;
 import net.earlyalpha.aristysa.screen.CraftStationScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -9,10 +10,12 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -21,6 +24,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class CraftStationBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
@@ -83,33 +88,56 @@ public class CraftStationBlockEntity extends BlockEntity implements ExtendedScre
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if(world.isClient()) {
-            return;
-        }
-        if (isOutputSlotEmptyOrReceivable()) {
-            if(this.hasRecipeEnderEyeTier1()){
-                markDirty( world ,pos ,state);
-                this.craftItemEnderEyeTier1();
-            }else if (this.hasRecipeEnderEyeTier2()) {
-                markDirty( world ,pos ,state);
-                this.craftItemEnderEyeTier2();
-            }else if (this.hasRecipeEnderEyeTier3()){
-                markDirty( world ,pos ,state);
-                this.craftItemEnderEyeTier3();
-            }else if(this.hasRecipeGolemArmTier1()){
-                markDirty( world ,pos ,state);
-                this.craftItemGolemArmTier1();
-            }else if (this.hasRecipeGolemArmTier2()) {
-                markDirty( world ,pos ,state);
-                this.craftItemGolemArmTier2();
-            }else if (this.hasRecipeGolemArmTier3()){
-                markDirty( world ,pos ,state);
-                this.craftItemGolemArmTier3();
+        if(!world.isClient()) {
+            if (isOutputSlotEmptyOrReceivable()) {
+                Optional<TestRecipe> match = world.getRecipeManager()
+                        .getFirstMatch(TestRecipe.Type.INSTANCE, new SimpleInventory(getItems().toArray(new ItemStack[0])), world);
+
+                if (match.isPresent()) {
+                    TestRecipe recipe = match.get();
+                    if (canCraftRecipe(recipe)) {
+                        craftRecipe(recipe);
+                        markDirty(world, pos, state); // Update the block entity's data
+                    }
+                }
+                if(this.hasRecipeEnderEyeTier1()){
+                    markDirty( world ,pos ,state);
+                    this.craftItemEnderEyeTier1();
+                }else if (this.hasRecipeEnderEyeTier2()) {
+                    markDirty( world ,pos ,state);
+                    this.craftItemEnderEyeTier2();
+                }else if (this.hasRecipeEnderEyeTier3()){
+                    markDirty( world ,pos ,state);
+                    this.craftItemEnderEyeTier3();
+                }else if(this.hasRecipeGolemArmTier1()){
+                    markDirty( world ,pos ,state);
+                    this.craftItemGolemArmTier1();
+                }else if (this.hasRecipeGolemArmTier2()) {
+                    markDirty( world ,pos ,state);
+                    this.craftItemGolemArmTier2();
+                }else if (this.hasRecipeGolemArmTier3()){
+                    markDirty( world ,pos ,state);
+                    this.craftItemGolemArmTier3();
+                }
             }
-
         }
 
 
+    }
+
+    private boolean canCraftRecipe(TestRecipe recipe) {
+        ItemStack result = recipe.getOutput(DynamicRegistryManager.EMPTY);
+        return canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
+    }
+
+    private void craftRecipe(TestRecipe recipe) {
+        // Decrease input slots based on recipe requirements
+        for (int i = INPUT_SLOT_1; i <= INPUT_SLOT_4; i++) {
+            this.removeStack(i, 1);
+        }
+        // Add crafted result to output slot
+        ItemStack result = recipe.getOutput(DynamicRegistryManager.EMPTY).copy();
+        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount() + result.getCount()));
     }
     private void craftItemGolemArmTier1() {
         this.removeStack(INPUT_SLOT_1,1);
