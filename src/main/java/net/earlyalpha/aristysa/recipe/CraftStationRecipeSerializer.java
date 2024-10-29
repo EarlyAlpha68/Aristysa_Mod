@@ -12,13 +12,13 @@ import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
-public class CraftStationRecipeSerializer implements RecipeSerializer<CradtStationRecipe> {
+public class CraftStationRecipeSerializer implements RecipeSerializer<CraftStationRecipe> {
     private CraftStationRecipeSerializer(){
     }
     public static final CraftStationRecipeSerializer INSTANCE = new CraftStationRecipeSerializer();
     public static final Identifier ID = new Identifier("test:test_recipe");
     @Override
-    public CradtStationRecipe read(Identifier recipeId, JsonObject json) {
+    public CraftStationRecipe read(Identifier recipeId, JsonObject json) {
         CraftStationRecipeJsonFormat recipeJson = new Gson().fromJson(json, CraftStationRecipeJsonFormat.class);
         if (recipeJson.input0 == null || recipeJson.input1 == null || recipeJson.input2 == null || recipeJson.input3 == null || recipeJson.outputItem ==null) {
             throw new JsonSyntaxException("A required attribute is missing!");
@@ -32,21 +32,21 @@ public class CraftStationRecipeSerializer implements RecipeSerializer<CradtStati
                 .orElseThrow(() -> new JsonSyntaxException("no such item" + recipeJson.outputItem));
         ItemStack output = new ItemStack(outputItem, recipeJson.outputAmount);
 
-        return new CradtStationRecipe(input0 ,input1, input2 ,input3 , output, recipeId);
+        return new CraftStationRecipe(input0 ,input1, input2 ,input3 , output, recipeId);
     }
 
     @Override
-    public CradtStationRecipe read(Identifier recipeId, PacketByteBuf packetData) {
+    public CraftStationRecipe read(Identifier recipeId, PacketByteBuf packetData) {
         Ingredient input0 = Ingredient.fromPacket(packetData);
         Ingredient input1 = Ingredient.fromPacket(packetData);
         Ingredient input2 = Ingredient.fromPacket(packetData);
         Ingredient input3 = Ingredient.fromPacket(packetData);
         ItemStack output = packetData.readItemStack();
-        return new CradtStationRecipe(input0, input1, input2, input3, output, recipeId);
+        return new CraftStationRecipe(input0, input1, input2, input3, output, recipeId);
     }
 
     @Override
-    public void write(PacketByteBuf packetData, CradtStationRecipe recipe) {
+    public void write(PacketByteBuf packetData, CraftStationRecipe recipe) {
         recipe.getInput0().write(packetData);
         recipe.getInput1().write(packetData);
         recipe.getInput2().write(packetData);

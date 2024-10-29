@@ -10,7 +10,7 @@ import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class CradtStationRecipe implements Recipe<SimpleInventory> {
+public class CraftStationRecipe implements Recipe<SimpleInventory> {
     private final Ingredient input0;
     private final Ingredient input1;
     private final Ingredient input2;
@@ -18,7 +18,7 @@ public class CradtStationRecipe implements Recipe<SimpleInventory> {
     private final ItemStack outputStack;
     private final Identifier id;
 
-    public CradtStationRecipe(Ingredient input0, Ingredient input1, Ingredient input2, Ingredient input3, ItemStack outputStack, Identifier id){
+    public CraftStationRecipe(Ingredient input0, Ingredient input1, Ingredient input2, Ingredient input3, ItemStack outputStack, Identifier id){
         this.input0 = input0;
         this.input1 = input1;
         this.input2 = input2;
@@ -74,7 +74,7 @@ public class CradtStationRecipe implements Recipe<SimpleInventory> {
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
-    public static class Type implements RecipeType<CradtStationRecipe>{
+    public static class Type implements RecipeType<CraftStationRecipe>{
         private Type() {}
         public static final Type INSTANCE = new Type();
         public static final String ID = "test_recipe";

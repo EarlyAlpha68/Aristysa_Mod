@@ -1,10 +1,11 @@
 {
 	"credit": "Made with Blockbench",
+	"texture_size": [16, 16],
 	"textures": {
 		"0": "aristysa:block/craft_station_inside_beacon",
-		"1": "aristysa:block/Craft Station Inside Outside",
-		"2": "aristysa:block/Craft Station Craft Zone",
-		"4": "aristysa:block/Craft Station Side",
+		"1": "aristysa:block/craft_station_inside_outside",
+		"2": "aristysa:block/craft_station_craft_zone",
+		"4": "aristysa:block/craft_station_side",
 		"particle": "aristysa:block/craft_station_inside_beacon"
 	},
 	"elements": [

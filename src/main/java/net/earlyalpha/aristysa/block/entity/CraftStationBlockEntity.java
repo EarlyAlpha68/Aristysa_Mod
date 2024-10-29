@@ -1,7 +1,7 @@
 package net.earlyalpha.aristysa.block.entity;
 
 import net.earlyalpha.aristysa.item.ModItems;
-import net.earlyalpha.aristysa.recipe.CradtStationRecipe;
+import net.earlyalpha.aristysa.recipe.CraftStationRecipe;
 import net.earlyalpha.aristysa.screen.CraftStationScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -89,150 +89,32 @@ public class CraftStationBlockEntity extends BlockEntity implements ExtendedScre
     public void tick(World world, BlockPos pos, BlockState state) {
         if(!world.isClient()) {
             if (isOutputSlotEmptyOrReceivable()) {
-                Optional<CradtStationRecipe> match = world.getRecipeManager()
-                        .getFirstMatch(CradtStationRecipe.Type.INSTANCE, new SimpleInventory(getItems().toArray(new ItemStack[0])), world);
+                Optional<CraftStationRecipe> match = world.getRecipeManager()
+                        .getFirstMatch(CraftStationRecipe.Type.INSTANCE, new SimpleInventory(getItems().toArray(new ItemStack[0])), world);
 
                 if (match.isPresent()) {
-                    CradtStationRecipe recipe = match.get();
+                    CraftStationRecipe recipe = match.get();
                     if (canCraftRecipe(recipe)) {
                         craftRecipe(recipe);
                         markDirty(world, pos, state); // Update the block entity's data
                     }
                 }
-                if(this.hasRecipeEnderEyeTier1()){
-                    markDirty( world ,pos ,state);
-                    this.craftItemEnderEyeTier1();
-                }else if (this.hasRecipeEnderEyeTier2()) {
-                    markDirty( world ,pos ,state);
-                    this.craftItemEnderEyeTier2();
-                }else if (this.hasRecipeEnderEyeTier3()){
-                    markDirty( world ,pos ,state);
-                    this.craftItemEnderEyeTier3();
-                }else if(this.hasRecipeGolemArmTier1()){
-                    markDirty( world ,pos ,state);
-                    this.craftItemGolemArmTier1();
-                }else if (this.hasRecipeGolemArmTier2()) {
-                    markDirty( world ,pos ,state);
-                    this.craftItemGolemArmTier2();
-                }else if (this.hasRecipeGolemArmTier3()){
-                    markDirty( world ,pos ,state);
-                    this.craftItemGolemArmTier3();
-                }
             }
         }
-
-
     }
 
-    private boolean canCraftRecipe(CradtStationRecipe recipe) {
+    private boolean canCraftRecipe(CraftStationRecipe recipe) {
         ItemStack result = recipe.getOutput(DynamicRegistryManager.EMPTY);
         return canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
     }
 
-    private void craftRecipe(CradtStationRecipe recipe) {
-        // Decrease input slots based on recipe requirements
+    private void craftRecipe(CraftStationRecipe recipe) {
         for (int i = INPUT_SLOT_1; i <= INPUT_SLOT_4; i++) {
             this.removeStack(i, 1);
         }
-        // Add crafted result to output slot
         ItemStack result = recipe.getOutput(DynamicRegistryManager.EMPTY).copy();
         this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount() + result.getCount()));
     }
-    private void craftItemGolemArmTier1() {
-        this.removeStack(INPUT_SLOT_1,1);
-        this.removeStack(INPUT_SLOT_2,1);
-        this.removeStack(INPUT_SLOT_3,1);
-        this.removeStack(INPUT_SLOT_4,1);
-        ItemStack result = new ItemStack(ModItems.GOLEMARM_1);
-
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount()+ result.getCount()));
-
-    }
-    private void craftItemGolemArmTier2() {
-        this.removeStack(INPUT_SLOT_1,1);
-        this.removeStack(INPUT_SLOT_2,1);
-        this.removeStack(INPUT_SLOT_3,1);
-        this.removeStack(INPUT_SLOT_4,1);
-        ItemStack result = new ItemStack(ModItems.GOLEMARM_2);
-
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount()+ result.getCount()));
-
-    }
-    private void craftItemGolemArmTier3() {
-        this.removeStack(INPUT_SLOT_1,1);
-        this.removeStack(INPUT_SLOT_2,1);
-        this.removeStack(INPUT_SLOT_3,1);
-        this.removeStack(INPUT_SLOT_4,1);
-        ItemStack result = new ItemStack(ModItems.GOLEMARM_3);
-
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount()+ result.getCount()));
-
-    }
-
-    private boolean hasRecipeGolemArmTier1() {
-        ItemStack result = new ItemStack(ModItems.GOLEMARM_1);
-        boolean hasInput = getStack(INPUT_SLOT_1).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_2).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_3).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_4).getItem() == ModItems.RAW_LEAD;
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
-    private boolean hasRecipeGolemArmTier2() {
-        ItemStack result = new ItemStack(ModItems.GOLEMARM_2);
-        boolean hasInput = getStack(INPUT_SLOT_1).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_2).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_3).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_4).getItem() == ModItems.GOLEMARM_1;
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
-    private boolean hasRecipeGolemArmTier3() {
-        ItemStack result = new ItemStack(ModItems.GOLEMARM_3);
-        boolean hasInput = getStack(INPUT_SLOT_1).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_2).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_3).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_4).getItem() == ModItems.GOLEMARM_2;
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
-
-
-    private void craftItemEnderEyeTier1() {
-        this.removeStack(INPUT_SLOT_1,1);
-        this.removeStack(INPUT_SLOT_2,1);
-        this.removeStack(INPUT_SLOT_3,1);
-        this.removeStack(INPUT_SLOT_4,1);
-        ItemStack result = new ItemStack(ModItems.ENDEREYE_1);
-
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount()+ result.getCount()));
-
-    }
-    private void craftItemEnderEyeTier2() {
-        this.removeStack(INPUT_SLOT_1,1);
-        this.removeStack(INPUT_SLOT_2,1);
-        this.removeStack(INPUT_SLOT_3,1);
-        this.removeStack(INPUT_SLOT_4,1);
-        ItemStack result = new ItemStack(ModItems.ENDEREYE_2);
-
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount()+ result.getCount()));
-
-    }
-    private void craftItemEnderEyeTier3() {
-        this.removeStack(INPUT_SLOT_1,1);
-        this.removeStack(INPUT_SLOT_2,1);
-        this.removeStack(INPUT_SLOT_3,1);
-        this.removeStack(INPUT_SLOT_4,1);
-        ItemStack result = new ItemStack(ModItems.ENDEREYE_3);
-
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount()+ result.getCount()));
-
-    }
-
-    private boolean hasRecipeEnderEyeTier1() {
-        ItemStack result = new ItemStack(ModItems.ENDEREYE_1);
-        boolean hasInput = getStack(INPUT_SLOT_1).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_2).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_3).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_4).getItem() == ModItems.LEAD_INGOT;
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
-    private boolean hasRecipeEnderEyeTier2() {
-        ItemStack result = new ItemStack(ModItems.ENDEREYE_2);
-        boolean hasInput = getStack(INPUT_SLOT_1).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_2).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_3).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_4).getItem() == ModItems.ENDEREYE_1;
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
-    private boolean hasRecipeEnderEyeTier3() {
-        ItemStack result = new ItemStack(ModItems.ENDEREYE_3);
-        boolean hasInput = getStack(INPUT_SLOT_1).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_2).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_3).getItem() == ModItems.LEAD_INGOT && getStack(INPUT_SLOT_4).getItem() == ModItems.ENDEREYE_2;
-        return hasInput && canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
-
     private boolean canInsertItemIntoOutputSlot(Item item) {
         return this.getStack(OUTPUT_SLOT).getItem() == item || this.getStack(OUTPUT_SLOT).isEmpty();
     }

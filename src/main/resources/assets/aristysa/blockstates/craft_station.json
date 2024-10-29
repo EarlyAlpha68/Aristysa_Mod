@@ -1,7 +1,8 @@
 {
   "variants": {
-    "": {
-      "model": "aristysa:block/craft_station"
-    }
+      "facing=north": { "model": "aristysa:block/craft_station", "uvlock": true },
+      "facing=east":  { "model": "aristysa:block/craft_station", "y":  90, "uvlock": true },
+      "facing=south": { "model": "aristysa:block/craft_station", "y": 180, "uvlock": true },
+      "facing=west":  { "model": "aristysa:block/craft_station", "y": 270, "uvlock": true }
   }
 }
