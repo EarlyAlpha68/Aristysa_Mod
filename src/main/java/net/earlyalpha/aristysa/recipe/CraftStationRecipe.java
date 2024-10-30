@@ -67,7 +67,7 @@ public class CraftStationRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return CraftStationRecipeSerializer.INSTANCE;
     }
 
     @Override
@@ -77,6 +77,6 @@ public class CraftStationRecipe implements Recipe<SimpleInventory> {
     public static class Type implements RecipeType<CraftStationRecipe>{
         private Type() {}
         public static final Type INSTANCE = new Type();
-        public static final String ID = "test_recipe";
+        public static final String ID = "craft_station";
     }
 }

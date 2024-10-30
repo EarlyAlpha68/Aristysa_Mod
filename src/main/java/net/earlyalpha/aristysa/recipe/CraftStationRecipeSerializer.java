@@ -16,7 +16,7 @@ public class CraftStationRecipeSerializer implements RecipeSerializer<CraftStati
     private CraftStationRecipeSerializer(){
     }
     public static final CraftStationRecipeSerializer INSTANCE = new CraftStationRecipeSerializer();
-    public static final Identifier ID = new Identifier("test:test_recipe");
+    public static final Identifier ID = new Identifier("aristysa:craft_station");
     @Override
     public CraftStationRecipe read(Identifier recipeId, JsonObject json) {
         CraftStationRecipeJsonFormat recipeJson = new Gson().fromJson(json, CraftStationRecipeJsonFormat.class);
