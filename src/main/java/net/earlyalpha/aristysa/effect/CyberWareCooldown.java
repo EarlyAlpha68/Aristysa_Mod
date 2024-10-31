@@ -1,23 +1,22 @@
 package net.earlyalpha.aristysa.effect;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 
 
 public class CyberWareCooldown extends StatusEffect {
-    CyberWareCooldown(StatusEffectCategory statusEffectCategory, int color) {
-        super(statusEffectCategory, color);
+    protected CyberWareCooldown(StatusEffectCategory category, int color) {
+        super(category, color);
     }
-
-    @Override
-    public void applyUpdateEffect(LivingEntity pLivingEntity, int pAmplifier) {
-        super.applyUpdateEffect(pLivingEntity, pAmplifier);
-        }
+    public void applyUpdateEffect(LivingEntity entity, int pAmplifier) {
+        super.applyUpdateEffect(entity, pAmplifier);
+    }
 
     @Override
     public boolean canApplyUpdateEffect(int pDuration, int pAmplifier) {
         return false;
     }
-
 }

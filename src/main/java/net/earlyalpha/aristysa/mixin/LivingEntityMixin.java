@@ -49,7 +49,8 @@ public abstract class LivingEntityMixin {
                 beingRemoved.getEffectType() == ModEffects.WARDEN_HEARTH_COOLDOWN ||
                 beingRemoved.getEffectType() == ModEffects.ENDER_EYE_COOLDOWN ||
                 beingRemoved.getEffectType() == ModEffects.OPTICAL_CAMO_COOLDOWN ||
-                beingRemoved.getEffectType() == ModEffects.CYBERLEG_COOLDOWN
+                beingRemoved.getEffectType() == ModEffects.CYBERLEG_COOLDOWN ||
+                beingRemoved.getEffectType() == ModEffects.CRIMSON_WOUND
         );
     }
 

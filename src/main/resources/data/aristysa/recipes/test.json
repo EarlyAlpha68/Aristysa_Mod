@@ -1,17 +1,18 @@
 {
-  "type": "test:test_recipe",
-  "input0": {
-    "item": "minecraft:iron_ingot"
+  "type": "aristysa:craft_station",
+  "output": {
+    "item": "minecraft:gold_ingot",
+    "count": 1
   },
-  "input1": {
-    "item": "minecraft:iron_ingot"
-  },
-  "input2": {
-    "item": "minecraft:iron_ingot"
-  },
-  "input3": {
-    "item": "minecraft:iron_ingot"
-  },
-  "outputItem": "minecraft:iron_block",
-  "outputAmount": 1
+  "ingredients": [
+    { "item": "minecraft:iron_ingot" },
+    { "item": "minecraft:gold_ingot" },
+    { "item": "minecraft:iron_ingot" },
+    { "item": "minecraft:gold_ingot" },
+    { "item": "minecraft:diamond" },
+    { "item": "minecraft:gold_ingot" },
+    { "item": "minecraft:iron_ingot" },
+    { "item": "minecraft:gold_ingot" },
+    { "item": "minecraft:iron_ingot" }
+  ]
 }

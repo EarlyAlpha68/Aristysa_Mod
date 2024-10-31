@@ -45,12 +45,12 @@ public class CraftStationScreenHandler extends ScreenHandler {
         inventory.onOpen(playerinventory.player);
         this.propertyDelegete = arrayPropertyDelegate;
         this.blockEntity = ((CraftStationBlockEntity) blockEntity);
-
-        this.addSlot(new Slot(inventory, 0 , 40 , 24));
-        this.addSlot(new Slot(inventory, 1 , 40,  42));
-        this.addSlot(new Slot(inventory, 2 , 58 , 42));
-        this.addSlot(new Slot(inventory, 3 , 58 , 24));
-        this.addSlot(new Slot(inventory, 4 , 125 , 37));
+        for (int i = 0; i < 3; ++i) {
+            for (int j = 0; j < 3; ++j) {
+                this.addSlot(new Slot(inventory, j + i * 3, 30 + j * 18, 17 + i * 18));
+            }
+        }
+        this.addSlot(new Slot(inventory,9,124,35));
         addPlayerInventory(playerinventory);
         addPlayerHotbar(playerinventory);
         addProperties(propertyDelegete);
@@ -85,4 +85,5 @@ public class CraftStationScreenHandler extends ScreenHandler {
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
     }
+
 }

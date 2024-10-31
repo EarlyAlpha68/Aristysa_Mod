@@ -12,6 +12,7 @@ public class ModEffects {
     public static StatusEffect ENDER_EYE_COOLDOWN;
     public static StatusEffect WARDEN_HEARTH_COOLDOWN;
     public static StatusEffect CYBERLEG_COOLDOWN;
+    public static StatusEffect CRIMSON_WOUND;
 
     public static StatusEffect registerStatusEffect(String name, StatusEffect effect) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(Aristysa.MOD_ID, name),effect);
@@ -25,5 +26,9 @@ public class ModEffects {
                 new CyberWareCooldown(StatusEffectCategory.NEUTRAL,200200200));
         CYBERLEG_COOLDOWN = registerStatusEffect("cyberleg_cooldown",
                 new CyberWareCooldown(StatusEffectCategory.NEUTRAL,200200200));
+        CRIMSON_WOUND = registerStatusEffect("crimson_wound",
+                new CrimsonWound(StatusEffectCategory.HARMFUL,0x8B0000));
+
+
     }
 }

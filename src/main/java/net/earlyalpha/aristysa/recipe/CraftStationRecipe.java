@@ -1,53 +1,46 @@
 package net.earlyalpha.aristysa.recipe;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.recipe.*;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 public class CraftStationRecipe implements Recipe<SimpleInventory> {
-    private final Ingredient input0;
-    private final Ingredient input1;
-    private final Ingredient input2;
-    private final Ingredient input3;
-    private final ItemStack outputStack;
     private final Identifier id;
+    private final ItemStack output;
+    private final DefaultedList<Ingredient> recipeItem;
 
-    public CraftStationRecipe(Ingredient input0, Ingredient input1, Ingredient input2, Ingredient input3, ItemStack outputStack, Identifier id){
-        this.input0 = input0;
-        this.input1 = input1;
-        this.input2 = input2;
-        this.input3 = input3;
-        this.outputStack = outputStack;
+    public CraftStationRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItem){
         this.id = id;
+        this.output = output;
+        this.recipeItem = recipeItem;
+    }
 
-    }
-    public Ingredient getInput0(){
-        return this.input0;
-    }
-    public Ingredient getInput1(){
-        return this.input1;
-    }
-    public Ingredient getInput2(){
-        return this.input2;
-    }
-    public Ingredient getInput3(){
-        return this.input3;
-    }
+
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        if (inventory.size() < 4) return false;
-        return input0.test(inventory.getStack(0)) && input1.test(inventory.getStack(1)) && input2.test(inventory.getStack(2)) && input3.test(inventory.getStack(3));
+        if (world.isClient){
+            return false;
+        }
+        int i;
+        for (i = 0 ; i < recipeItem.size() ; i++) {
+            if (!recipeItem.get(i).test(inventory.getStack(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
-        return this.getOutput(registryManager).copy();
+        return output.copy();
     }
 
     @Override
@@ -57,9 +50,8 @@ public class CraftStationRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public ItemStack getOutput(DynamicRegistryManager registryManager) {
-        return this.outputStack;
+        return output.copy();
     }
-
     @Override
     public Identifier getId() {
         return this.id;
@@ -67,16 +59,58 @@ public class CraftStationRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return CraftStationRecipeSerializer.INSTANCE;
+        return null;
     }
 
     @Override
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
-    public static class Type implements RecipeType<CraftStationRecipe>{
-        private Type() {}
+    @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        return this.recipeItem;
+    }
+
+    public static class Type implements RecipeType<CraftStationRecipe> {
+        private Type() { }
         public static final Type INSTANCE = new Type();
         public static final String ID = "craft_station";
     }
+    public static class Serializer implements RecipeSerializer<CraftStationRecipe> {
+        public static final Serializer INSTANCE = new Serializer();
+        public static final String ID = "craft_station";
+
+        @Override
+        public CraftStationRecipe read(Identifier id, JsonObject json) {
+            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json,"output"));
+            JsonArray ingredients = JsonHelper.getArray(json,"ingredients");
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(8, Ingredient.EMPTY);
+            for (int i =0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            }
+            return new CraftStationRecipe(id, output, inputs);
+        }
+
+        @Override
+        public CraftStationRecipe read(Identifier id, PacketByteBuf buf) {
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(),Ingredient.EMPTY);
+            for (int i =0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromPacket(buf));
+            }
+            ItemStack output = buf.readItemStack();
+            return new CraftStationRecipe(id, output, inputs);
+
+        }
+
+        @Override
+        public void write(PacketByteBuf buf, CraftStationRecipe recipe) {
+            buf.writeInt(recipe.getIngredients().size());
+            for (Ingredient ing : recipe.getIngredients()) {
+                ing.write(buf);
+            }
+            buf.writeItemStack(recipe.getOutput(null));
+
+        }
+    }
+
 }

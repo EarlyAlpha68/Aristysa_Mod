@@ -27,13 +27,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class CraftStationBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(10, ItemStack.EMPTY);
 
     private static final int INPUT_SLOT_1 = 0;
-    private static final int INPUT_SLOT_2 =  1;
-    private static final int INPUT_SLOT_3 = 2;
-    private static final int INPUT_SLOT_4 = 3;
-    private static final int OUTPUT_SLOT = 4;
+    private static final int INPUT_SLOT_9 = 8;
+    private static final int OUTPUT_SLOT = 9;
 
     protected final PropertyDelegate propertyDelegate;
 
@@ -88,47 +86,57 @@ public class CraftStationBlockEntity extends BlockEntity implements ExtendedScre
 
     public void tick(World world, BlockPos pos, BlockState state) {
         if(!world.isClient()) {
-            if (isOutputSlotEmptyOrReceivable()) {
-                Optional<CraftStationRecipe> match = world.getRecipeManager()
-                        .getFirstMatch(CraftStationRecipe.Type.INSTANCE, new SimpleInventory(getItems().toArray(new ItemStack[0])), world);
-
-                if (match.isPresent()) {
-                    CraftStationRecipe recipe = match.get();
-                    if (canCraftRecipe(recipe)) {
-                        craftRecipe(recipe);
-                        markDirty(world, pos, state); // Update the block entity's data
-                    }
+            if (isOutputSlotEmptyOrReceivable() && hasRecipe()) {
+                markDirty(world, pos, state);
+                        craftRecipe();
                 }
             }
         }
-    }
 
-    private boolean canCraftRecipe(CraftStationRecipe recipe) {
-        ItemStack result = recipe.getOutput(DynamicRegistryManager.EMPTY);
-        return canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
-    }
 
-    private void craftRecipe(CraftStationRecipe recipe) {
-        for (int i = INPUT_SLOT_1; i <= INPUT_SLOT_4; i++) {
+    private void craftRecipe() {
+        Optional<CraftStationRecipe> recipe = getCurrentRecipe();
+
+        for (int i = INPUT_SLOT_1; i <= INPUT_SLOT_9; i++) {
             this.removeStack(i, 1);
         }
-        ItemStack result = recipe.getOutput(DynamicRegistryManager.EMPTY).copy();
-        this.setStack(OUTPUT_SLOT, new ItemStack(result.getItem(), getStack(OUTPUT_SLOT).getCount() + result.getCount()));
-    }
-    private boolean canInsertItemIntoOutputSlot(Item item) {
-        return this.getStack(OUTPUT_SLOT).getItem() == item || this.getStack(OUTPUT_SLOT).isEmpty();
+        this.setStack(OUTPUT_SLOT,new ItemStack(recipe.get().getOutput(null).getItem(),
+                this.getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
     }
 
-    private boolean canInsertAmountIntoOutputSlot(ItemStack result) {
-        return this.getStack(OUTPUT_SLOT).getCount() + result.getCount() <= getStack(OUTPUT_SLOT).getMaxCount();
+    private boolean hasRecipe() {
+        Optional<CraftStationRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) {
+            return false;
+        }
+        ItemStack output = recipe.get().getOutput(null);
+        return canInsertAmountIntoOutputSlot(output.getCount())
+                && canInsertItemIntoOutputSlot(output);
     }
 
-    private boolean isOutputSlotEmptyOrReceivable() {
-        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
+    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
+        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getItem() == output.getItem();
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        return this.getStack(OUTPUT_SLOT).getMaxCount() >= this.getStack(OUTPUT_SLOT).getCount() + count;
     }
 
     @Override
     public DefaultedList<ItemStack> getItems() {
         return inventory;
+    }
+    private Optional<CraftStationRecipe> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory((this.size()));
+        for (int i = 0 ; i < this.size(); i++){
+            inventory.setStack(i,this.getStack(i));
+        }
+        return this.getWorld().getRecipeManager().getFirstMatch(CraftStationRecipe.Type.INSTANCE, inventory, this.getWorld());
+    }
+
+
+    private boolean isOutputSlotEmptyOrReceivable() {
+        return this.getStack(OUTPUT_SLOT).isEmpty() || this.getStack(OUTPUT_SLOT).getCount() < this.getStack(OUTPUT_SLOT).getMaxCount();
     }
 }
