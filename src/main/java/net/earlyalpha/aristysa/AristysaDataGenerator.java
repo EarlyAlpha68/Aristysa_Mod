@@ -1,6 +1,6 @@
 package net.earlyalpha.aristysa;
 
-import net.earlyalpha.aristysa.datagen.ModRecipeGenerator;
+
 import net.earlyalpha.aristysa.datagen.ModWorldGenerator;
 import net.earlyalpha.aristysa.world.ModConfiguredFeatures;
 import net.earlyalpha.aristysa.world.ModPlacedFeatures;
