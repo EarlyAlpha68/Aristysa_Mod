@@ -34,7 +34,7 @@ public class EnderEyeItem extends Item {
         if (!world.isClient()) {
             if (!(((IEntityDataSaver) player).getPersistentData().getInt(key) == this.tier)) {
                 alreadyHasIt(player,this.tier);
-                AddTier.addTier(((IEntityDataSaver) player), this.tier,"enderEyeTier" );
+                AddTier.addTier(((IEntityDataSaver) player), this.tier,key );
                 player.sendMessage(Text.literal("You successfully implant yourself an Ender Eye tier " + ((IEntityDataSaver) player).getPersistentData().getInt(key)));
                 sync = true;
             } else {

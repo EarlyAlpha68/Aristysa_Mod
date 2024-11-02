@@ -10,7 +10,7 @@ import net.minecraft.network.PacketByteBuf;
 public class Nbt_Tag_S2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
-        ((IEntityDataSaver) client.player).getPersistentData().putInt("opticalCamoTier", buf.readInt());
+        //((IEntityDataSaver) client.player).getPersistentData().putInt("opticalCamoTier", buf.readInt());
 
 
     }

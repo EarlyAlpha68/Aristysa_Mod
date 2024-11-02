@@ -2,12 +2,15 @@ package net.earlyalpha.aristysa.event;
 
 
 import net.earlyalpha.aristysa.networking.NetworkingsMessages;
+import net.earlyalpha.aristysa.screen.CyberwareGuiScreen;
+import net.earlyalpha.aristysa.screen.CyberwareScreenHandler;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyInputHandler {
@@ -39,11 +42,12 @@ public class KeyInputHandler {
                 ClientPlayNetworking.send(NetworkingsMessages.CYBERLEG_USE_ID, PacketByteBufs.create());
             }
         });
-       /* ClientTickEvents.END_CLIENT_TICK.register(client ->{
+       ClientTickEvents.END_CLIENT_TICK.register(client ->{
             if (cyberImplantScreenOpen.wasPressed()) {
-                MinecraftClient.getInstance().setScreen(new CyberImplantScreen(new CyberImplantGui()));
+              ClientPlayNetworking.send(NetworkingsMessages.CYBERWARE_GUI, PacketByteBufs.create());
+
             }
-        });*/
+        });
     }
     public static void register() {
         opticalCamoUse = KeyBindingHelper.registerKeyBinding(new KeyBinding(
@@ -64,11 +68,11 @@ public class KeyInputHandler {
                 GLFW.GLFW_KEY_KP_2,
                 KEY_CATEGORY
         ));
-        /*cyberImplantScreenOpen = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+        cyberImplantScreenOpen = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 KEY_CYBER_IMPLANT_SCREEN_OPEN,
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_KP_3,
                 KEY_CATEGORY
-        ));*/
+        ));
     }
 }

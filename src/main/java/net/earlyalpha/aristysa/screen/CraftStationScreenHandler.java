@@ -1,6 +1,7 @@
 package net.earlyalpha.aristysa.screen;
 
 import net.earlyalpha.aristysa.block.entity.CraftStationBlockEntity;
+import net.earlyalpha.aristysa.screen.slot.OnlyReadImplantSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,6 +21,7 @@ public class CraftStationScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegete;
     public final CraftStationBlockEntity blockEntity;
+
 
     public CraftStationScreenHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
         this(syncId ,inventory ,inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),

@@ -14,7 +14,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 public class Nbt_TagC2SPacket {
     public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
-        ((IEntityDataSaver) player).getPersistentData().putInt(buf.readString(), buf.readInt());
+       // ((IEntityDataSaver) player).getPersistentData().putInt(buf.readString(), buf.readInt());
 
     }
 }

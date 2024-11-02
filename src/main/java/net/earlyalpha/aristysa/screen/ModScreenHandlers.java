@@ -9,11 +9,13 @@ import net.minecraft.util.Identifier;
 
 public class ModScreenHandlers {
     public static final ScreenHandlerType<CraftStationScreenHandler> CRAFT_STATION_SCREEN_HANDLER =
-            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Aristysa.MOD_ID,"craft_station"),
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Aristysa.MOD_ID, "craft_station"),
                     new ExtendedScreenHandlerType<>(CraftStationScreenHandler::new));
+    public static final ScreenHandlerType<CyberwareScreenHandler> CYBERWARE_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Aristysa.MOD_ID, "cyberware_screen"),
+                    new ExtendedScreenHandlerType<>((syncId, playerInventory, buf) -> new CyberwareScreenHandler(syncId,new ImplantInventory() ,playerInventory.player)));
 
     public static void registerScreenHandlers() {
-    Aristysa.LOGGER.info("Registering Screen Handler for " + Aristysa.MOD_ID);
+        Aristysa.LOGGER.info("Registering Screen Handlers for " + Aristysa.MOD_ID);
     }
-
 }
