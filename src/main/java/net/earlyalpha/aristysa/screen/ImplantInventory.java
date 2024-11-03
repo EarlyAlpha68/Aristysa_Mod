@@ -6,6 +6,6 @@ import net.minecraft.item.ItemStack;
 
 public class ImplantInventory extends SimpleInventory {
     public ImplantInventory() {
-        super(6); // Number of implant slots
+        super(8); // Number of implant slots
     }
 }

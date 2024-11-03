@@ -42,10 +42,6 @@ public class CyberLegItem extends Item {
                 player.sendMessage(Text.literal("You already have an Cyber Leg tier " + ((IEntityDataSaver) player).getPersistentData().getInt(key)));
                 sync = false;
             }
-            PacketByteBuf buffer = PacketByteBufs.create();
-            buffer.writeString(key);
-            buffer.writeInt(((IEntityDataSaver) player).getPersistentData().getInt(key));
-            ServerPlayNetworking.send((ServerPlayerEntity) player, NetworkingsMessages.NBT_TAGS2C_ID_SYNC, buffer);
         }
         if (sync) {
             ItemStack itemStack = player.getStackInHand(hand);

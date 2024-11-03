@@ -4,13 +4,16 @@ package net.earlyalpha.aristysa.event;
 import net.earlyalpha.aristysa.networking.NetworkingsMessages;
 import net.earlyalpha.aristysa.screen.CyberwareGuiScreen;
 import net.earlyalpha.aristysa.screen.CyberwareScreenHandler;
+import net.earlyalpha.aristysa.util.IEntityDataSaver;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
+import org.apache.logging.log4j.message.Message;
 import org.lwjgl.glfw.GLFW;
 
 public class KeyInputHandler {
@@ -44,8 +47,14 @@ public class KeyInputHandler {
         });
        ClientTickEvents.END_CLIENT_TICK.register(client ->{
             if (cyberImplantScreenOpen.wasPressed()) {
-              ClientPlayNetworking.send(NetworkingsMessages.CYBERWARE_GUI, PacketByteBufs.create());
-
+                if (client.player != null) {
+                    ClientPlayNetworking.send(NetworkingsMessages.NBT_TAGC2S_ID_SYNC, PacketByteBufs.create());
+                    client.setScreen(new CyberwareGuiScreen(new CyberwareScreenHandler
+                            (0, client.player.getInventory(),client.player.getInventory(),
+                                    ((IEntityDataSaver) client.player).getPersistentData()),
+                            client.player.getInventory(),
+                            Text.of("Cyberware Screen")));
+                }
             }
         });
     }

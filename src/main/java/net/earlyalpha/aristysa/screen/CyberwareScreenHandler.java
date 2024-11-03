@@ -14,20 +14,29 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
+
 public class CyberwareScreenHandler extends ScreenHandler {
+private final Inventory implantInventory;
+private final NbtCompound nbt;
 
 
-    public CyberwareScreenHandler(int syncId, Inventory inventory, PlayerEntity player){
+
+    public CyberwareScreenHandler(int syncId, PlayerInventory playerInventory, Inventory implantInventory,NbtCompound nbt){
         super(ModScreenHandlers.CYBERWARE_SCREEN_HANDLER,syncId);
-
-        this.addSlot(new OnlyReadImplantSlot(inventory,0,120,35,"cyberLegTier",player));
-        this.addSlot(new OnlyReadImplantSlot(inventory,1,100,35,"enderEyeTier",player));
-        this.addSlot(new OnlyReadImplantSlot(inventory,2,80,35,"golemArmTier",player));
-        this.addSlot(new OnlyReadImplantSlot(inventory,3,60,35,"opticalCamoTier",player));
-        this.addSlot(new OnlyReadImplantSlot(inventory,4,40,35,"subdermalArmorTier",player));
-        this.addSlot(new OnlyReadImplantSlot(inventory,5,20,35,"wardenHearthTier",player));
+        this.implantInventory = implantInventory;
+        this.nbt = nbt;
+        addSlot(new OnlyReadImplantSlot(implantInventory,0,19,137,nbt,"cyberLegTier"));
+        addSlot(new OnlyReadImplantSlot(implantInventory,1,19,17,nbt,"enderEyeTier"));
+        addSlot(new OnlyReadImplantSlot(implantInventory,2,19,57,nbt,"golemArmTier"));
+        addSlot(new OnlyReadImplantSlot(implantInventory,3,141,57,nbt,"opticalCamoTier"));
+        addSlot(new OnlyReadImplantSlot(implantInventory,4,141,97,nbt,"subdermalArmorTier"));
+        addSlot(new OnlyReadImplantSlot(implantInventory,19,19,97,nbt,"wardenHearthTier"));
     }
 
+    public CyberwareScreenHandler(int syncId,PlayerInventory playerInventory,PacketByteBuf buf){
+        this(syncId , playerInventory ,new ImplantInventory(),new NbtCompound());
+    }
     @Override
     public ItemStack quickMove(PlayerEntity player, int slot) {
         return null;

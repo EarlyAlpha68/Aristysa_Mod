@@ -86,6 +86,19 @@ public class PlayerDeathHandler {
                 default:
                     break;
             }
+            switch (((IEntityDataSaver) player).getPersistentData().getInt("cyberLegTier")) {
+                case 1:
+                    player.dropItem(ModItems.CYBERLEG_1);
+                    break;
+                case 2:
+                    player.dropItem(ModItems.CYBERLEG_2);
+                    break;
+                case 3:
+                    player.dropItem(ModItems.CYBERLEG_3);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
