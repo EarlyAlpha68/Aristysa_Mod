@@ -17,8 +17,6 @@ public class OnlyReadImplantSlot extends Slot {
     private final NbtCompound nbt;
     private final String implant;
 
-
-
     public OnlyReadImplantSlot(Inventory inventory, int index, int x, int y, NbtCompound nbt, String implant) {
         super(inventory, index, x, y);
         this.nbt = nbt;

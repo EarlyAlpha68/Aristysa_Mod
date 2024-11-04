@@ -41,7 +41,6 @@ public class GolemArmItem extends Item {
             ItemStack itemStack = player.getStackInHand(hand);
             itemStack.decrement(1);
             player.setStackInHand(hand, itemStack);
-
         }
         return TypedActionResult.success(player.getStackInHand(hand));
     }
