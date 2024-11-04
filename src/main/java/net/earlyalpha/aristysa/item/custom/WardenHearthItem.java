@@ -1,18 +1,13 @@
 package net.earlyalpha.aristysa.item.custom;
 
 import net.earlyalpha.aristysa.item.ModItems;
-import net.earlyalpha.aristysa.networking.NetworkingsMessages;
-import net.earlyalpha.aristysa.util.AddTier;
+import net.earlyalpha.aristysa.util.EarlyUtil;
 import net.earlyalpha.aristysa.util.IEntityDataSaver;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -34,7 +29,7 @@ public class WardenHearthItem extends Item {
         if (!world.isClient()) {
             if (!(((IEntityDataSaver) player).getPersistentData().getInt(key) == this.tier)) {
                 alreadyHasIt(player,this.tier);
-                AddTier.addTier(((IEntityDataSaver) player), this.tier,"wardenHearthTier" );
+                EarlyUtil.addTier(((IEntityDataSaver) player), this.tier,"wardenHearthTier" );
                 player.sendMessage(Text.literal("You successfully implant yourself an Warden Hearth tier " + ((IEntityDataSaver) player).getPersistentData().getInt(key)));
                 sync = true;
             } else {

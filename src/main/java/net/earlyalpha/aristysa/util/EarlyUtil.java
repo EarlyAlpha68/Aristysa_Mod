@@ -16,7 +16,7 @@ public class EarlyUtil {
         implantType.put("opticalCamoTier", 3);
         implantType.put("subdermalArmorTier", 4);
         implantType.put("wardenHearthTier", 5);
-
+        //Init the implant in their specific order
     }
     public static int getImplantType(String nbtTag) {
         return implantType.getOrDefault(nbtTag, -1);
@@ -25,5 +25,9 @@ public class EarlyUtil {
     public static int getImplantTier(PlayerEntity player ,String key) {
         return ((IEntityDataSaver) player).getPersistentData().getInt(key);
         // Allow to get the implant tier from anywhere
+    }
+    public static void addTier(IEntityDataSaver player, int tierAdd, String nbt_data) {
+        NbtCompound nbt = player.getPersistentData();
+        nbt.putInt(nbt_data, tierAdd);
     }
 }

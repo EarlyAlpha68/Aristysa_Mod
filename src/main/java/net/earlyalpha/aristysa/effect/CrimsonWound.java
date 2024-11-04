@@ -2,6 +2,7 @@ package net.earlyalpha.aristysa.effect;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
@@ -21,6 +22,12 @@ public class CrimsonWound extends StatusEffect {
         EntityAttributeModifier HALF_MAX_HEALTH_MODIFIER = new EntityAttributeModifier( HALF_MAX_HEALTH_UUID, "Half max health", -0.5,
                 EntityAttributeModifier.Operation.MULTIPLY_TOTAL
         );
+        if (entity.getHealth() > entity.getMaxHealth()/2) {
+            entity.setHealth(entity.getMaxHealth()/2);
+        } else {
+            entity.setHealth(entity.getHealth());
+        }
+        //manually cut the health to its half if it is to high or just set it to itself for client hud sync
         super.onApplied(entity, attributes, amplifier);
     }
 
