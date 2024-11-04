@@ -20,5 +20,10 @@ public class EarlyUtil {
     }
     public static int getImplantType(String nbtTag) {
         return implantType.getOrDefault(nbtTag, -1);
+        //give the attached number of order of a specific implant
+    }
+    public static int getImplantTier(PlayerEntity player ,String key) {
+        return ((IEntityDataSaver) player).getPersistentData().getInt(key);
+        // Allow to get the implant tier from anywhere
     }
 }
