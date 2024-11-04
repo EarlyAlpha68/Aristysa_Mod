@@ -39,47 +39,7 @@ public class OnlyReadImplantSlot extends Slot {
     public ItemStack getStack() {
         int implantType = EarlyUtil.getImplantType(this.implant);
         int implantTier = nbt.getInt(this.implant);
-
-        return switch (implantType) {
-            case 0 -> switch (implantTier) {
-                case 1 -> new ItemStack(ModItems.CYBERLEG_1);
-                case 2 -> new ItemStack(ModItems.CYBERLEG_2);
-                case 3 -> new ItemStack(ModItems.CYBERLEG_3);
-                default -> ItemStack.EMPTY;
-            };
-            case 1 -> switch (implantTier) {
-                case 1 -> new ItemStack(ModItems.ENDEREYE_1);
-                case 2 -> new ItemStack(ModItems.ENDEREYE_2);
-                case 3 -> new ItemStack(ModItems.ENDEREYE_3);
-                default -> ItemStack.EMPTY;
-            };
-            case 2 -> switch (implantTier) {
-                case 1 -> new ItemStack(ModItems.GOLEMARM_1);
-                case 2 -> new ItemStack(ModItems.GOLEMARM_2);
-                case 3 -> new ItemStack(ModItems.GOLEMARM_3);
-                default -> ItemStack.EMPTY;
-            };
-            case 3 -> switch (implantTier) {
-                case 1 -> new ItemStack(ModItems.OPTICAL_CAMO_1);
-                case 2 -> new ItemStack(ModItems.OPTICAL_CAMO_2);
-                case 3 -> new ItemStack(ModItems.OPTICAL_CAMO_3);
-                default -> ItemStack.EMPTY;
-            };
-            case 4 -> switch (implantTier) {
-                case 1 -> new ItemStack(ModItems.SUBDERMAL_ARMOR_1);
-                case 2 -> new ItemStack(ModItems.SUBDERMAL_ARMOR_2);
-                case 3 -> new ItemStack(ModItems.SUBDERMAL_ARMOR_3);
-                default -> ItemStack.EMPTY;
-            };
-            case 5 -> switch (implantTier) {
-                case 1 -> new ItemStack(ModItems.WARDEN_HEARTH_1);
-                case 2 -> new ItemStack(ModItems.WARDEN_HEARTH_2);
-                case 3 -> new ItemStack(ModItems.WARDEN_HEARTH_3);
-                default -> ItemStack.EMPTY;
-            };
-            default -> ItemStack.EMPTY;
-        };
-
+        return  EarlyUtil.CyberwareItemstack(implantType,implantTier);
     }
 
     @Override
