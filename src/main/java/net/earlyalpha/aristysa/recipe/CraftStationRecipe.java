@@ -2,7 +2,10 @@ package net.earlyalpha.aristysa.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonSyntaxException;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
@@ -70,6 +73,17 @@ public class CraftStationRecipe implements Recipe<SimpleInventory> {
     public DefaultedList<Ingredient> getIngredients() {
         return this.recipeItem;
     }
+    public static ItemStack outputFromJson(JsonObject json) {
+        Item item = ShapedRecipe.getItem(json);
+        if (json.has("data")) {
+            throw new JsonParseException("Disallowed data tag found");
+        }
+        int i = JsonHelper.getInt(json, "count", 1);
+        if (i < 1) {
+            throw new JsonSyntaxException("Invalid output count: " + i);
+        }
+        return new ItemStack(item, i);
+    }
 
     public static class Type implements RecipeType<CraftStationRecipe> {
         private Type() { }
@@ -82,7 +96,7 @@ public class CraftStationRecipe implements Recipe<SimpleInventory> {
 
         @Override
         public CraftStationRecipe read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json,"output"));
+            ItemStack output = CraftStationRecipe.outputFromJson(JsonHelper.getObject(json,"output"));
             JsonArray ingredients = JsonHelper.getArray(json,"ingredients");
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(8, Ingredient.EMPTY);
             for (int i =0; i < inputs.size(); i++) {
