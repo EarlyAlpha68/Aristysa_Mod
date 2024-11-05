@@ -28,7 +28,5 @@ public class ModEffects {
                 new CyberWareCooldown(StatusEffectCategory.NEUTRAL,200200200));
         CRIMSON_WOUND = registerStatusEffect("crimson_wound",
                 new CrimsonWound(StatusEffectCategory.HARMFUL,0x8B0000));
-
-
     }
 }
