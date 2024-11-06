@@ -6,7 +6,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
@@ -164,6 +163,150 @@ public class EarlyUtil {
                     default:
                         break;
                 }break;
+                case 2:
+                    switch (tier) {
+                        case 1:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm1_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm1_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm1_shift2"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 2:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm2_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm2_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm2_shift2"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 3:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm3_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm3_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm3_shift2"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch (tier) {
+                        case 1:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo1_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo1_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo1_shift2"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 2:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo2_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo2_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo2_shift2"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 3:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo3_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo3_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo3_shift2"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch (tier) {
+                        case 1:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor1_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor1_shift1"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 2:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor2_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor2_shift1"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 3:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor3_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor3_shift1"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 5:
+                    switch (tier) {
+                        case 1:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift3"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 2:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift3"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        case 3:
+                            if (Screen.hasShiftDown()){
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift3"));
+
+                            } else {
+                                tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
         }
     }
 }

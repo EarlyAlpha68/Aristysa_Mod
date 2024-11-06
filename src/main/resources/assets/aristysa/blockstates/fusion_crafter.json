@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "aristysa:block/fusion_crafter", "uvlock": true },
+    "facing=east":  { "model": "aristysa:block/fusion_crafter", "y":  90, "uvlock": true },
+    "facing=south": { "model": "aristysa:block/fusion_crafter", "y": 180, "uvlock": true },
+    "facing=west":  { "model": "aristysa:block/fusion_crafter", "y": 270, "uvlock": true }
+  }
+}

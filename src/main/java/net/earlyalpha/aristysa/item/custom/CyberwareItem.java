@@ -1,9 +1,7 @@
 package net.earlyalpha.aristysa.item.custom;
 
-import net.earlyalpha.aristysa.item.ModItems;
 import net.earlyalpha.aristysa.util.EarlyUtil;
 import net.earlyalpha.aristysa.util.IEntityDataSaver;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -16,10 +14,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CyberLegItem extends Item {
+public class CyberwareItem extends Item {
     protected int tier;
     protected String key;
-    public CyberLegItem(Settings settings, int tier,String key){
+    public CyberwareItem(Settings settings, int tier, String key){
         super(settings);
         this.tier = tier;
         this.key = key;
@@ -27,27 +25,21 @@ public class CyberLegItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
-        boolean sync = false;
         if (!world.isClient()) {
             if (!(((IEntityDataSaver) player).getPersistentData().getInt(this.key) == this.tier)) {
                 alreadyHasIt(player,this.tier,this.key);
                 EarlyUtil.addTier(((IEntityDataSaver) player), this.tier,key );
                 player.sendMessage(Text.literal("You successfully implant yourself an " + EarlyUtil.getImplantName(this.key)+" tier " + ((IEntityDataSaver) player).getPersistentData().getInt(key)));
-                sync = true;
+                ItemStack itemStack = player.getStackInHand(hand);
+                itemStack.decrement(1);
+                player.setStackInHand(hand, itemStack);
             } else {
                 player.sendMessage(Text.literal("You already have an " +EarlyUtil.getImplantName(this.key)+ " tier " + ((IEntityDataSaver) player).getPersistentData().getInt(key)));
-                sync = false;
             }
-        }
-        if (sync) {
-            ItemStack itemStack = player.getStackInHand(hand);
-            itemStack.decrement(1);
-            player.setStackInHand(hand, itemStack);
-
         }
         return TypedActionResult.success(player.getStackInHand(hand));
     }
-    private static void alreadyHasIt(PlayerEntity player, int tiers, String key){
+    private static void alreadyHasIt(PlayerEntity player, int tiers, String key) {
         int implantType = EarlyUtil.getImplantType(key);
         int implantTier = EarlyUtil.getImplantTier(player,key);
         if ((implantTier == 1 && (!(tiers == 1)))) {

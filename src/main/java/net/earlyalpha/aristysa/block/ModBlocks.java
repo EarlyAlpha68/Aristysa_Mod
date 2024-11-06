@@ -2,6 +2,7 @@ package net.earlyalpha.aristysa.block;
 
 import net.earlyalpha.aristysa.Aristysa;
 import net.earlyalpha.aristysa.block.custom.CraftStationBlock;
+import net.earlyalpha.aristysa.block.custom.FusionCrafterBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -18,6 +19,8 @@ public class ModBlocks {
 
     public static final Block CRAFT_STATION = registerBlock("craft_station",
             new CraftStationBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block FUSION_CRAFTER = registerBlock("fusion_crafter",
+            new FusionCrafterBlock(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block LEAD_BLOCK = registerBlock("lead_block",
             new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
     public static final Block RAW_LEAD_BLOCK = registerBlock("raw_lead_block",

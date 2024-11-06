@@ -1,6 +1,7 @@
 package net.earlyalpha.aristysa;
 
 
+import net.earlyalpha.aristysa.datagen.ModRecipeGenerator;
 import net.earlyalpha.aristysa.datagen.ModWorldGenerator;
 import net.earlyalpha.aristysa.world.ModConfiguredFeatures;
 import net.earlyalpha.aristysa.world.ModPlacedFeatures;
@@ -16,11 +17,14 @@ public class AristysaDataGenerator implements DataGeneratorEntrypoint {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
 		pack.addProvider(ModWorldGenerator::new);
+		pack.addProvider(ModRecipeGenerator::new);
 	}
 
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
+
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::boostrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::boostrap);
+
 	}
 }

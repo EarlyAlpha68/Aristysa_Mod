@@ -14,6 +14,10 @@ public class ModBlockEntities {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Aristysa.MOD_ID,"craft_station_be"),
                     FabricBlockEntityTypeBuilder.create(CraftStationBlockEntity::new,
                             ModBlocks.CRAFT_STATION).build());
+    public static final BlockEntityType<FusionCrafterBlockEntity> FUSION_CRAFTER_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(Aristysa.MOD_ID,"fusion_crafter_be"),
+                    FabricBlockEntityTypeBuilder.create(FusionCrafterBlockEntity::new,
+                            ModBlocks.FUSION_CRAFTER).build());
     public static void registerBlockEntities() {
         Aristysa.LOGGER.info("Registering Block Entities for " + Aristysa.MOD_ID);
     }

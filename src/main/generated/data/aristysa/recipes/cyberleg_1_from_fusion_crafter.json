@@ -1,0 +1,14 @@
+{
+  "type": "aristysa:fusion_crafter",
+  "ingredients": [
+    {
+      "item": "aristysa:synthetic_muscle"
+    },
+    {
+      "item": "aristysa:synthetic_muscle"
+    }
+  ],
+  "output": {
+    "item": "aristysa:cyberleg_1"
+  }
+}
