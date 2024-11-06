@@ -22,9 +22,9 @@ public class ModItems {
     public static final Item ENDEREYE_1 = registerItem("endereye_1", new EnderEyeItem(new FabricItemSettings(),1));
     public static final Item ENDEREYE_2 = registerItem("endereye_2", new EnderEyeItem(new FabricItemSettings(),2));
     public static final Item ENDEREYE_3 = registerItem("endereye_3", new EnderEyeItem(new FabricItemSettings(),3));
-    public static final Item CYBERLEG_1 = registerItem("cyberleg_1", new CyberLegItem(new FabricItemSettings(),1));
-    public static final Item CYBERLEG_2 = registerItem("cyberleg_2", new CyberLegItem(new FabricItemSettings(),2));
-    public static final Item CYBERLEG_3 = registerItem("cyberleg_3", new CyberLegItem(new FabricItemSettings(),3));
+    public static final Item CYBERLEG_1 = registerItem("cyberleg_1", new CyberLegItem(new FabricItemSettings(),1,"cyberLegTier"));
+    public static final Item CYBERLEG_2 = registerItem("cyberleg_2", new CyberLegItem(new FabricItemSettings(),2,"cyberLegTier"));
+    public static final Item CYBERLEG_3 = registerItem("cyberleg_3", new CyberLegItem(new FabricItemSettings(),3,"cyberLegTier"));
     public static final Item WARDEN_HEARTH_1 = registerItem("wardenhearth_1", new WardenHearthItem(new FabricItemSettings(),1));
     public static final Item WARDEN_HEARTH_2 = registerItem("wardenhearth_2", new WardenHearthItem(new FabricItemSettings(),2));
     public static final Item WARDEN_HEARTH_3 = registerItem("wardenhearth_3", new WardenHearthItem(new FabricItemSettings(),3));
