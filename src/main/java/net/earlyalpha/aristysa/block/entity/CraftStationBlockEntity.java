@@ -71,8 +71,8 @@ public class CraftStationBlockEntity extends BlockEntity implements ExtendedScre
 
     @Override
     public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
+        super.readNbt(nbt);
     }
 
     @Nullable

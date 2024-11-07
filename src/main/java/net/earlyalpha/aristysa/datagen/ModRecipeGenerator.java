@@ -20,6 +20,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         {
             new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.SYNTHETIC_MUSCLE, ModItems.SYNTHETIC_MUSCLE}
                     , ModItems.CYBERLEG_1, 1).offerTo(exporter, "cyberlegtier1");
+
+
         }
     }
 }
