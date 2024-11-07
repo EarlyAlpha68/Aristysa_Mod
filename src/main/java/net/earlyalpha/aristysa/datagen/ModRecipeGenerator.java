@@ -19,7 +19,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
             new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.LEAD_INGOT, ModItems.LEAD_INGOT}
-                    , ModItems.LEAD_PLATE, 1).offerTo(exporter, "cyberlegtier1");
+                    , ModItems.LEAD_PLATE, 1).offerTo(exporter, "lead_plate");
 
 
         }
