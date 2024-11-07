@@ -1,0 +1,14 @@
+{
+  "type": "aristysa:fusion_crafter",
+  "ingredients": [
+    {
+      "item": "aristysa:lead_ingot"
+    },
+    {
+      "item": "aristysa:lead_ingot"
+    }
+  ],
+  "output": {
+    "item": "aristysa:lead_plate"
+  }
+}

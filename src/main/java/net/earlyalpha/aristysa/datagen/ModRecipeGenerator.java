@@ -18,8 +18,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
-            new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.SYNTHETIC_MUSCLE, ModItems.SYNTHETIC_MUSCLE}
-                    , ModItems.CYBERLEG_1, 1).offerTo(exporter, "cyberlegtier1");
+            new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.LEAD_INGOT, ModItems.LEAD_INGOT}
+                    , ModItems.LEAD_PLATE, 1).offerTo(exporter, "cyberlegtier1");
 
 
         }

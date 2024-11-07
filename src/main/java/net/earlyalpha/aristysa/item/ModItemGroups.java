@@ -40,6 +40,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CYBERLEG_1);
                         entries.add(ModItems.CYBERLEG_2);
                         entries.add(ModItems.CYBERLEG_3);
+                        entries.add(ModItems.LEAD_PLATE);
 
                     }).build());
 

@@ -19,6 +19,9 @@
 		],
 		"fabric-datagen": [
 			"net.earlyalpha.aristysa.AristysaDataGenerator"
+		],
+		"rei_client": [
+			"net.earlyalpha.aristysa.compat.AristysaREIClientPlugin"
 		]
 	},
 	"mixins": [

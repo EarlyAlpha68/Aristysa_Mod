@@ -32,6 +32,7 @@ public class ModItems {
     public static final Item SYNTHETIC_MUSCLE = registerItem("synthetic_muscle", new Item(new FabricItemSettings()));
     public static final Item RAW_LEAD = registerItem("raw_lead", new Item(new FabricItemSettings()));
     public static final Item LEAD_INGOT = registerItem("lead_ingot", new Item(new FabricItemSettings()));
+    public static final Item LEAD_PLATE = registerItem("lead_plate", new Item(new FabricItemSettings()));
     public static final Item CRIMSON_LACE = registerItem("crimson_lace", new CrimsonLaceItem(new FabricItemSettings()));
 
 
