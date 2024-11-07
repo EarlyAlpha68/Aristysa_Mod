@@ -28,7 +28,7 @@ public class FusionCrafterRecipe implements Recipe<SimpleInventory> {
         if(world.isClient()){
             return false;
         }
-        return recipeItems.get(0).test(inventory.getStack(0)) || recipeItems.get(1).test(inventory.getStack(1));
+        return recipeItems.get(0).test(inventory.getStack(0)) && recipeItems.get(1).test(inventory.getStack(1));
     }
 
     @Override

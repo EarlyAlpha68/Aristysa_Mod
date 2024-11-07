@@ -19,7 +19,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
             new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.SYNTHETIC_MUSCLE, ModItems.SYNTHETIC_MUSCLE}
-                    , ModItems.CYBERLEG_1, 1).criterion("has_iron_ingot", InventoryChangedCriterion.Conditions.items(ModItems.SYNTHETIC_MUSCLE)).offerTo(exporter, "cyberlegtier1");
+                    , ModItems.CYBERLEG_1, 1).offerTo(exporter, "cyberlegtier1");
         }
     }
 }
