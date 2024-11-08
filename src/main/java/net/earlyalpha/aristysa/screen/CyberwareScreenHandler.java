@@ -31,7 +31,7 @@ private final NbtCompound nbt;
         addSlot(new OnlyReadImplantSlot(implantInventory,2,19,57,nbt,"golemArmTier"));
         addSlot(new OnlyReadImplantSlot(implantInventory,3,141,57,nbt,"opticalCamoTier"));
         addSlot(new OnlyReadImplantSlot(implantInventory,4,141,97,nbt,"subdermalArmorTier"));
-        addSlot(new OnlyReadImplantSlot(implantInventory,19,19,97,nbt,"wardenHearthTier"));
+        addSlot(new OnlyReadImplantSlot(implantInventory,5,19,97,nbt,"wardenHearthTier"));
     }
 
     public CyberwareScreenHandler(int syncId,PlayerInventory playerInventory,PacketByteBuf buf){

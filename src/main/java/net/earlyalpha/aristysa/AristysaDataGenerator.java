@@ -1,8 +1,7 @@
 package net.earlyalpha.aristysa;
 
 
-import net.earlyalpha.aristysa.datagen.ModRecipeGenerator;
-import net.earlyalpha.aristysa.datagen.ModWorldGenerator;
+import net.earlyalpha.aristysa.datagen.*;
 import net.earlyalpha.aristysa.world.ModConfiguredFeatures;
 import net.earlyalpha.aristysa.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -18,6 +17,9 @@ public class AristysaDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ModWorldGenerator::new);
 		pack.addProvider(ModRecipeGenerator::new);
+		pack.addProvider(ModBlockTagProvider::new);
+		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModBlockLootTableGenerator::new);
 	}
 
 	@Override
