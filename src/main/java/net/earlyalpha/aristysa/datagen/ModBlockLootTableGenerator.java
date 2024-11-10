@@ -14,9 +14,12 @@ public class ModBlockLootTableGenerator extends FabricBlockLootTableProvider {
     public void generate() {
         addDrop(ModBlocks.LEAD_BLOCK);
         addDrop(ModBlocks.RAW_LEAD_BLOCK);
+        addDrop(ModBlocks.FUSION_CRAFTER);
 
         addDrop(ModBlocks.DEEPSLATE_LEAD_ORE,oreDrops(ModBlocks.DEEPSLATE_LEAD_ORE, ModItems.RAW_LEAD));
         addDrop(ModBlocks.LEAD_ORE,oreDrops(ModBlocks.LEAD_ORE,ModItems.RAW_LEAD));
+        addDrop(ModBlocks.DEEPSLATE_ALUMINUM_ORE,oreDrops(ModBlocks.DEEPSLATE_ALUMINUM_ORE, ModItems.RAW_ALUMINUM));
+        addDrop(ModBlocks.ALUMINUM_ORE,oreDrops(ModBlocks.ALUMINUM_ORE,ModItems.RAW_ALUMINUM));
 
     }
 }

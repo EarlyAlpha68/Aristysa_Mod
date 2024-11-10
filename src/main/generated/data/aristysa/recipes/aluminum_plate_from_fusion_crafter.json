@@ -1,0 +1,14 @@
+{
+  "type": "aristysa:fusion_crafter",
+  "ingredients": [
+    {
+      "item": "aristysa:aluminum_ingot"
+    },
+    {
+      "item": "aristysa:aluminum_ingot"
+    }
+  ],
+  "output": {
+    "item": "aristysa:aluminum_plate"
+  }
+}

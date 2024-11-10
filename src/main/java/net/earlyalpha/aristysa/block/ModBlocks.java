@@ -29,6 +29,10 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.STONE).strength(2f), UniformIntProvider.create(3, 5) ));
     public static final Block DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(3.5f), UniformIntProvider.create(4, 8)));
+    public static final Block ALUMINUM_ORE = registerBlock("aluminum_ore",
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.STONE).strength(2f), UniformIntProvider.create(3, 5) ));
+    public static final Block DEEPSLATE_ALUMINUM_ORE = registerBlock("deepslate_aluminum_ore",
+            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(3.5f), UniformIntProvider.create(4, 8)));
 
 
     private static Block registerBlock(String name, Block block){

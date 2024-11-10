@@ -19,6 +19,10 @@ public class ModItemGroups {
                         entries.add(ModItems.LEAD_INGOT);
                         entries.add(ModBlocks.LEAD_BLOCK);
                         entries.add(ModItems.RAW_LEAD);
+                        entries.add(ModBlocks.ALUMINUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_ALUMINUM_ORE);
+                        entries.add(ModItems.ALUMINUM_INGOT);
+                        entries.add(ModItems.RAW_ALUMINUM);
                         entries.add(ModBlocks.RAW_LEAD_BLOCK);
                         entries.add(ModItems.MICRO_CHIP);
                         entries.add(ModItems.SYNTHETIC_MUSCLE);
@@ -41,6 +45,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CYBERLEG_2);
                         entries.add(ModItems.CYBERLEG_3);
                         entries.add(ModItems.LEAD_PLATE);
+                        entries.add(ModItems.ALUMINUM_PLATE);
 
                     }).build());
 

@@ -19,6 +19,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEAD_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_LEAD_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALUMINUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_ALUMINUM_ORE);
+
+
+
 
     }
 
@@ -48,5 +53,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MICRO_CHIP, Models.GENERATED);
         itemModelGenerator.register(ModItems.SYNTHETIC_MUSCLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_LEAD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ALUMINUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_ALUMINUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ALUMINUM_PLATE, Models.GENERATED);
     }
 }

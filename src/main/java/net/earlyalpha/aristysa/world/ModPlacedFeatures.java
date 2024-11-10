@@ -16,10 +16,15 @@ import java.util.List;
 
 public class ModPlacedFeatures {
     public static RegistryKey<PlacedFeature> LEAD_ORE_PLACE_KEY = registerKey("lead_ore_placed");
+    public static RegistryKey<PlacedFeature> ALUMINUM_ORE_PLACE_KEY = registerKey("aluminum_ore_placed");
+
 
     public static void boostrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context,LEAD_ORE_PLACE_KEY,configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LEAD_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(3,
+                        HeightRangePlacementModifier.trapezoid(YOffset.fixed(-40),YOffset.fixed(40))));
+        register(context,ALUMINUM_ORE_PLACE_KEY,configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ALUMINUM_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(3,
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed(-40),YOffset.fixed(40))));
     }

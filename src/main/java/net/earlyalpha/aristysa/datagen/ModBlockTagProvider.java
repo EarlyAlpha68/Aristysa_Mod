@@ -1,6 +1,5 @@
 package net.earlyalpha.aristysa.datagen;
 
-import dev.architectury.platform.Mod;
 import net.earlyalpha.aristysa.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;

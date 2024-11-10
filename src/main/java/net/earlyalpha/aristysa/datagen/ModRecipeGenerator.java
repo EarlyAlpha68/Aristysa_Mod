@@ -1,5 +1,6 @@
 package net.earlyalpha.aristysa.datagen;
 
+import net.earlyalpha.aristysa.block.ModBlocks;
 import net.earlyalpha.aristysa.datagen.recipe.FusionCrafterRecipeBuilder;
 import net.earlyalpha.aristysa.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -7,9 +8,14 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public class ModRecipeGenerator extends FabricRecipeProvider {
@@ -20,14 +26,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FUSION_CRAFTER)
+                    .pattern("SQS")
+                    .pattern("QDQ")
+                    .pattern("SQS")
+                    .input('S',ModItems.LEAD_INGOT)
+                    .input('Q', Items.IRON_INGOT)
+                    .input('D',ModBlocks.LEAD_BLOCK)
+                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.FUSION_CRAFTER)));
 
-
-
-
-
-
+            offerSmelting(exporter, List.of(ModItems.RAW_LEAD,ModBlocks.LEAD_ORE,ModBlocks.DEEPSLATE_LEAD_ORE),RecipeCategory.MISC, ModItems.LEAD_INGOT,
+                    0.25F,200,"lead");
+            offerBlasting(exporter, List.of(ModItems.RAW_LEAD,ModBlocks.LEAD_ORE,ModBlocks.DEEPSLATE_LEAD_ORE),RecipeCategory.MISC, ModItems.LEAD_INGOT,
+                    0.25F,100,"lead");
+            offerSmelting(exporter, List.of(ModBlocks.RAW_LEAD_BLOCK),RecipeCategory.MISC,ModBlocks.LEAD_BLOCK,
+                    2.25F,900,"lead");
+            offerSmelting(exporter, List.of(ModItems.RAW_ALUMINUM,ModBlocks.ALUMINUM_ORE,ModBlocks.DEEPSLATE_ALUMINUM_ORE),RecipeCategory.MISC, ModItems.ALUMINUM_INGOT,
+                    0.25F,200,"aluminum");
+            offerBlasting(exporter, List.of(ModItems.RAW_ALUMINUM,ModBlocks.ALUMINUM_ORE,ModBlocks.DEEPSLATE_ALUMINUM_ORE),RecipeCategory.MISC, ModItems.ALUMINUM_INGOT,
+                    0.25F,200,"aluminum");
             new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.LEAD_INGOT, ModItems.LEAD_INGOT}
                     , ModItems.LEAD_PLATE, 1).offerTo(exporter, "lead_plate");
+            new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.ALUMINUM_INGOT, ModItems.ALUMINUM_INGOT}
+                    , ModItems.ALUMINUM_PLATE, 1).offerTo(exporter, "aluminum_plate");
         }
     }
 }

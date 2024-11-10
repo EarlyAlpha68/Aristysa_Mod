@@ -19,6 +19,7 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
 public static final RegistryKey<ConfiguredFeature<?, ?>> LEAD_ORE_KEY = registerKey("lead_ore");
+public static final RegistryKey<ConfiguredFeature<?, ?>> ALUMINUM_ORE_KEY = registerKey("aluminum_ore");
 
 public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context) {
     RuleTest stoneReplacables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -28,7 +29,12 @@ public static void boostrap(Registerable<ConfiguredFeature<?, ?>> context) {
             List.of(OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.LEAD_ORE.getDefaultState()),
                     OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_LEAD_ORE.getDefaultState()));
 
+    List<OreFeatureConfig.Target> overworldAluminumOres =
+            List.of(OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.ALUMINUM_ORE.getDefaultState()),
+                    OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_ALUMINUM_ORE.getDefaultState()));
+
     register(context,LEAD_ORE_KEY,Feature.ORE,new OreFeatureConfig(overworldLeadOres,3));
+    register(context,ALUMINUM_ORE_KEY,Feature.ORE,new OreFeatureConfig(overworldAluminumOres,3));
 }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
