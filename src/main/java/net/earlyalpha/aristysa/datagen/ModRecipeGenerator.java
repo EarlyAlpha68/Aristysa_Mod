@@ -1,11 +1,13 @@
 package net.earlyalpha.aristysa.datagen;
 
+import dev.architectury.platform.Mod;
 import net.earlyalpha.aristysa.block.ModBlocks;
 import net.earlyalpha.aristysa.datagen.recipe.FusionCrafterRecipeBuilder;
 import net.earlyalpha.aristysa.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.BlockItem;
@@ -35,6 +37,30 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     .input('D',ModBlocks.LEAD_BLOCK)
                     .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
                     .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.FUSION_CRAFTER)));
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SYNTHETIC_MUSCLE)
+                    .pattern("QED")
+                    .pattern("ESE")
+                    .pattern("DEQ")
+                    .input('S',Items.BLAZE_ROD)
+                    .input('Q', Items.ROTTEN_FLESH)
+                    .input('D',Items.LEATHER)
+                    .input('E', ModItems.ALUMINUM_INGOT)
+                    .criterion(hasItem(ModItems.ALUMINUM_INGOT), conditionsFromItem(ModItems.ALUMINUM_INGOT))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.SYNTHETIC_MUSCLE)));
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MICRO_CHIP)
+                    .pattern("SHS")
+                    .pattern("DQD")
+                    .pattern("EFE")
+                    .input('S',Items.BLAZE_ROD)
+                    .input('Q', Blocks.REDSTONE_BLOCK)
+                    .input('D',Items.SCUTE)
+                    .input('E',Items.GOLD_INGOT)
+                    .input('F',Blocks.LIGHTNING_ROD)
+                    .input('H',Items.REPEATER)
+                    .criterion(hasItem(ModItems.ALUMINUM_INGOT), conditionsFromItem(ModItems.ALUMINUM_INGOT))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.MICRO_CHIP)));
 
             offerSmelting(exporter, List.of(ModItems.RAW_LEAD,ModBlocks.LEAD_ORE,ModBlocks.DEEPSLATE_LEAD_ORE),RecipeCategory.MISC, ModItems.LEAD_INGOT,
                     0.25F,200,"lead");

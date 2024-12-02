@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:leather"
+    },
+    "E": {
+      "item": "aristysa:aluminum_ingot"
+    },
+    "Q": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "S": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "QED",
+    "ESE",
+    "DEQ"
+  ],
+  "result": {
+    "item": "aristysa:synthetic_muscle"
+  },
+  "show_notification": true
+}

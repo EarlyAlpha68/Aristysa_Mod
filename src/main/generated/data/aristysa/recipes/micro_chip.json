@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "minecraft:scute"
+    },
+    "E": {
+      "item": "minecraft:gold_ingot"
+    },
+    "F": {
+      "item": "minecraft:lightning_rod"
+    },
+    "H": {
+      "item": "minecraft:repeater"
+    },
+    "Q": {
+      "item": "minecraft:redstone_block"
+    },
+    "S": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    "SHS",
+    "DQD",
+    "EFE"
+  ],
+  "result": {
+    "item": "aristysa:micro_chip"
+  },
+  "show_notification": true
+}
