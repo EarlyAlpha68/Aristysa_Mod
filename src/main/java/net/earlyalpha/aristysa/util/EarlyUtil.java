@@ -45,10 +45,12 @@ public class EarlyUtil {
         // Allow to get the implant tier from anywhere
     }
     public static void addTier(IEntityDataSaver player, int tierAdd, String nbt_data) {
+        //Allow to change the nbt data of the player
         NbtCompound nbt = player.getPersistentData();
         nbt.putInt(nbt_data, tierAdd);
     }
     public static ItemStack CyberwareItemstack(int implantType, int implantTier){
+        //When call give you the ItemStack of the Implant
         return switch (implantType) {
             case 0 -> switch (implantTier) {
                 case 1 -> new ItemStack(ModItems.CYBERLEG_1);
@@ -92,6 +94,7 @@ public class EarlyUtil {
     }
 
     public static void toolTip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, int tier,int type) {
+        //Utility for the tooltip of the custom Item\Block class
         switch (type) {
             case 0 :
             switch (tier) {
@@ -127,7 +130,8 @@ public class EarlyUtil {
                     break;
                 default:
                     break;
-            } break;
+            }
+            break;
             case 1 :
                 switch (tier) {
                     case 1:
@@ -162,7 +166,8 @@ public class EarlyUtil {
                         break;
                     default:
                         break;
-                }break;
+                }
+                break;
                 case 2:
                     switch (tier) {
                         case 1:
