@@ -1,6 +1,6 @@
-// 1.20.1	2025-01-02T23:45:05.8330696	Aristysa/Model Definitions
-d9cc2825f6f914540bfeafd852f5aa2224d397e9 assets\aristysa\models\item\golemarm_2.json
+// 1.20.1	2025-01-03T00:23:35.0940802	Aristysa/Model Definitions
 4ccef012b02761ac0df10dfdaa7a5197c789474f assets\aristysa\models\item\wardenhearth_2.json
+d9cc2825f6f914540bfeafd852f5aa2224d397e9 assets\aristysa\models\item\golemarm_2.json
 cd30e1e3d4c3e32161538c9e5d0252cefbb10477 assets\aristysa\models\item\lead_plate.json
 46cb64fd223455b40da3bc4c55153dac7a991f13 assets\aristysa\models\item\crimson_lace.json
 d8f4bf2ea249963dc77589f89bd63ccb67cc32b3 assets\aristysa\models\item\lead_ingot.json
@@ -36,8 +36,8 @@ eec53d406b23c7d6393d856142417ce4be10f60a assets\aristysa\models\item\aluminum_in
 bccdcc3a2a2d50175f352f14c847624cecdcc714 assets\aristysa\models\item\golemarm_1.json
 5d388dd6e5c50227e028e34a5e64b4c64f849b0b assets\aristysa\models\item\optical_camo_3.json
 45b96b7f2b4e65b54976fb90b2158a3b11830c2a assets\aristysa\models\item\wardenhearth_3.json
-cbe6ca037987b5b0e4b8f6fc9e3e8939c902a3f4 assets\aristysa\blockstates\lead_block.json
 60acc950a048948292f4c1277dafd2d5500fc9f1 assets\aristysa\models\block\aluminum_ore.json
+cbe6ca037987b5b0e4b8f6fc9e3e8939c902a3f4 assets\aristysa\blockstates\lead_block.json
 a6e26640db9aae092d1dd7981031c5f511aeff4d assets\aristysa\models\item\conductive_paste.json
 f00d457d631c84fe89c56a15eba57f1cb3aab81a assets\aristysa\blockstates\deepslate_aluminum_ore.json
 04b84d20ca0d312985727f52b59be67f8c9c508f assets\aristysa\models\item\subdermal_armor_3.json

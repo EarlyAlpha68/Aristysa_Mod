@@ -3,13 +3,13 @@
   "category": "misc",
   "key": {
     "D": {
-      "item": "aristysa:lead_block"
+      "item": "minecraft:redstone"
     },
     "Q": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:copper_ingot"
     },
     "S": {
-      "tag": "c:lead_ingots"
+      "item": "minecraft:coal"
     }
   },
   "pattern": [

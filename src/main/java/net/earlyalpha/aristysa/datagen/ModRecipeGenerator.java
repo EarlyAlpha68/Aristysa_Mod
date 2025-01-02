@@ -7,6 +7,7 @@ import net.earlyalpha.aristysa.datagen.tags.ModTags;
 import net.earlyalpha.aristysa.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
@@ -30,6 +31,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
 
+
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FUSION_CRAFTER)
                     .pattern("SQS")
                     .pattern("QDQ")
@@ -44,9 +46,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     .pattern("SQS")
                     .pattern("QDQ")
                     .pattern("SQS")
-                    .input('S', ModTags.Items.LEAD_INGOTS)
-                    .input('Q', Items.IRON_INGOT)
-                    .input('D',ModBlocks.LEAD_BLOCK)
+                    .input('S', Items.COAL)
+                    .input('Q', Items.COPPER_INGOT)
+                    .input('D', Items.REDSTONE)
                     .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
                     .offerTo(exporter,new Identifier(getRecipeName(ModItems.CONDUCTIVE_PASTE)));
 
