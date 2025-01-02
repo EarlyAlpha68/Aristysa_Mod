@@ -3,6 +3,7 @@ package net.earlyalpha.aristysa.datagen;
 import dev.architectury.platform.Mod;
 import net.earlyalpha.aristysa.block.ModBlocks;
 import net.earlyalpha.aristysa.datagen.recipe.FusionCrafterRecipeBuilder;
+import net.earlyalpha.aristysa.datagen.tags.ModTags;
 import net.earlyalpha.aristysa.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -28,15 +29,26 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
+
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FUSION_CRAFTER)
                     .pattern("SQS")
                     .pattern("QDQ")
                     .pattern("SQS")
-                    .input('S',ModItems.LEAD_INGOT)
+                    .input('S',ModTags.Items.LEAD_INGOTS)
                     .input('Q', Items.IRON_INGOT)
                     .input('D',ModBlocks.LEAD_BLOCK)
                     .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
                     .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.FUSION_CRAFTER)));
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CONDUCTIVE_PASTE)
+                    .pattern("SQS")
+                    .pattern("QDQ")
+                    .pattern("SQS")
+                    .input('S', ModTags.Items.LEAD_INGOTS)
+                    .input('Q', Items.IRON_INGOT)
+                    .input('D',ModBlocks.LEAD_BLOCK)
+                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.CONDUCTIVE_PASTE)));
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SYNTHETIC_MUSCLE)
                     .pattern("QED")

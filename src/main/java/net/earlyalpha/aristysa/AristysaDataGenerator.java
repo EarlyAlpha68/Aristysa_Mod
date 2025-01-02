@@ -17,9 +17,11 @@ public class AristysaDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ModWorldGenerator::new);
 		pack.addProvider(ModRecipeGenerator::new);
+		pack.addProvider(ModItemTagProvider::new);
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModBlockLootTableGenerator::new);
+
 	}
 
 	@Override
