@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "M": {
+      "item": "aristysa:micro_chip"
+    },
+    "S": {
+      "item": "aristysa:synthetic_muscle"
+    },
+    "W": {
+      "item": "aristysa:wire"
+    }
+  },
+  "pattern": [
+    "SII",
+    "WMI",
+    "SWS"
+  ],
+  "result": {
+    "item": "aristysa:golemarm_1"
+  },
+  "show_notification": true
+}

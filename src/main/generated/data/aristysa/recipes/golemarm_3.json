@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "aristysa:golemarm_2"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "W": {
+      "item": "aristysa:wire"
+    }
+  },
+  "pattern": [
+    "NDD",
+    "ICD",
+    "WIN"
+  ],
+  "result": {
+    "item": "aristysa:golemarm_3"
+  },
+  "show_notification": true
+}
