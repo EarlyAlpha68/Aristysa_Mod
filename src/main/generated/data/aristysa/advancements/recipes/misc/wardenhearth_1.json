@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_iron_block": {
+    "has_nether_star": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:iron_block"
+              "minecraft:nether_star"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:golemarm_1"
+        "recipe": "minecraft:wardenhearth_1"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_iron_block",
+      "has_nether_star",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:golemarm_1"
+      "minecraft:wardenhearth_1"
     ]
   },
   "sends_telemetry_event": false

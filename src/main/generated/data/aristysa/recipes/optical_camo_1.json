@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "aristysa:subdermal_armor_1"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "O": {
+      "item": "aristysa:optical_fiber"
+    }
+  },
+  "pattern": [
+    "GOG",
+    "OCO",
+    "GOG"
+  ],
+  "result": {
+    "item": "aristysa:optical_camo_1"
+  },
+  "show_notification": true
+}

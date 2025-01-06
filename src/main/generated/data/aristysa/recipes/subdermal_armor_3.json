@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:aluminum_plates"
+    },
+    "C": {
+      "item": "aristysa:subdermal_armor_2"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "DND",
+    "ACN",
+    "AAD"
+  ],
+  "result": {
+    "item": "aristysa:subdermal_armor_3"
+  },
+  "show_notification": true
+}

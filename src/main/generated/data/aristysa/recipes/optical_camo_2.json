@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:aluminum_plates"
+    },
+    "C": {
+      "item": "aristysa:optical_camo_1"
+    },
+    "M": {
+      "item": "aristysa:micro_chip"
+    },
+    "P": {
+      "item": "aristysa:conductive_paste"
+    }
+  },
+  "pattern": [
+    "APA",
+    "MCP",
+    "AMA"
+  ],
+  "result": {
+    "item": "aristysa:optical_camo_2"
+  },
+  "show_notification": true
+}

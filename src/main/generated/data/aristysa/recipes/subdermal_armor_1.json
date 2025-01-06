@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:aluminum_plates"
+    },
+    "L": {
+      "item": "aristysa:lead_block"
+    },
+    "P": {
+      "tag": "c:lead_plates"
+    }
+  },
+  "pattern": [
+    "PAP",
+    "ALA",
+    "PAP"
+  ],
+  "result": {
+    "item": "aristysa:subdermal_armor_1"
+  },
+  "show_notification": true
+}

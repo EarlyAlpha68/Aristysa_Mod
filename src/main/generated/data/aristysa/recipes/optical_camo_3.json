@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "aristysa:optical_camo_2"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "O": {
+      "item": "aristysa:optical_fiber"
+    }
+  },
+  "pattern": [
+    "DND",
+    "OCN",
+    "OOD"
+  ],
+  "result": {
+    "item": "aristysa:optical_camo_3"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "aristysa:wardenhearth_1"
+    },
+    "M": {
+      "item": "aristysa:micro_chip"
+    },
+    "P": {
+      "item": "aristysa:conductive_paste"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "SPS",
+    "PCP",
+    "SMS"
+  ],
+  "result": {
+    "item": "aristysa:wardenhearth_2"
+  },
+  "show_notification": true
+}
