@@ -33,6 +33,36 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CYBERLEG_1)
+                    .pattern("AWS")
+                    .pattern("WSW")
+                    .pattern("SWA")
+                    .input('A',ModTags.Items.ALUMINUM_PLATES)
+                    .input('W', ModItems.WIRE)
+                    .input('S',ModItems.SYNTHETIC_MUSCLE)
+                    .criterion(hasItem(ModItems.SYNTHETIC_MUSCLE), conditionsFromItem(ModItems.SYNTHETIC_MUSCLE))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.CYBERLEG_1)));
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CYBERLEG_2)
+                    .pattern("DSS")
+                    .pattern("WCS")
+                    .pattern("DWD")
+                    .input('C',ModItems.CYBERLEG_1)
+                    .input('S', ModItems.SYNTHETIC_MUSCLE)
+                    .input('D',Items.DIAMOND)
+                    .input('W',ModItems.WIRE)
+                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.CYBERLEG_2)));
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CYBERLEG_3)
+                    .pattern("DOD")
+                    .pattern("OCO")
+                    .pattern("DOD")
+                    .input('C', ModItems.CYBERLEG_2)
+                    .input('O', ModItems.OPTICAL_FIBER)
+                    .input('D', Items.DIAMOND)
+                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.CYBERLEG_3)));
+
+
             ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.LEAD_BLOCK)
                     .input(ModItems.LEAD_INGOT,9)
                     .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))

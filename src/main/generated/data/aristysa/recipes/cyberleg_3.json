@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "aristysa:cyberleg_2"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "O": {
+      "item": "aristysa:optical_fiber"
+    }
+  },
+  "pattern": [
+    "DOD",
+    "OCO",
+    "DOD"
+  ],
+  "result": {
+    "item": "aristysa:cyberleg_3"
+  },
+  "show_notification": true
+}

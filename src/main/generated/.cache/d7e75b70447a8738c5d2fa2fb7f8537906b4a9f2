@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-06T13:31:39.5147196	Aristysa/Model Definitions
+// 1.20.1	2025-01-06T13:49:52.4922209	Aristysa/Model Definitions
 40e1917c881198cbc3e931e3bff6561d8602c06e assets\aristysa\models\block\lead_block.json
 5cfaf8bfa2c067fea4ec8e92c41b607df6c49cc6 assets\aristysa\models\block\lead_ore.json
 83a0f3607574ff063c5b752f4e151ee136ffffd1 assets\aristysa\models\item\raw_lead_block.json
@@ -28,8 +28,8 @@ b9c07930b0c205aa5f875be550d600cc6bf1ac4e assets\aristysa\models\item\subdermal_a
 d8f4bf2ea249963dc77589f89bd63ccb67cc32b3 assets\aristysa\models\item\lead_ingot.json
 d75f7cc8cdb1d789c6b0a9c11d51b7f241fda85f assets\aristysa\blockstates\raw_lead_block.json
 0a48e6aabc161b0781c08463195fe62ca0db4830 assets\aristysa\models\item\aluminum_ore.json
-209d3b6c9dca6c1035f85b21bd3f628d031c3728 assets\aristysa\models\item\raw_lead.json
 ab48352ebdd35705a93453cbf192ea84286332ad assets\aristysa\models\item\optical_camo_1.json
+209d3b6c9dca6c1035f85b21bd3f628d031c3728 assets\aristysa\models\item\raw_lead.json
 4ea6d39d643d278fe3cb7923dff16aea893643f4 assets\aristysa\models\item\optical_fiber.json
 643448bdae7d94ef9e54c229338057550c239577 assets\aristysa\models\item\raw_aluminum.json
 ca536ce59ea5165b35d6f6c498d92148f0a9a599 assets\aristysa\models\item\aluminum_plate.json
@@ -38,13 +38,13 @@ ca536ce59ea5165b35d6f6c498d92148f0a9a599 assets\aristysa\models\item\aluminum_pl
 e9d4dca400588b065483313193ecd8af1cbd79cb assets\aristysa\models\item\lead_ore.json
 68fd34d4463601a0966916a652c0bd1bf07a0fc1 assets\aristysa\models\block\deepslate_aluminum_ore.json
 f00d457d631c84fe89c56a15eba57f1cb3aab81a assets\aristysa\blockstates\deepslate_aluminum_ore.json
-90c27929499cb34811cef51e07bbc25ec0a66899 assets\aristysa\models\item\synthetic_muscle.json
 baf2b8975eb967c7e816ba31317ac364506e29fd assets\aristysa\models\item\cyberleg_1.json
+90c27929499cb34811cef51e07bbc25ec0a66899 assets\aristysa\models\item\synthetic_muscle.json
 3ed488f707298a08c18c6bed726c206f58b0b8e3 assets\aristysa\blockstates\aluminum_ore.json
 9f7e1b21b868eedbf66fd04909ba0b2a2f69e71e assets\aristysa\models\block\raw_lead_block.json
 9b2aafd151a077539707ff16333d8373a757b80d assets\aristysa\models\item\wardenhearth_1.json
-6dc80ec1b4e2f675359b0f20a7b95b8de46d30b8 assets\aristysa\blockstates\lead_ore.json
 8f7a264f48db593a996a7953b672ddf4aad57c4a assets\aristysa\models\item\wire.json
+6dc80ec1b4e2f675359b0f20a7b95b8de46d30b8 assets\aristysa\blockstates\lead_ore.json
 e55a1f64e57a784ee15fe705c172acdbf4c8899c assets\aristysa\models\block\deepslate_lead_ore.json
 cd30e1e3d4c3e32161538c9e5d0252cefbb10477 assets\aristysa\models\item\lead_plate.json
 73d72d326a2aa810b00ff18830b22680067d9cb3 assets\aristysa\models\item\micro_chip.json

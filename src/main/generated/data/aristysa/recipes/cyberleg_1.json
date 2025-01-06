@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:aluminum_plates"
+    },
+    "S": {
+      "item": "aristysa:synthetic_muscle"
+    },
+    "W": {
+      "item": "aristysa:wire"
+    }
+  },
+  "pattern": [
+    "AWS",
+    "WSW",
+    "SWA"
+  ],
+  "result": {
+    "item": "aristysa:cyberleg_1"
+  },
+  "show_notification": true
+}
