@@ -80,5 +80,8 @@
   "tooltip.aristysa.cyberleg_shift1":"Allow you to make dash move",
   "tooltip.aristysa.cyberleg1_shift2":"Cooldown : 15 sec",
   "tooltip.aristysa.cyberleg2_shift2":"Cooldown : 10 sec",
-  "tooltip.aristysa.cyberleg3_shift2":"Cooldown : 5 sec"
+  "tooltip.aristysa.cyberleg3_shift2":"Cooldown : 5 sec",
+  "tooltip.aristysa.crimsonlace_shift0":"§4A Drug that take half of your life",
+  "tooltip.aristysa.crimsonlace_shift1":"§4But Make you Stronger for a short duration",
+  "tooltip.aristysa.crimsonlace_shift2":"§4Duration of good effect : 5 min §l§7/ §2Duration of bad effect : 10 min"
 }
