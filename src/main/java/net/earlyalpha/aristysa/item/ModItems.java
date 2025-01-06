@@ -38,6 +38,10 @@ public class ModItems {
     public static final Item LEAD_PLATE = registerItem("lead_plate", new Item(new FabricItemSettings()));
     public static final Item CRIMSON_LACE = registerItem("crimson_lace", new CrimsonLaceItem(new FabricItemSettings()));
     public static final Item CONDUCTIVE_PASTE = registerItem("conductive_paste", new Item(new FabricItemSettings()));
+    public static final Item SHEATHE = registerItem("sheathe", new Item(new FabricItemSettings()));
+    public static final Item OPTICAL_FIBER = registerItem("optical_fiber", new Item(new FabricItemSettings()));
+    public static final Item WIRE = registerItem("wire", new Item(new FabricItemSettings()));
+
 
 
     private static Item registerItem(String name,Item item) {

@@ -1,8 +1,8 @@
-// 1.20.1	2025-01-03T00:23:35.099082	Aristysa/Block Loot Tables
-4360963561a07d2a544fc9bea5ff4a3979f585a5 data\aristysa\loot_tables\blocks\lead_ore.json
-6dd622e418f040d82d1c78c4580ab79eade65779 data\aristysa\loot_tables\blocks\lead_block.json
-37994e65439e18c0314fedadf06b8fcb57db5279 data\aristysa\loot_tables\blocks\deepslate_lead_ore.json
+// 1.20.1	2025-01-06T13:31:39.529689	Aristysa/Block Loot Tables
 f2da5599d2e6b5561dd15c3db02b58094a4c367c data\aristysa\loot_tables\blocks\fusion_crafter.json
 c769e28ed35abe661fcdb007699f3f4dd1c4bfc0 data\aristysa\loot_tables\blocks\deepslate_aluminum_ore.json
-52b16d414a913f072bd987d29c89402911f2ba78 data\aristysa\loot_tables\blocks\aluminum_ore.json
+6dd622e418f040d82d1c78c4580ab79eade65779 data\aristysa\loot_tables\blocks\lead_block.json
+4360963561a07d2a544fc9bea5ff4a3979f585a5 data\aristysa\loot_tables\blocks\lead_ore.json
 0ab61726e2f1bb4e3146cbd585a747d7185db4e8 data\aristysa\loot_tables\blocks\raw_lead_block.json
+37994e65439e18c0314fedadf06b8fcb57db5279 data\aristysa\loot_tables\blocks\deepslate_lead_ore.json
+52b16d414a913f072bd987d29c89402911f2ba78 data\aristysa\loot_tables\blocks\aluminum_ore.json

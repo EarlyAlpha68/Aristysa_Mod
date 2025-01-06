@@ -57,5 +57,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_ALUMINUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.ALUMINUM_PLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CONDUCTIVE_PASTE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SHEATHE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.OPTICAL_FIBER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WIRE, Models.GENERATED);
     }
 }

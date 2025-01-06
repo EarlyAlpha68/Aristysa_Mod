@@ -1,0 +1,14 @@
+{
+  "type": "aristysa:fusion_crafter",
+  "ingredients": [
+    {
+      "item": "minecraft:dried_kelp"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "item": "aristysa:sheathe"
+  }
+}

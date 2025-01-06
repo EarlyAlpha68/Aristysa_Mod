@@ -100,8 +100,8 @@ public class EarlyUtil {
             switch (tier) {
                 case 1:
                     if (Screen.hasShiftDown()) {
-                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg1_shift0"));
-                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg1_shift1"));
+                        tooltip.add(Text.translatable("tooltip.aristysa.tier_1"));
+                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg_shift1"));
                         tooltip.add(Text.translatable("tooltip.aristysa.cyberleg1_shift2"));
 
                     } else {
@@ -110,8 +110,8 @@ public class EarlyUtil {
                     break;
                 case 2:
                     if (Screen.hasShiftDown()) {
-                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg2_shift0"));
-                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg2_shift1"));
+                        tooltip.add(Text.translatable("tooltip.aristysa.tier_2"));
+                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg_shift1"));
                         tooltip.add(Text.translatable("tooltip.aristysa.cyberleg2_shift2"));
 
                     } else {
@@ -120,8 +120,8 @@ public class EarlyUtil {
                     break;
                 case 3:
                     if (Screen.hasShiftDown()) {
-                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg3_shift0"));
-                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg3_shift1"));
+                        tooltip.add(Text.translatable("tooltip.aristysa.tier_3"));
+                        tooltip.add(Text.translatable("tooltip.aristysa.cyberleg_shift1"));
                         tooltip.add(Text.translatable("tooltip.aristysa.cyberleg3_shift2"));
 
                     } else {
@@ -136,7 +136,7 @@ public class EarlyUtil {
                 switch (tier) {
                     case 1:
                         if (Screen.hasShiftDown()){
-                            tooltip.add(Text.translatable("tooltip.aristysa.endereye1_shift0"));
+                            tooltip.add(Text.translatable("tooltip.aristysa.tier_1"));
                             tooltip.add(Text.translatable("tooltip.aristysa.endereye1_shift1"));
                             tooltip.add(Text.translatable("tooltip.aristysa.endereye1_shift2"));
 
@@ -146,7 +146,7 @@ public class EarlyUtil {
                         break;
                     case 2:
                         if (Screen.hasShiftDown()){
-                            tooltip.add(Text.translatable("tooltip.aristysa.endereye2_shift0"));
+                            tooltip.add(Text.translatable("tooltip.aristysa.tier_2"));
                             tooltip.add(Text.translatable("tooltip.aristysa.endereye2_shift1"));
                             tooltip.add(Text.translatable("tooltip.aristysa.endereye2_shift2"));
 
@@ -156,7 +156,7 @@ public class EarlyUtil {
                         break;
                     case 3:
                         if (Screen.hasShiftDown()){
-                            tooltip.add(Text.translatable("tooltip.aristysa.endereye3_shift0"));
+                            tooltip.add(Text.translatable("tooltip.aristysa.tier_3"));
                             tooltip.add(Text.translatable("tooltip.aristysa.endereye3_shift1"));
                             tooltip.add(Text.translatable("tooltip.aristysa.endereye3_shift2"));
 
@@ -172,8 +172,8 @@ public class EarlyUtil {
                     switch (tier) {
                         case 1:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm1_shift0"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm1_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.golemarm1_shift2"));
 
                             } else {
@@ -182,8 +182,8 @@ public class EarlyUtil {
                             break;
                         case 2:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm2_shift0"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm2_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.golemarm2_shift2"));
 
                             } else {
@@ -192,8 +192,8 @@ public class EarlyUtil {
                             break;
                         case 3:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm3_shift0"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm3_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_3"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.golemarm_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.golemarm3_shift2"));
 
                             } else {
@@ -208,7 +208,7 @@ public class EarlyUtil {
                     switch (tier) {
                         case 1:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo1_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.optical_camo1_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.optical_camo1_shift2"));
 
@@ -218,7 +218,7 @@ public class EarlyUtil {
                             break;
                         case 2:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo2_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_2"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.optical_camo2_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.optical_camo2_shift2"));
 
@@ -228,7 +228,7 @@ public class EarlyUtil {
                             break;
                         case 3:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.optical_camo3_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_3"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.optical_camo3_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.optical_camo3_shift2"));
 
@@ -244,7 +244,7 @@ public class EarlyUtil {
                     switch (tier) {
                         case 1:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor1_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor1_shift1"));
 
                             } else {
@@ -253,7 +253,7 @@ public class EarlyUtil {
                             break;
                         case 2:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor2_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_2"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor2_shift1"));
 
                             } else {
@@ -262,7 +262,7 @@ public class EarlyUtil {
                             break;
                         case 3:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor3_shift0"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_3"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.subdermalarmor3_shift1"));
 
                             } else {
@@ -277,8 +277,8 @@ public class EarlyUtil {
                     switch (tier) {
                         case 1:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift0"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift2"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift3"));
 
@@ -288,8 +288,8 @@ public class EarlyUtil {
                             break;
                         case 2:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift0"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift2"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift3"));
 
@@ -299,8 +299,8 @@ public class EarlyUtil {
                             break;
                         case 3:
                             if (Screen.hasShiftDown()){
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift0"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.tier_3"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth_shift1"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift2"));
                                 tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift3"));
 

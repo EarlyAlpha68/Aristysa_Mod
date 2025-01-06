@@ -10,12 +10,15 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.RecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
@@ -30,6 +33,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,ModBlocks.LEAD_BLOCK)
+                    .input(ModItems.LEAD_INGOT,9)
+                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.LEAD_BLOCK)));
 
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FUSION_CRAFTER)
@@ -49,8 +56,27 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     .input('S', Items.COAL)
                     .input('Q', Items.COPPER_INGOT)
                     .input('D', Items.REDSTONE)
-                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
                     .offerTo(exporter,new Identifier(getRecipeName(ModItems.CONDUCTIVE_PASTE)));
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.OPTICAL_FIBER)
+                    .pattern("DSG")
+                    .pattern("SGS")
+                    .pattern("GSD")
+                    .input('S', ModItems.SHEATHE)
+                    .input('G', Blocks.GLASS)
+                    .input('D', Items.DIAMOND)
+                    .criterion(hasItem(ModItems.SHEATHE), conditionsFromItem(ModItems.SHEATHE))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.OPTICAL_FIBER)));
+
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WIRE)
+                    .pattern(" SG")
+                    .pattern("SGS")
+                    .pattern("GS ")
+                    .input('S', ModItems.SHEATHE)
+                    .input('G', Items.COPPER_INGOT)
+                    .criterion(hasItem(ModItems.SHEATHE), conditionsFromItem(ModItems.SHEATHE))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WIRE)));
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SYNTHETIC_MUSCLE)
                     .pattern("QED")
@@ -67,13 +93,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     .pattern("SHS")
                     .pattern("DQD")
                     .pattern("EFE")
-                    .input('S',Items.BLAZE_ROD)
-                    .input('Q', Blocks.REDSTONE_BLOCK)
+                    .input('S',Items.COPPER_INGOT)
+                    .input('Q', ModItems.CONDUCTIVE_PASTE)
                     .input('D',Items.SCUTE)
                     .input('E',Items.GOLD_INGOT)
                     .input('F',Blocks.LIGHTNING_ROD)
                     .input('H',Items.REPEATER)
-                    .criterion(hasItem(ModItems.ALUMINUM_INGOT), conditionsFromItem(ModItems.ALUMINUM_INGOT))
+                    .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
                     .offerTo(exporter,new Identifier(getRecipeName(ModItems.MICRO_CHIP)));
 
             offerSmelting(exporter, List.of(ModItems.RAW_LEAD,ModBlocks.LEAD_ORE,ModBlocks.DEEPSLATE_LEAD_ORE),RecipeCategory.MISC, ModItems.LEAD_INGOT,
@@ -90,6 +116,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     , ModItems.LEAD_PLATE, 1).offerTo(exporter, "lead_plate");
             new FusionCrafterRecipeBuilder(new ItemConvertible[]{ModItems.ALUMINUM_INGOT, ModItems.ALUMINUM_INGOT}
                     , ModItems.ALUMINUM_PLATE, 1).offerTo(exporter, "aluminum_plate");
+            new FusionCrafterRecipeBuilder(new ItemConvertible[]{Items.DRIED_KELP, Items.IRON_INGOT}
+                    , ModItems.SHEATHE, 1).offerTo(exporter, "sheathe");
+
         }
     }
 }

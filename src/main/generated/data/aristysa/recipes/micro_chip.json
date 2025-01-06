@@ -15,10 +15,10 @@
       "item": "minecraft:repeater"
     },
     "Q": {
-      "item": "minecraft:redstone_block"
+      "item": "aristysa:conductive_paste"
     },
     "S": {
-      "item": "minecraft:blaze_rod"
+      "item": "minecraft:copper_ingot"
     }
   },
   "pattern": [

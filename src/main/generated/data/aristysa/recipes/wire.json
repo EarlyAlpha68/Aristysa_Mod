@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:copper_ingot"
+    },
+    "S": {
+      "item": "aristysa:sheathe"
+    }
+  },
+  "pattern": [
+    " SG",
+    "SGS",
+    "GS "
+  ],
+  "result": {
+    "item": "aristysa:wire"
+  },
+  "show_notification": true
+}

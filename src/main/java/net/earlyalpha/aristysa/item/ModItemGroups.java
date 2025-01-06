@@ -24,8 +24,13 @@ public class ModItemGroups {
                         entries.add(ModItems.ALUMINUM_INGOT);
                         entries.add(ModItems.RAW_ALUMINUM);
                         entries.add(ModBlocks.RAW_LEAD_BLOCK);
+                        entries.add(ModItems.CRIMSON_LACE);
                         entries.add(ModItems.MICRO_CHIP);
                         entries.add(ModItems.SYNTHETIC_MUSCLE);
+                        entries.add(ModItems.SHEATHE);
+                        entries.add(ModItems.CONDUCTIVE_PASTE);
+                        entries.add(ModItems.OPTICAL_FIBER);
+                        entries.add(ModItems.WIRE);
                         entries.add(ModItems.OPTICAL_CAMO_1);
                         entries.add(ModItems.OPTICAL_CAMO_2);
                         entries.add(ModItems.OPTICAL_CAMO_3);
