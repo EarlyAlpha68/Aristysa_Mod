@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lead_ingot": {
+    "has_cyberleg_2": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aristysa:lead_ingot"
+              "aristysa:cyberleg_2"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_lead_ingot",
+      "has_cyberleg_2",
       "has_the_recipe"
     ]
   ],

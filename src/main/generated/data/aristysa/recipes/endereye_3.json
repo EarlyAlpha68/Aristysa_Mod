@@ -3,22 +3,28 @@
   "category": "misc",
   "key": {
     "C": {
-      "item": "aristysa:cyberleg_2"
+      "item": "aristysa:endereye_2"
+    },
+    "D": {
+      "item": "minecraft:diamond"
     },
     "N": {
       "item": "minecraft:netherite_ingot"
     },
     "O": {
       "item": "aristysa:optical_fiber"
+    },
+    "W": {
+      "item": "aristysa:wire"
     }
   },
   "pattern": [
-    "NON",
-    "OCO",
-    "NON"
+    "NDD",
+    "OCD",
+    "WON"
   ],
   "result": {
-    "item": "aristysa:cyberleg_3"
+    "item": "aristysa:endereye_3"
   },
   "show_notification": true
 }

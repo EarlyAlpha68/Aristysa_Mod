@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cyberleg_1": {
+    "has_optical_fiber": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aristysa:cyberleg_1"
+              "aristysa:optical_fiber"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cyberleg_2"
+        "recipe": "minecraft:endereye_1"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cyberleg_1",
+      "has_optical_fiber",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cyberleg_2"
+      "minecraft:endereye_1"
     ]
   },
   "sends_telemetry_event": false

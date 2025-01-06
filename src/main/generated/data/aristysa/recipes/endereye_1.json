@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "M": {
+      "item": "aristysa:micro_chip"
+    },
+    "O": {
+      "item": "aristysa:optical_fiber"
+    },
+    "W": {
+      "item": "aristysa:wire"
+    }
+  },
+  "pattern": [
+    "WGG",
+    "OMG",
+    "EOW"
+  ],
+  "result": {
+    "item": "aristysa:endereye_1"
+  },
+  "show_notification": true
+}

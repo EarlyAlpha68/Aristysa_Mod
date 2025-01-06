@@ -1,24 +1,18 @@
 package net.earlyalpha.aristysa.datagen;
 
-import dev.architectury.platform.Mod;
+
 import net.earlyalpha.aristysa.block.ModBlocks;
 import net.earlyalpha.aristysa.datagen.recipe.FusionCrafterRecipeBuilder;
 import net.earlyalpha.aristysa.datagen.tags.ModTags;
 import net.earlyalpha.aristysa.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
@@ -33,6 +27,40 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENDEREYE_1)
+                    .pattern("WGG")
+                    .pattern("OMG")
+                    .pattern("EOW")
+                    .input('G',Blocks.GLASS)
+                    .input('W', ModItems.WIRE)
+                    .input('M',ModItems.MICRO_CHIP)
+                    .input('O',ModItems.OPTICAL_FIBER)
+                    .input('E',Items.ENDER_EYE)
+                    .criterion(hasItem(ModItems.OPTICAL_FIBER), conditionsFromItem(ModItems.OPTICAL_FIBER))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.ENDEREYE_1)));
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENDEREYE_2)
+                    .pattern("RRR")
+                    .pattern("OCR")
+                    .pattern("WOR")
+                    .input('C',ModItems.ENDEREYE_1)
+                    .input('O',ModItems.OPTICAL_FIBER)
+                    .input('R',Items.REDSTONE)
+                    .input('W',ModItems.WIRE)
+                    .criterion(hasItem(ModItems.ENDEREYE_1), conditionsFromItem(ModItems.ENDEREYE_1))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.ENDEREYE_2)));
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENDEREYE_3)
+                    .pattern("NDD")
+                    .pattern("OCD")
+                    .pattern("WON")
+                    .input('C', ModItems.ENDEREYE_2)
+                    .input('O', ModItems.OPTICAL_FIBER)
+                    .input('D', Items.DIAMOND)
+                    .input('N', Items.NETHERITE_INGOT)
+                    .input('W',ModItems.WIRE)
+                    .criterion(hasItem(ModItems.ENDEREYE_2), conditionsFromItem(ModItems.ENDEREYE_2))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.ENDEREYE_3)));
+
+
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CYBERLEG_1)
                     .pattern("AWS")
                     .pattern("WSW")
@@ -50,16 +78,16 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     .input('S', ModItems.SYNTHETIC_MUSCLE)
                     .input('D',Items.DIAMOND)
                     .input('W',ModItems.WIRE)
-                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .criterion(hasItem(ModItems.CYBERLEG_1), conditionsFromItem(ModItems.CYBERLEG_1))
                     .offerTo(exporter,new Identifier(getRecipeName(ModItems.CYBERLEG_2)));
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CYBERLEG_3)
-                    .pattern("DOD")
+                    .pattern("NON")
                     .pattern("OCO")
-                    .pattern("DOD")
+                    .pattern("NON")
                     .input('C', ModItems.CYBERLEG_2)
                     .input('O', ModItems.OPTICAL_FIBER)
-                    .input('D', Items.DIAMOND)
-                    .criterion(hasItem(ModItems.LEAD_INGOT), conditionsFromItem(ModItems.LEAD_INGOT))
+                    .input('N', Items.NETHERITE_INGOT)
+                    .criterion(hasItem(ModItems.CYBERLEG_2), conditionsFromItem(ModItems.CYBERLEG_2))
                     .offerTo(exporter,new Identifier(getRecipeName(ModItems.CYBERLEG_3)));
 
 
