@@ -1,7 +1,5 @@
 package net.earlyalpha.aristysa.screen.slot;
 
-
-
 import net.earlyalpha.aristysa.util.EarlyUtil;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;

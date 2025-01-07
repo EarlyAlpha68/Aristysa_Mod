@@ -1,7 +1,6 @@
 package net.earlyalpha.aristysa.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.sun.management.GarbageCollectionNotificationInfo;
 import net.earlyalpha.aristysa.Aristysa;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;

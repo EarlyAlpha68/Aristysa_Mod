@@ -11,7 +11,6 @@ import net.earlyalpha.aristysa.recipe.ModRecipes;
 import net.earlyalpha.aristysa.screen.ModScreenHandlers;
 import net.earlyalpha.aristysa.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
