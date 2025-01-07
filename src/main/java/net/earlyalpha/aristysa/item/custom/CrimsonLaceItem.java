@@ -29,10 +29,10 @@ public class CrimsonLaceItem extends Item {
         ItemStack itemStack = player.getStackInHand(hand);
         if (!world.isClient && !player.hasStatusEffect(ModEffects.CRIMSON_WOUND)) {
             itemStack.decrement(1);
-            player.addStatusEffect(new StatusEffectInstance(ModEffects.CRIMSON_WOUND, 6600, 0, true, true,true));
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 6600, 2, true, true,true));
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 6600, 1, true, true,true));
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 6600, 2, true, true,true));
+            player.addStatusEffect(new StatusEffectInstance(ModEffects.CRIMSON_WOUND, 12000, 0, true, true,true));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 6000, 2, true, true,true));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 6000, 1, true, true,true));
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 6000, 2, true, true,true));
         }
         return TypedActionResult.success(itemStack);
     }

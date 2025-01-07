@@ -19,7 +19,7 @@ public class PlayerDeathHandler {
         World world = player.getWorld();
         boolean hasTotem = player.getMainHandStack().getItem() == Items.TOTEM_OF_UNDYING
                 || player.getOffHandStack().getItem() == Items.TOTEM_OF_UNDYING;
-        boolean hasWardenHearthReady = ((IEntityDataSaver) player).getPersistentData().getInt("wardenHearthTier") > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEARTH_COOLDOWN);
+        boolean hasWardenHearthReady = ((IEntityDataSaver) player).getPersistentData().getInt("wardenHeartTier") > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN);
         if (!world.isClient() && player.getHealth() <= 0 && !hasTotem && !hasWardenHearthReady) {
             switch (((IEntityDataSaver) player).getPersistentData().getInt("opticalCamoTier")) {
                 case 1:
@@ -75,13 +75,13 @@ public class PlayerDeathHandler {
                 }
             switch (((IEntityDataSaver) player).getPersistentData().getInt("wardenHearthTier")) {
                 case 1:
-                    player.dropItem(ModItems.WARDEN_HEARTH_1);
+                    player.dropItem(ModItems.WARDEN_HEART_1);
                     break;
                 case 2:
-                    player.dropItem(ModItems.WARDEN_HEARTH_2);
+                    player.dropItem(ModItems.WARDEN_HEART_2);
                     break;
                 case 3:
-                    player.dropItem(ModItems.WARDEN_HEARTH_3);
+                    player.dropItem(ModItems.WARDEN_HEART_3);
                     break;
                 default:
                     break;

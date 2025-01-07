@@ -46,7 +46,7 @@ public abstract class LivingEntityMixin {
     private boolean shouldNotClear() {
 
         return EarlyUtil.drinkingMilk && beingRemoved != null && (
-                beingRemoved.getEffectType() == ModEffects.WARDEN_HEARTH_COOLDOWN ||
+                beingRemoved.getEffectType() == ModEffects.WARDEN_HEART_COOLDOWN ||
                 beingRemoved.getEffectType() == ModEffects.ENDER_EYE_COOLDOWN ||
                 beingRemoved.getEffectType() == ModEffects.OPTICAL_CAMO_COOLDOWN ||
                 beingRemoved.getEffectType() == ModEffects.CYBERLEG_COOLDOWN ||
@@ -59,12 +59,12 @@ public abstract class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
 
         if (entity instanceof ServerPlayerEntity player) {
-            if (((IEntityDataSaver) player).getPersistentData().getInt("wardenHearthTier") > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEARTH_COOLDOWN)) {
-                switch (((IEntityDataSaver) player).getPersistentData().getInt("wardenHearthTier")){
+            if (((IEntityDataSaver) player).getPersistentData().getInt("wardenHeartTier") > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN)) {
+                switch (((IEntityDataSaver) player).getPersistentData().getInt("wardenHeartTier")){
                     case 1:
                         player.setHealth(1.0F);
                         player.clearStatusEffects();
-                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEARTH_COOLDOWN,18000,0,false,false,true));
+                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,18000,0,false,false,true));
                         player.setHealth(player.getMaxHealth());
                         player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
                         cir.setReturnValue(true);
@@ -73,7 +73,7 @@ public abstract class LivingEntityMixin {
                     case 2:
                         player.setHealth(1.0F);
                         player.clearStatusEffects();
-                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEARTH_COOLDOWN,12000,0,false,false,true));
+                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,12000,0,false,false,true));
                         player.setHealth(player.getMaxHealth());
                         player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
                         cir.setReturnValue(true);
@@ -83,7 +83,7 @@ public abstract class LivingEntityMixin {
                     case 3:
                         player.setHealth(1.0F);
                         player.clearStatusEffects();
-                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEARTH_COOLDOWN,6000,0,false,false,true));
+                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,6000,0,false,false,true));
                         player.setHealth(player.getMaxHealth());
                         player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
                         cir.setReturnValue(true);

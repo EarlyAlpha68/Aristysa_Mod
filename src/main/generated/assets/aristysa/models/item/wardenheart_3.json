@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "aristysa:item/wardenhearth_3"
+    "layer0": "aristysa:item/wardenheart_3"
   }
 }

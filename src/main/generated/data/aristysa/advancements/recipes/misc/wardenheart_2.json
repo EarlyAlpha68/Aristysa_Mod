@@ -1,34 +1,34 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_nether_star": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:wardenheart_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wardenheart_1": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:nether_star"
+              "aristysa:wardenheart_1"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "minecraft:wardenhearth_1"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_nether_star",
+      "has_wardenheart_1",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:wardenhearth_1"
+      "minecraft:wardenheart_2"
     ]
   },
   "sends_telemetry_event": false

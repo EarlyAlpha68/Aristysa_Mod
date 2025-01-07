@@ -26,9 +26,9 @@
   "item.aristysa.subdermal_armor_1": "Sub-dermal Armor Tier 1",
   "item.aristysa.subdermal_armor_2": "Sub-dermal Armor Tier 2",
   "item.aristysa.subdermal_armor_3": "Sub-dermal Armor Tier 3",
-  "item.aristysa.wardenhearth_1": "Warden Hearth Tier 1",
-  "item.aristysa.wardenhearth_2": "Warden Hearth Tier 2",
-  "item.aristysa.wardenhearth_3": "Warden Hearth Tier 3",
+  "item.aristysa.wardenheart_1": "Warden Heart Tier 1",
+  "item.aristysa.wardenheart_2": "Warden Heart Tier 2",
+  "item.aristysa.wardenheart_3": "Warden Heart Tier 3",
   "item.aristysa.cyberleg_1": "Cyber Leg Tier 1",
   "item.aristysa.cyberleg_2": "Cyber Leg Tier 2",
   "item.aristysa.cyberleg_3": "Cyber Leg Tier 3",
@@ -83,5 +83,5 @@
   "tooltip.aristysa.cyberleg3_shift2":"Cooldown : 5 sec",
   "tooltip.aristysa.crimsonlace_shift0":"§4A Drug that take half of your life",
   "tooltip.aristysa.crimsonlace_shift1":"§4But Make you Stronger for a short duration",
-  "tooltip.aristysa.crimsonlace_shift2":"§4Duration of good effect : 5 min §l§7/ §2Duration of bad effect : 10 min"
+  "tooltip.aristysa.crimsonlace_shift2":"§2Duration of buff : 5 min §l§7/ §4Duration of Crimson wound : 10 min"
 }

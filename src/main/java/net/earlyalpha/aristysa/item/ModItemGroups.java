@@ -46,9 +46,9 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDEREYE_1);
                         entries.add(ModItems.ENDEREYE_2);
                         entries.add(ModItems.ENDEREYE_3);
-                        entries.add(ModItems.WARDEN_HEARTH_1);
-                        entries.add(ModItems.WARDEN_HEARTH_2);
-                        entries.add(ModItems.WARDEN_HEARTH_3);
+                        entries.add(ModItems.WARDEN_HEART_1);
+                        entries.add(ModItems.WARDEN_HEART_2);
+                        entries.add(ModItems.WARDEN_HEART_3);
                         entries.add(ModItems.CYBERLEG_1);
                         entries.add(ModItems.CYBERLEG_2);
                         entries.add(ModItems.CYBERLEG_3);

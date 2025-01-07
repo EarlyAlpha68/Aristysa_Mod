@@ -25,9 +25,9 @@ public class ModItems {
     public static final Item CYBERLEG_1 = registerItem("cyberleg_1", new CyberwareItem(new FabricItemSettings(),1,"cyberLegTier"));
     public static final Item CYBERLEG_2 = registerItem("cyberleg_2", new CyberwareItem(new FabricItemSettings(),2,"cyberLegTier"));
     public static final Item CYBERLEG_3 = registerItem("cyberleg_3", new CyberwareItem(new FabricItemSettings(),3,"cyberLegTier"));
-    public static final Item WARDEN_HEARTH_1 = registerItem("wardenhearth_1", new CyberwareItem(new FabricItemSettings(),1,"wardenHearthTier"));
-    public static final Item WARDEN_HEARTH_2 = registerItem("wardenhearth_2", new CyberwareItem(new FabricItemSettings(),2,"wardenHearthTier"));
-    public static final Item WARDEN_HEARTH_3 = registerItem("wardenhearth_3", new CyberwareItem(new FabricItemSettings(),3,"wardenHearthTier"));
+    public static final Item WARDEN_HEART_1 = registerItem("wardenheart_1", new CyberwareItem(new FabricItemSettings(),1,"wardenHeartTier"));
+    public static final Item WARDEN_HEART_2 = registerItem("wardenheart_2", new CyberwareItem(new FabricItemSettings(),2,"wardenHeartTier"));
+    public static final Item WARDEN_HEART_3 = registerItem("wardenheart_3", new CyberwareItem(new FabricItemSettings(),3,"wardenHeartTier"));
     public static final Item MICRO_CHIP = registerItem("micro_chip", new Item(new FabricItemSettings()));
     public static final Item SYNTHETIC_MUSCLE = registerItem("synthetic_muscle", new Item(new FabricItemSettings()));
     public static final Item RAW_LEAD = registerItem("raw_lead", new Item(new FabricItemSettings()));

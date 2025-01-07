@@ -28,7 +28,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
 
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARDEN_HEARTH_1)
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARDEN_HEART_1)
                     .pattern("YIY")
                     .pattern("LSL")
                     .pattern("HCH")
@@ -39,26 +39,26 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     .input('Y', ModItems.SYNTHETIC_MUSCLE)
                     .input('I',Items.NETHERITE_INGOT)
                     .criterion(hasItem(Items.NETHER_STAR), conditionsFromItem(Items.NETHER_STAR))
-                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WARDEN_HEARTH_1)));
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARDEN_HEARTH_2)
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WARDEN_HEART_1)));
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARDEN_HEART_2)
                     .pattern("SPS")
                     .pattern("PCP")
                     .pattern("SMS")
-                    .input('C',ModItems.WARDEN_HEARTH_1)
+                    .input('C',ModItems.WARDEN_HEART_1)
                     .input('S',Items.NETHER_STAR)
                     .input('P',ModItems.CONDUCTIVE_PASTE)
                     .input('M',ModItems.MICRO_CHIP)
-                    .criterion(hasItem(ModItems.WARDEN_HEARTH_1), conditionsFromItem(ModItems.WARDEN_HEARTH_1))
-                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WARDEN_HEARTH_2)));
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARDEN_HEARTH_3)
+                    .criterion(hasItem(ModItems.WARDEN_HEART_1), conditionsFromItem(ModItems.WARDEN_HEART_1))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WARDEN_HEART_2)));
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARDEN_HEART_3)
                     .pattern("NSN")
                     .pattern("SCS")
                     .pattern("NSN")
-                    .input('C', ModItems.WARDEN_HEARTH_2)
+                    .input('C', ModItems.WARDEN_HEART_2)
                     .input('S',Items.NETHER_STAR)
                     .input('N', Items.NETHERITE_INGOT)
-                    .criterion(hasItem(ModItems.WARDEN_HEARTH_2), conditionsFromItem(ModItems.WARDEN_HEARTH_2))
-                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WARDEN_HEARTH_3)));
+                    .criterion(hasItem(ModItems.WARDEN_HEART_2), conditionsFromItem(ModItems.WARDEN_HEART_2))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WARDEN_HEART_3)));
 
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.OPTICAL_CAMO_1)

@@ -3,25 +3,22 @@
   "category": "misc",
   "key": {
     "C": {
-      "item": "aristysa:wardenhearth_1"
+      "item": "aristysa:wardenheart_2"
     },
-    "M": {
-      "item": "aristysa:micro_chip"
-    },
-    "P": {
-      "item": "aristysa:conductive_paste"
+    "N": {
+      "item": "minecraft:netherite_ingot"
     },
     "S": {
       "item": "minecraft:nether_star"
     }
   },
   "pattern": [
-    "SPS",
-    "PCP",
-    "SMS"
+    "NSN",
+    "SCS",
+    "NSN"
   ],
   "result": {
-    "item": "aristysa:wardenhearth_2"
+    "item": "aristysa:wardenheart_3"
   },
   "show_notification": true
 }

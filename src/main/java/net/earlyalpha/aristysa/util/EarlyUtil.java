@@ -22,14 +22,14 @@ public class EarlyUtil {
         implantType.put("golemArmTier", 2);
         implantType.put("opticalCamoTier", 3);
         implantType.put("subdermalArmorTier", 4);
-        implantType.put("wardenHearthTier", 5);
+        implantType.put("wardenHeartTier", 5);
         //Init the implant in their specific order
         implantName.put("cyberLegTier","Cyber Leg");
         implantName.put("enderEyeTier","Ender Eye");
         implantName.put("golemArmTier","Golem Arm");
         implantName.put("opticalCamoTier","Optical Camo");
         implantName.put("subdermalArmorTier","SubDermal Armor");
-        implantName.put("wardenHearthTier","Warden Hearth");
+        implantName.put("wardenHeartTier","Warden Heart");
     }
 
     public static int getImplantType(String nbtTag) {
@@ -83,9 +83,9 @@ public class EarlyUtil {
                 default -> ItemStack.EMPTY;
             };
             case 5 -> switch (implantTier) {
-                case 1 -> new ItemStack(ModItems.WARDEN_HEARTH_1);
-                case 2 -> new ItemStack(ModItems.WARDEN_HEARTH_2);
-                case 3 -> new ItemStack(ModItems.WARDEN_HEARTH_3);
+                case 1 -> new ItemStack(ModItems.WARDEN_HEART_1);
+                case 2 -> new ItemStack(ModItems.WARDEN_HEART_2);
+                case 3 -> new ItemStack(ModItems.WARDEN_HEART_3);
                 default -> ItemStack.EMPTY;
             };
             default -> ItemStack.EMPTY;
@@ -278,9 +278,9 @@ public class EarlyUtil {
                         case 1:
                             if (Screen.hasShiftDown()){
                                 tooltip.add(Text.translatable("tooltip.aristysa.tier_1"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth_shift1"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift2"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth1_shift3"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart1_shift2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart1_shift3"));
 
                             } else {
                                 tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
@@ -289,9 +289,9 @@ public class EarlyUtil {
                         case 2:
                             if (Screen.hasShiftDown()){
                                 tooltip.add(Text.translatable("tooltip.aristysa.tier_2"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth_shift1"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift2"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth2_shift3"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart2_shift2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart2_shift3"));
 
                             } else {
                                 tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
@@ -300,9 +300,9 @@ public class EarlyUtil {
                         case 3:
                             if (Screen.hasShiftDown()){
                                 tooltip.add(Text.translatable("tooltip.aristysa.tier_3"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth_shift1"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift2"));
-                                tooltip.add(Text.translatable("tooltip.aristysa.wardenhearth3_shift3"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart_shift1"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart3_shift2"));
+                                tooltip.add(Text.translatable("tooltip.aristysa.wardenheart3_shift3"));
 
                             } else {
                                 tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));

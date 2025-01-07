@@ -39,9 +39,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.OPTICAL_CAMO_1, Models.GENERATED);
         itemModelGenerator.register(ModItems.OPTICAL_CAMO_2, Models.GENERATED);
         itemModelGenerator.register(ModItems.OPTICAL_CAMO_3, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WARDEN_HEARTH_1, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WARDEN_HEARTH_2, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WARDEN_HEARTH_3, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WARDEN_HEART_1, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WARDEN_HEART_2, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WARDEN_HEART_3, Models.GENERATED);
         itemModelGenerator.register(ModItems.SUBDERMAL_ARMOR_1, Models.GENERATED);
         itemModelGenerator.register(ModItems.SUBDERMAL_ARMOR_2, Models.GENERATED);
         itemModelGenerator.register(ModItems.SUBDERMAL_ARMOR_3, Models.GENERATED);

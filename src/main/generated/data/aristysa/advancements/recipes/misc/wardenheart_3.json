@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:wardenhearth_3"
+        "recipe": "minecraft:wardenheart_3"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_wardenhearth_2": {
+    "has_wardenheart_2": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aristysa:wardenhearth_2"
+              "aristysa:wardenheart_2"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "has_wardenhearth_2",
+      "has_wardenheart_2",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:wardenhearth_3"
+      "minecraft:wardenheart_3"
     ]
   },
   "sends_telemetry_event": false
