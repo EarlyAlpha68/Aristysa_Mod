@@ -9,6 +9,7 @@ import net.earlyalpha.aristysa.item.ModItems;
 import net.earlyalpha.aristysa.networking.NetworkingsMessages;
 import net.earlyalpha.aristysa.recipe.ModRecipes;
 import net.earlyalpha.aristysa.screen.ModScreenHandlers;
+
 import net.earlyalpha.aristysa.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -32,5 +33,6 @@ public class Aristysa implements ModInitializer {
 		ModScreenHandlers.registerScreenHandlers();
 		ModWorldGeneration.generateModWorldGen();
 		ModRecipes.registerRecipes();
+
 	}
 }

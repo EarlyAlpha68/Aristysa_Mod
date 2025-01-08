@@ -3,6 +3,7 @@ package net.earlyalpha.aristysa;
 import net.earlyalpha.aristysa.event.KeyInputHandler;
 import net.earlyalpha.aristysa.networking.NetworkingsMessages;
 import net.earlyalpha.aristysa.screen.*;
+
 import net.fabricmc.api.ClientModInitializer;
 
 
@@ -16,6 +17,7 @@ public class AristysaClient implements ClientModInitializer {
         KeyInputHandler.register();
         KeyInputHandler.registerKeyInputs();
         ModHandledScreens.registerHandledScreen();
+
 
     }
 }

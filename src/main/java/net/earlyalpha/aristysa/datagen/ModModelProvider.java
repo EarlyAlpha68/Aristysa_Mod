@@ -61,5 +61,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SHEATHE, Models.GENERATED);
         itemModelGenerator.register(ModItems.OPTICAL_FIBER, Models.GENERATED);
         itemModelGenerator.register(ModItems.WIRE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EMPTY_SYRINGE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WITHER_COMPOUND, Models.GENERATED);
     }
 }

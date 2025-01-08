@@ -3,6 +3,7 @@ package net.earlyalpha.aristysa.item;
 import net.earlyalpha.aristysa.Aristysa;
 import net.earlyalpha.aristysa.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -33,6 +34,8 @@ public class ModItemGroups {
                         entries.add(ModItems.CONDUCTIVE_PASTE);
                         entries.add(ModItems.OPTICAL_FIBER);
                         entries.add(ModItems.WIRE);
+                        entries.add(ModItems.EMPTY_SYRINGE);
+                        entries.add(ModItems.WITHER_COMPOUND);
                         entries.add(ModBlocks.FUSION_CRAFTER);
                         entries.add(ModItems.OPTICAL_CAMO_1);
                         entries.add(ModItems.OPTICAL_CAMO_2);
@@ -52,6 +55,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CYBERLEG_1);
                         entries.add(ModItems.CYBERLEG_2);
                         entries.add(ModItems.CYBERLEG_3);
+
 
 
                     }).build());

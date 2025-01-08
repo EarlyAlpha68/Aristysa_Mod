@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " GI",
+    "G G",
+    "IG "
+  ],
+  "result": {
+    "item": "aristysa:empty_syringe"
+  },
+  "show_notification": true
+}

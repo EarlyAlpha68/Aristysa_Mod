@@ -4,6 +4,8 @@ import net.earlyalpha.aristysa.Aristysa;
 import net.earlyalpha.aristysa.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.PotionItem;
+import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -41,8 +43,8 @@ public class ModItems {
     public static final Item SHEATHE = registerItem("sheathe", new Item(new FabricItemSettings()));
     public static final Item OPTICAL_FIBER = registerItem("optical_fiber", new Item(new FabricItemSettings()));
     public static final Item WIRE = registerItem("wire", new Item(new FabricItemSettings()));
-
-
+    public static final Item EMPTY_SYRINGE = registerItem("empty_syringe",new Item(new FabricItemSettings()));
+    public static final Item WITHER_COMPOUND = registerItem("wither_compound",new Item(new FabricItemSettings()));
 
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Aristysa.MOD_ID, name), item);

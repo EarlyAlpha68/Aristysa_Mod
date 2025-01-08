@@ -39,6 +39,8 @@
   "item.aristysa.conductive_paste" : "Pâte Conductrice",
   "item.aristysa.optical_fiber" : "Fibre Oprique",
   "item.aristysa.crimson_lace": "Lien Pourpre",
+  "item.aristysa.wither_compound": "Composée de Wither",
+  "item.aristysa.empty_syringe": "Seringue Vide",
   "effect.aristysa.ender_eye_cooldown": "Cooldown Oeil de l'ender cybernétique",
   "effect.aristysa.optical_camo_cooldown": "Cooldown Camouflage Optique",
   "effect.aristysa.warden_heart_cooldown": "Cooldown Coeur du Warden",
@@ -81,7 +83,7 @@
   "tooltip.aristysa.cyberleg1_shift2":"Cooldown : 15 sec",
   "tooltip.aristysa.cyberleg2_shift2":"Cooldown : 10 sec",
   "tooltip.aristysa.cyberleg3_shift2":"Cooldown : 5 sec",
-  "tooltip.aristysa.crimsonlace_shift0":"§4Une Drogue qui vous prend la moitié de votre vie",
+  "tooltip.aristysa.crimsonlace_shift0":"§4Un Serum qui vous prend la moitié de votre vie",
   "tooltip.aristysa.crimsonlace_shift1":"§4Mais vous rend plus fort pour une petite durée",
-  "tooltip.aristysa.crimsonlace_shift2":"§Durée du buff : 5 min §l§7/ §4Durée de plaie Cramoisi : 10 min"
+  "tooltip.aristysa.crimsonlace_shift2":"§2Durée du buff : 5 min §l§7/ §4Durée de plaie Cramoisi : 10 min"
 }
