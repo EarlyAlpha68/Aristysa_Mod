@@ -7,7 +7,9 @@
 		"PlayerEntityMixin",
 		"MilkBucketMixin",
 		"LivingEntityMixin",
-		"BrewingStandMixin"
+		"BrewingStandMixin",
+		"BrewingStandScreenHandlerMixin",
+		"CustomBrewRecipesMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

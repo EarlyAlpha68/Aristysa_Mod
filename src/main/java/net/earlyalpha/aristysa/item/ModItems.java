@@ -38,16 +38,19 @@ public class ModItems {
     public static final Item ALUMINUM_INGOT = registerItem("aluminum_ingot", new Item(new FabricItemSettings()));
     public static final Item RAW_ALUMINUM = registerItem("raw_aluminum", new Item(new FabricItemSettings()));
     public static final Item LEAD_PLATE = registerItem("lead_plate", new Item(new FabricItemSettings()));
-    public static final Item CRIMSON_LACE = registerItem("crimson_lace", new CrimsonLaceItem(new FabricItemSettings()));
+    public static final Item CRIMSON_LACE = registerPotionItem("crimson_lace", new CrimsonLaceItem(new FabricItemSettings()));
     public static final Item CONDUCTIVE_PASTE = registerItem("conductive_paste", new Item(new FabricItemSettings()));
     public static final Item SHEATHE = registerItem("sheathe", new Item(new FabricItemSettings()));
     public static final Item OPTICAL_FIBER = registerItem("optical_fiber", new Item(new FabricItemSettings()));
     public static final Item WIRE = registerItem("wire", new Item(new FabricItemSettings()));
-    public static final Item EMPTY_SYRINGE = registerItem("empty_syringe",new Item(new FabricItemSettings()));
-    public static final Item WITHER_COMPOUND = registerItem("wither_compound",new Item(new FabricItemSettings()));
+    public static final PotionItem EMPTY_SYRINGE =  registerPotionItem("empty_syringe",new PotionItem(new FabricItemSettings()));
+    public static final PotionItem WITHER_COMPOUND =  registerPotionItem("wither_compound",new PotionItem(new FabricItemSettings()));
 
     private static Item registerItem(String name,Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Aristysa.MOD_ID, name), item);
+    }
+    private static PotionItem registerPotionItem(String name,PotionItem potionItem) {
+        return Registry.register(Registries.ITEM, new Identifier(Aristysa.MOD_ID, name), potionItem);
     }
     public static void registeredModItems() {
     Aristysa.LOGGER.info("Registering Mod Item for " + Aristysa.MOD_ID);
