@@ -1,6 +1,6 @@
-// 1.20.1	2025-01-08T21:23:00.9006521	Aristysa/Tags for minecraft:block
+// 1.20.1	2025-01-09T08:38:59.8430233	Aristysa/Tags for minecraft:block
 9118ac45f5a89e5f25b3c64500318c00cccbf331 data\minecraft\tags\blocks\needs_iron_tool.json
-1f6ec2ce63a3a8dfff8495efaa6cabc4e384372c data\c\tags\blocks\lead_ores.json
-58ce830f79635f6e4223ef14db3568a3f3fc2485 data\c\tags\blocks\lead_blocks.json
-57a06e5743ec18e0594741234f4c38dd6ca9022a data\minecraft\tags\blocks\mineable\pickaxe.json
 1ac0edb753bab66062a6f729c6ccc3b001d105fa data\c\tags\blocks\aluminum_ores.json
+1f6ec2ce63a3a8dfff8495efaa6cabc4e384372c data\c\tags\blocks\lead_ores.json
+57a06e5743ec18e0594741234f4c38dd6ca9022a data\minecraft\tags\blocks\mineable\pickaxe.json
+58ce830f79635f6e4223ef14db3568a3f3fc2485 data\c\tags\blocks\lead_blocks.json

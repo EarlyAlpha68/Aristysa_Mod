@@ -37,6 +37,8 @@ public class ModTags {
                 createCommonTag("aluminum_plates");
         public static final TagKey<Item> LEAD_PLATES =
                 createCommonTag("lead_plates");
+        public static final TagKey<Item> BREWING_STAND =
+                createTag("brewing_stand");
 
 
         private static TagKey<Item> createTag(String name){

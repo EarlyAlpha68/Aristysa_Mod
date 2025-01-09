@@ -6,7 +6,8 @@
 		"ModEntityDataSaverMixin",
 		"PlayerEntityMixin",
 		"MilkBucketMixin",
-		"LivingEntityMixin"
+		"LivingEntityMixin",
+		"BrewingStandMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
