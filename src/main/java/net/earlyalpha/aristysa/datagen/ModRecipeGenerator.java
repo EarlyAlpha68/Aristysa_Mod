@@ -12,10 +12,7 @@ import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.potion.Potions;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 
@@ -38,22 +35,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     .input('I',Items.IRON_INGOT)
                     .criterion(hasItem(Blocks.GLASS), conditionsFromItem(Blocks.GLASS))
                     .offerTo(exporter,new Identifier(getRecipeName(ModItems.EMPTY_SYRINGE)));
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WITHER_COMPOUND)
-                    .pattern("S  ")
-                    .pattern("E  ")
-                    .pattern("   ")
-                    .input('E',ModItems.EMPTY_SYRINGE)
-                    .input('S',Items.WITHER_SKELETON_SKULL)
-                    .criterion(hasItem(ModItems.EMPTY_SYRINGE), conditionsFromItem(ModItems.EMPTY_SYRINGE))
-                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.WITHER_COMPOUND)));
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CRIMSON_LACE)
-                    .pattern("S  ")
-                    .pattern("N  ")
-                    .pattern("   ")
-                    .input('S',Items.NETHER_STAR)
-                    .input('N', ModItems.WITHER_COMPOUND)
-                    .criterion(hasItem(ModItems.WITHER_COMPOUND), conditionsFromItem(ModItems.WITHER_COMPOUND))
-                    .offerTo(exporter,new Identifier(getRecipeName(ModItems.CRIMSON_LACE)));
 
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.WARDEN_HEART_1)
                     .pattern("YIY")

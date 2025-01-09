@@ -6,10 +6,8 @@
 		"ModEntityDataSaverMixin",
 		"PlayerEntityMixin",
 		"MilkBucketMixin",
-		"LivingEntityMixin",
-		"BrewingStandMixin",
-		"BrewingStandScreenHandlerMixin",
-		"CustomBrewRecipesMixin"
+		"LivingEntityMixin"
+
 	],
 	"injectors": {
 		"defaultRequire": 1

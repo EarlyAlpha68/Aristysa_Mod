@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "aristysa:item/crimson_lace"
+  },
+  "overrides": [
+    {
+      "predicate": { "aristysa:usage_ticks": 0.33 },
+      "model": "aristysa:item/crimson_lace_stage_1"
+    },
+    {
+      "predicate": { "aristysa:usage_ticks": 0.67 },
+      "model": "aristysa:item/crimson_lace_stage_2"
+    },
+    {
+      "predicate": { "aristysa:usage_ticks": 1.0 },
+      "model": "aristysa:item/crimson_lace_stage_3"
+    }
+  ]
+}

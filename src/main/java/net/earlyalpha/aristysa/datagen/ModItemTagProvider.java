@@ -28,10 +28,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ALUMINUM_PLATE);
         getOrCreateTagBuilder(ModTags.Items.LEAD_PLATES)
                 .add(ModItems.LEAD_PLATE);
-        getOrCreateTagBuilder(ModTags.Items.BREWING_STAND)
-                .add(ModItems.WITHER_COMPOUND)
-                .add(ModItems.EMPTY_SYRINGE)
-                .add(ModItems.CRIMSON_LACE);
     }
 
 
