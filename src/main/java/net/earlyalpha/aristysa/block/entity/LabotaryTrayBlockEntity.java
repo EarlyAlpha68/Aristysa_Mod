@@ -20,6 +20,9 @@ public class LabotaryTrayBlockEntity extends BlockEntity implements ExtendedScre
         super(type, pos, state);
     }
 
+    private static final int INPUT_SLOT_1 = 0;
+    private static final int SYRINGE_SLOT = 1;
+
     @Override
     public DefaultedList<ItemStack> getItems() {
         return null;
