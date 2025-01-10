@@ -3,6 +3,7 @@ package net.earlyalpha.aristysa.block;
 import net.earlyalpha.aristysa.Aristysa;
 import net.earlyalpha.aristysa.block.custom.CraftStationBlock;
 import net.earlyalpha.aristysa.block.custom.FusionCrafterBlock;
+import net.earlyalpha.aristysa.block.custom.LabotaryTrayBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
@@ -33,6 +34,8 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.STONE).strength(2f), UniformIntProvider.create(3, 5) ));
     public static final Block DEEPSLATE_ALUMINUM_ORE = registerBlock("deepslate_aluminum_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(3.5f), UniformIntProvider.create(4, 8)));
+    public static final Block LABOTARY_TRAY = registerBlock("labotary_tray",
+            new LabotaryTrayBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).nonOpaque()));
 
 
     private static Block registerBlock(String name, Block block){
