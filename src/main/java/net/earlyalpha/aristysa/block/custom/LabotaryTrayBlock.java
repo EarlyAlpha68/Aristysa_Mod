@@ -1,15 +1,19 @@
 package net.earlyalpha.aristysa.block.custom;
 
+import net.earlyalpha.aristysa.block.entity.LabotaryTrayBlockEntity;
+import net.earlyalpha.aristysa.block.entity.ModBlockEntities;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -36,7 +40,7 @@ public class LabotaryTrayBlock extends BlockWithEntity implements BlockEntityPro
     }
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return null;
+        return new LabotaryTrayBlockEntity(pos,state);
     }
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -49,16 +53,33 @@ public class LabotaryTrayBlock extends BlockWithEntity implements BlockEntityPro
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        super.onStateReplaced(state, world, pos, newState, moved);
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof LabotaryTrayBlockEntity) {
+                ItemScatterer.spawn(world, pos, (LabotaryTrayBlockEntity)blockEntity);
+                world.updateComparators(pos,this);
+            }
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        return null;
+        if (!world.isClient) {
+            NamedScreenHandlerFactory screenHandlerFactory = ((LabotaryTrayBlockEntity) world.getBlockEntity(pos));
+
+            if (screenHandlerFactory != null) {
+                player.openHandledScreen(screenHandlerFactory);
+            }
+        }
+
+        return ActionResult.SUCCESS;
     }
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return null;
+        return checkType(type, ModBlockEntities.LABOTARY_TRAY_BLOCK_ENTITY,
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos,state1));
+    };
     }
-}
+

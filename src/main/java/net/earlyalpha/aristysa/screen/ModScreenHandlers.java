@@ -17,6 +17,10 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<FusionCrafterScreenHandler> FUSION_CRAFTER_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(Aristysa.MOD_ID, "fusion_crafter"),
                     new ExtendedScreenHandlerType<>(FusionCrafterScreenHandler::new));
+    public static final ScreenHandlerType<LabotaryTrayScreenHandler> LABOTARY_TRAY_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(Aristysa.MOD_ID, "labotary_tray"),
+                    new ExtendedScreenHandlerType<>(LabotaryTrayScreenHandler::new));
+
 
     public static void registerScreenHandlers() {
         Aristysa.LOGGER.info("Registering Screen Handlers for " + Aristysa.MOD_ID);
