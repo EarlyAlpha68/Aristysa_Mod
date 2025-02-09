@@ -4,8 +4,6 @@ import net.earlyalpha.aristysa.Aristysa;
 import net.earlyalpha.aristysa.item.custom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.PotionItem;
-import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -38,7 +36,8 @@ public class ModItems {
     public static final Item ALUMINUM_INGOT = registerItem("aluminum_ingot", new Item(new FabricItemSettings()));
     public static final Item RAW_ALUMINUM = registerItem("raw_aluminum", new Item(new FabricItemSettings()));
     public static final Item LEAD_PLATE = registerItem("lead_plate", new Item(new FabricItemSettings()));
-    public static final Item CRIMSON_LACE = registerItem("crimson_lace", new CrimsonLaceItem(new FabricItemSettings()));
+    public static final Item CRIMSON_LACE = registerItem("crimson_lace", new SyringeItem(new FabricItemSettings(),"crimsonLace"));
+    public static final Item PHANTOM_ELIXIR = registerItem("phantom_elixir", new SyringeItem(new FabricItemSettings(),"phantomElixir"));
     public static final Item CONDUCTIVE_PASTE = registerItem("conductive_paste", new Item(new FabricItemSettings()));
     public static final Item SHEATHE = registerItem("sheathe", new Item(new FabricItemSettings()));
     public static final Item OPTICAL_FIBER = registerItem("optical_fiber", new Item(new FabricItemSettings()));

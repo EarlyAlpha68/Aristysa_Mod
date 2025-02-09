@@ -60,7 +60,7 @@ public class CyberwareItem extends Item {
     }
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        EarlyUtil.toolTip(stack,world,tooltip,context,this.tier,EarlyUtil.getImplantType(this.key));
+        EarlyUtil.cyberwareItemToolTip(stack,world,tooltip,context,this.tier,EarlyUtil.getImplantType(this.key));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

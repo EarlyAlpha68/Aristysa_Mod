@@ -40,6 +40,7 @@
   "item.aristysa.conductive_paste" : "Conductive Paste",
   "item.aristysa.optical_fiber" : "Optical Fiber",
   "item.aristysa.crimson_lace": "Crimson Lace",
+  "item.aristysa.phantom_elixir": "Phantom Elixir",
   "item.aristysa.wither_compound": "Wither Compound",
   "item.aristysa.empty_syringe": "Empty Syringe",
   "effect.aristysa.ender_eye_cooldown": "Cyber Ender Eye Cooldown",
@@ -86,5 +87,7 @@
   "tooltip.aristysa.cyberleg3_shift2":"Cooldown : 5 sec",
   "tooltip.aristysa.crimsonlace_shift0":"§4A Serum that take half of your life",
   "tooltip.aristysa.crimsonlace_shift1":"§4But Make you Stronger for a short duration",
-  "tooltip.aristysa.crimsonlace_shift2":"§2Duration of buff : 5 min §l§7/ §4Duration of Crimson wound : 10 min"
+  "tooltip.aristysa.crimsonlace_shift2":"§2Duration of buff : 5 min §l§7/ §4Duration of Crimson wound : 10 min",
+  "tooltip.aristysa.phantom_elixir_shift0":"§4A Serum that make you as light and solid as a feather.",
+  "tooltip.aristysa.phantom_elixir_shift1":"§2Duration of the effect : 5 min"
 }

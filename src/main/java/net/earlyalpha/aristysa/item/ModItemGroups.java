@@ -28,6 +28,7 @@ public class ModItemGroups {
                         entries.add(ModItems.LEAD_PLATE);
                         entries.add(ModItems.ALUMINUM_PLATE);
                         entries.add(ModItems.CRIMSON_LACE);
+                        entries.add(ModItems.PHANTOM_ELIXIR);
                         entries.add(ModItems.MICRO_CHIP);
                         entries.add(ModItems.SYNTHETIC_MUSCLE);
                         entries.add(ModItems.SHEATHE);

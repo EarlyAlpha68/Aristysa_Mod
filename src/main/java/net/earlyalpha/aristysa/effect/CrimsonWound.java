@@ -18,9 +18,6 @@ public class CrimsonWound extends StatusEffect {
 
     @Override
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        EntityAttributeModifier HALF_MAX_HEALTH_MODIFIER = new EntityAttributeModifier( HALF_MAX_HEALTH_UUID, "Half max health", -0.5,
-                EntityAttributeModifier.Operation.MULTIPLY_TOTAL
-        );
         if (entity.getHealth() > entity.getMaxHealth()/2) {
             entity.setHealth(entity.getMaxHealth()/2);
         } else {

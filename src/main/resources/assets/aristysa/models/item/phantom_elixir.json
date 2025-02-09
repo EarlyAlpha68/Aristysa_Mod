@@ -1,20 +1,20 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "aristysa:item/crimson_lace"
+    "layer0": "aristysa:item/phantom_elixir"
   },
   "overrides": [
     {
       "predicate": { "aristysa:usage_ticks": 0.25 },
-      "model": "aristysa:item/crimson_lace_stage_1"
+      "model": "aristysa:item/phantom_elixir_stage_1"
     },
     {
       "predicate": { "aristysa:usage_ticks": 0.5 },
-      "model": "aristysa:item/crimson_lace_stage_2"
+      "model": "aristysa:item/phantom_elixir_stage_2"
     },
     {
       "predicate": { "aristysa:usage_ticks": 0.75 },
-      "model": "aristysa:item/crimson_lace_stage_3"
+      "model": "aristysa:item/phantom_elixir_stage_3"
     },
     {
       "predicate": { "aristysa:usage_ticks": 1.0 },
