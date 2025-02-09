@@ -1,0 +1,14 @@
+{
+  "type": "aristysa:labotary_tray",
+  "ingredients": [
+    {
+      "item": "aristysa:empty_syringe"
+    },
+    {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  ],
+  "output": {
+    "item": "aristysa:wither_compound"
+  }
+}

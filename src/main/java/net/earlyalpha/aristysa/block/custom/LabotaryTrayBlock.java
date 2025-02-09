@@ -29,14 +29,14 @@ public class LabotaryTrayBlock extends BlockWithEntity implements BlockEntityPro
         super(settings);
         setDefaultState(getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
-
+    private static VoxelShape SHAPE = Block.createCuboidShape(0,0,0,16,5.5,16);
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(Properties.HORIZONTAL_FACING);
     }
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return VoxelShapes.cuboid(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
+        return SHAPE;
     }
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {

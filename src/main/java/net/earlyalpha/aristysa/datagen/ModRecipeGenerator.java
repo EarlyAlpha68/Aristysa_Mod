@@ -3,8 +3,10 @@ package net.earlyalpha.aristysa.datagen;
 
 import net.earlyalpha.aristysa.block.ModBlocks;
 import net.earlyalpha.aristysa.datagen.recipe.FusionCrafterRecipeBuilder;
+import net.earlyalpha.aristysa.datagen.recipe.LabotaryTrayRecipeBuilder;
 import net.earlyalpha.aristysa.datagen.tags.ModTags;
 import net.earlyalpha.aristysa.item.ModItems;
+import net.earlyalpha.aristysa.recipe.LabotaryTrayRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
@@ -27,6 +29,19 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
         {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.LABOTARY_TRAY)
+                    .pattern("SWG")
+                    .pattern("OWA")
+                    .pattern("III")
+                    .input('S',ModItems.EMPTY_SYRINGE)
+                    .input('A',ModItems.ALUMINUM_PLATE)
+                    .input('O',Items.GOLD_INGOT)
+                    .input('W',ModItems.WIRE)
+                    .input('G',Items.GLASS_BOTTLE)
+                    .input('I',Items.IRON_INGOT)
+                    .criterion(hasItem(ModItems.EMPTY_SYRINGE), conditionsFromItem(ModItems.EMPTY_SYRINGE))
+                    .offerTo(exporter,new Identifier(getRecipeName(ModBlocks.LABOTARY_TRAY)));
+
             ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.EMPTY_SYRINGE)
                     .pattern(" GI")
                     .pattern("G G")
@@ -310,6 +325,10 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     , ModItems.ALUMINUM_PLATE, 1).offerTo(exporter, "aluminum_plate");
             new FusionCrafterRecipeBuilder(new ItemConvertible[]{Items.DRIED_KELP, Items.IRON_INGOT}
                     , ModItems.SHEATHE, 1).offerTo(exporter, "sheathe");
+            new LabotaryTrayRecipeBuilder(new ItemConvertible[]{ModItems.WITHER_COMPOUND, Items.NETHERITE_SCRAP}
+                    , ModItems.CRIMSON_LACE, 1).offerTo(exporter, "crimson_lace");
+            new LabotaryTrayRecipeBuilder(new ItemConvertible[]{ModItems.EMPTY_SYRINGE, Items.WITHER_SKELETON_SKULL}
+                    , ModItems.WITHER_COMPOUND, 1).offerTo(exporter, "wither_compound");
 
         }
     }

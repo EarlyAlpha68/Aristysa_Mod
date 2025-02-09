@@ -17,5 +17,10 @@ public class ModRecipes {
                 FusionCrafterRecipe.Serializer.INSTANCE);
         Registry.register(Registries.RECIPE_TYPE,new Identifier(Aristysa.MOD_ID,FusionCrafterRecipe.Type.ID),
                 FusionCrafterRecipe.Type.INSTANCE);
+        Registry.register(Registries.RECIPE_SERIALIZER,new Identifier(Aristysa.MOD_ID,LabotaryTrayRecipe.Serializer.ID),
+                LabotaryTrayRecipe.Serializer.INSTANCE);
+        Registry.register(Registries.RECIPE_TYPE,new Identifier(Aristysa.MOD_ID,LabotaryTrayRecipe.Type.ID),
+                LabotaryTrayRecipe.Type.INSTANCE);
+
     }
 }

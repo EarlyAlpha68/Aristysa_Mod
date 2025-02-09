@@ -37,8 +37,8 @@ public class LabotaryTrayScreen extends HandledScreen<LabotaryTrayScreenHandler>
     }
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if (handler.isCrafting()) {
-            context.drawTexture(TEXTURE, x + 45, y + 42, 208, 0, handler.getScaledProgress(), 8);
-            context.drawTexture(TEXTURE, x + 99 + (32-handler.getScaledProgress()) , y + 42, 32-handler.getScaledProgress(), 0,  handler.getScaledProgress(), 8);
+            context.drawTexture(TEXTURE, x + 83, y + 38, 176, 0,  handler.getScaledProgress(), 8);
+
         }
     }
 

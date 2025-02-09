@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "aristysa:aluminum_plate"
+    },
+    "G": {
+      "item": "minecraft:glass_bottle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "aristysa:empty_syringe"
+    },
+    "W": {
+      "item": "aristysa:wire"
+    }
+  },
+  "pattern": [
+    "SWG",
+    "OWA",
+    "III"
+  ],
+  "result": {
+    "item": "aristysa:labotary_tray"
+  },
+  "show_notification": true
+}

@@ -49,7 +49,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GOLEMARM_1, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLEMARM_2, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLEMARM_3, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CRIMSON_LACE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_PLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MICRO_CHIP, Models.GENERATED);
         itemModelGenerator.register(ModItems.SYNTHETIC_MUSCLE, Models.GENERATED);

@@ -1,7 +1,10 @@
 package net.earlyalpha.aristysa.block.entity;
 
 import dev.architectury.platform.Mod;
+import net.earlyalpha.aristysa.block.custom.LabotaryTrayBlock;
 import net.earlyalpha.aristysa.item.ModItems;
+import net.earlyalpha.aristysa.recipe.FusionCrafterRecipe;
+import net.earlyalpha.aristysa.recipe.LabotaryTrayRecipe;
 import net.earlyalpha.aristysa.screen.FusionCrafterScreenHandler;
 import net.earlyalpha.aristysa.screen.LabotaryTrayScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
@@ -11,6 +14,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
@@ -24,9 +28,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class LabotaryTrayBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3,ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
+    private int progress = 0;
+    private int maxProgress = 72;
 
     private static final int INPUT_SLOT_1 = 0;
     private static final int INPUT_SLOT_2 = 1;
@@ -37,17 +45,24 @@ public class LabotaryTrayBlockEntity extends BlockEntity implements ExtendedScre
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
-                return 0;
+                return switch (index) {
+                    case 0 -> LabotaryTrayBlockEntity.this.progress;
+                    case 1 -> LabotaryTrayBlockEntity.this.maxProgress;
+                    default -> 0;
+                };
             }
 
             @Override
             public void set(int index, int value) {
-
+                switch (index) {
+                    case 0: LabotaryTrayBlockEntity.this.progress = value;
+                    case 1: LabotaryTrayBlockEntity.this.maxProgress = value;
+                }
             }
 
             @Override
             public int size() {
-                return 0;
+                return 2;
             }
         };
     }
@@ -83,26 +98,70 @@ public class LabotaryTrayBlockEntity extends BlockEntity implements ExtendedScre
         super.readNbt(nbt);
     }
 
-    public void tick(World world1, BlockPos pos, BlockState state1) {
-        if(canInsertIntoOutputSlot() && hasRecipe()){
-            craft();
+    public void tick(World world, BlockPos pos, BlockState state) {
+        if(canInsertIntoOutputSlot() && hasRecipe()) {
+            increaseCraftingProgress();
+            markDirty(world,pos,state);
+            if (hasCraftingFinished()) {
+                craftItem();
+                resetProgress();
+            }
+        } else {
+            resetProgress();
         }
+    }
+    private boolean hasCraftingFinished() {
+        return this.progress >= this.maxProgress;
+    }
+
+    private void increaseCraftingProgress() {
+        this.progress++;
     }
 
     private boolean canInsertIntoOutputSlot() {
-        return true;
+        return this.getStack(SYRINGE_SLOT).isEmpty() ||
+                this.getStack(SYRINGE_SLOT).getCount() < this.getStack(SYRINGE_SLOT).getMaxCount();
     }
 
     private boolean hasRecipe() {
-        return this.getStack(INPUT_SLOT_1) != ItemStack.EMPTY;
+        Optional<LabotaryTrayRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) {
+            return false;
+        }
+        ItemStack output = recipe.get().getOutput(null);
+
+
+        return canInsertAmountIntoOutputSlot(output.getCount())
+                && canInsertItemIntoOutputSlot(output);
     }
 
+    private void resetProgress() {
+        this.progress = 0;
+    }
 
+    private void craftItem() {
+        Optional<LabotaryTrayRecipe> recipe = getCurrentRecipe();
 
-    private void craft() {
-        this.setStack(INPUT_SLOT_1,ItemStack.EMPTY);
-        this.setStack(INPUT_SLOT_2,ItemStack.EMPTY);
-        this.setStack(SYRINGE_SLOT, ModItems.CRIMSON_LACE.getDefaultStack());
+        this.removeStack(INPUT_SLOT_1,1);
+        this.removeStack(INPUT_SLOT_2,1);
+
+        this.setStack(SYRINGE_SLOT,new ItemStack(recipe.get().getOutput(null).getItem(),
+                this.getStack(SYRINGE_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
+    }
+    private Optional<LabotaryTrayRecipe> getCurrentRecipe() {
+        SimpleInventory inventory = new SimpleInventory((this.size()));
+        for (int i = 0; i < this.size(); i++) {
+            inventory.setStack(i , this.getStack(i));
+        }
+        return this.getWorld().getRecipeManager().getFirstMatch(LabotaryTrayRecipe.Type.INSTANCE, inventory,this.getWorld());
+    }
+    private boolean canInsertItemIntoOutputSlot(ItemStack output) {
+        return this.getStack(SYRINGE_SLOT).isEmpty() || this.getStack(SYRINGE_SLOT).getItem() == output.getItem();
+    }
+
+    private boolean canInsertAmountIntoOutputSlot(int count) {
+        return this.getStack(SYRINGE_SLOT).getMaxCount() >= this.getStack(SYRINGE_SLOT).getCount() + count;
     }
 
 }
