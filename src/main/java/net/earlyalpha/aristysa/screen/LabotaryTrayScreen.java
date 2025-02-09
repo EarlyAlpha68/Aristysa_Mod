@@ -31,16 +31,16 @@ public class LabotaryTrayScreen extends HandledScreen<LabotaryTrayScreenHandler>
         RenderSystem.setShaderTexture(0,TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
-        context.drawTexture(TEXTURE,x,y,32,0,backgroundWidth,backgroundHeight);
+        context.drawTexture(TEXTURE,x,y,0,0,backgroundWidth,backgroundHeight);
 
-       // renderProgressArrow(context,x,y);
+        renderProgressArrow(context,x,y);
     }
-    /*private void renderProgressArrow(DrawContext context, int x, int y) {
+    private void renderProgressArrow(DrawContext context, int x, int y) {
         if (handler.isCrafting()) {
             context.drawTexture(TEXTURE, x + 45, y + 42, 208, 0, handler.getScaledProgress(), 8);
             context.drawTexture(TEXTURE, x + 99 + (32-handler.getScaledProgress()) , y + 42, 32-handler.getScaledProgress(), 0,  handler.getScaledProgress(), 8);
         }
-    }*/
+    }
 
 
     @Override

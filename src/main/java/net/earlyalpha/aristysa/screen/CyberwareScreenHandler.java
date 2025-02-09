@@ -4,6 +4,7 @@ import net.earlyalpha.aristysa.screen.slot.OnlyReadImplantSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
@@ -28,7 +29,7 @@ private final NbtCompound nbt;
     }
 
     public CyberwareScreenHandler(int syncId,PlayerInventory playerInventory,PacketByteBuf buf){
-        this(syncId , playerInventory ,new ImplantInventory(),new NbtCompound());
+        this(syncId , playerInventory ,new SimpleInventory(8),new NbtCompound());
     }
     @Override
     public ItemStack quickMove(PlayerEntity player, int slot) {

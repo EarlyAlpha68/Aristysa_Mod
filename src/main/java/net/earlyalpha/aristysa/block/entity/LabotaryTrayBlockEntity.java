@@ -94,7 +94,7 @@ public class LabotaryTrayBlockEntity extends BlockEntity implements ExtendedScre
     }
 
     private boolean hasRecipe() {
-        return this.getStack(0) == null;
+        return this.getStack(INPUT_SLOT_1) != ItemStack.EMPTY;
     }
 
 

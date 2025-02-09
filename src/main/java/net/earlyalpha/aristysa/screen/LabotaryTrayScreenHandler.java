@@ -1,6 +1,5 @@
 package net.earlyalpha.aristysa.screen;
 
-import net.earlyalpha.aristysa.block.entity.FusionCrafterBlockEntity;
 import net.earlyalpha.aristysa.block.entity.LabotaryTrayBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,9 +10,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import org.jetbrains.annotations.Nullable;
 
 public class LabotaryTrayScreenHandler extends ScreenHandler {
 
@@ -31,13 +28,13 @@ public class LabotaryTrayScreenHandler extends ScreenHandler {
         this.inventory = (Inventory)blockEntity;
         this.propertyDelegate = arrayPropertyDelegate;
         this.blockEntity = ((LabotaryTrayBlockEntity) blockEntity);
-        addSlot(new Slot(inventory,0,26,39));
-        addSlot(new Slot(inventory,1,134,39));
-        addSlot(new Slot(inventory,2,80,39));
+        addSlot(new Slot(inventory,0,42,35));
+        addSlot(new Slot(inventory,1,64,35));
+        addSlot(new Slot(inventory,2,118,35));
 
         addPlayerHotbar(playerInventory);
         addPlayerInventory(playerInventory);
-
+        addProperties(arrayPropertyDelegate);
     }
 
     @Override
@@ -63,6 +60,17 @@ public class LabotaryTrayScreenHandler extends ScreenHandler {
         }
 
         return newStack;
+    }
+    public boolean isCrafting() {
+        return propertyDelegate.get(0) > 0;
+    }
+
+    public int getScaledProgress() {
+        int progress = this.propertyDelegate.get(0);
+        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
+        int progressArrowSize = 32; // This is the width in pixels of the arrow
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     @Override
