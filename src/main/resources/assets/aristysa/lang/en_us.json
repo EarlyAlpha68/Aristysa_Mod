@@ -85,9 +85,11 @@
   "tooltip.aristysa.cyberleg1_shift2":"Cooldown : 15 sec",
   "tooltip.aristysa.cyberleg2_shift2":"Cooldown : 10 sec",
   "tooltip.aristysa.cyberleg3_shift2":"Cooldown : 5 sec",
-  "tooltip.aristysa.crimsonlace_shift0":"§4A Serum that take half of your life",
-  "tooltip.aristysa.crimsonlace_shift1":"§4But Make you Stronger for a short duration",
+  "tooltip.aristysa.crimsonlace_shift0":"§4A Serum that take half of your life,",
+  "tooltip.aristysa.crimsonlace_shift1":"§4But Make you Stronger for a short duration.",
   "tooltip.aristysa.crimsonlace_shift2":"§2Duration of buff : 5 min §l§7/ §4Duration of Crimson wound : 10 min",
   "tooltip.aristysa.phantom_elixir_shift0":"§4A Serum that make you as light and solid as a feather.",
-  "tooltip.aristysa.phantom_elixir_shift1":"§2Duration of the effect : 5 min"
+  "tooltip.aristysa.phantom_elixir_shift1":"§2Duration of the effect : 5 min",
+  "tooltip.aristysa.shadow_haste_shift0" : "§4A Serum that make you blind as your desire.",
+  "tooltip.aristysa.shadow_haste_shift1" : "§2Duration of the effect : 5 min"
 }

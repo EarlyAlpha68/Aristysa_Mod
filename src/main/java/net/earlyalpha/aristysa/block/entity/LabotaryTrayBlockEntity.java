@@ -1,11 +1,6 @@
 package net.earlyalpha.aristysa.block.entity;
 
-import dev.architectury.platform.Mod;
-import net.earlyalpha.aristysa.block.custom.LabotaryTrayBlock;
-import net.earlyalpha.aristysa.item.ModItems;
-import net.earlyalpha.aristysa.recipe.FusionCrafterRecipe;
 import net.earlyalpha.aristysa.recipe.LabotaryTrayRecipe;
-import net.earlyalpha.aristysa.screen.FusionCrafterScreenHandler;
 import net.earlyalpha.aristysa.screen.LabotaryTrayScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -16,7 +11,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;

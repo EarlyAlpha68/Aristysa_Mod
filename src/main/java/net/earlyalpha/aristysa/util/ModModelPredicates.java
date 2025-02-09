@@ -48,6 +48,26 @@ public class ModModelPredicates {
                         return 0.0F;
                     }
             );
+            ModelPredicateProviderRegistry.register(ModItems.SHADOW_HASTE, new Identifier("aristysa", "usage_ticks"),
+                    (stack, world, entity, seed) -> {
+                        NbtCompound nbt = stack.getNbt();
+                        if (nbt != null) {
+                            int usageTicks = nbt.getInt("UsageTicks");
+                            if (usageTicks >= 35) {
+                                return 1.0F;
+                            } else if (usageTicks >= 25) {
+                                return 0.75F;
+                            } else if (usageTicks >= 15) {
+                                return 0.5F;
+                            } else if (usageTicks >= 5) {
+                                return 0.25F;
+                            } else {
+                                return 0.0F;
+                            }
+                        }
+                        return 0.0F;
+                    }
+            );
         }
     }
 

@@ -38,6 +38,7 @@ public class ModItems {
     public static final Item LEAD_PLATE = registerItem("lead_plate", new Item(new FabricItemSettings()));
     public static final Item CRIMSON_LACE = registerItem("crimson_lace", new SyringeItem(new FabricItemSettings(),"crimsonLace"));
     public static final Item PHANTOM_ELIXIR = registerItem("phantom_elixir", new SyringeItem(new FabricItemSettings(),"phantomElixir"));
+    public static final Item SHADOW_HASTE = registerItem("shadow_haste", new SyringeItem(new FabricItemSettings(),"shadowHaste"));
     public static final Item CONDUCTIVE_PASTE = registerItem("conductive_paste", new Item(new FabricItemSettings()));
     public static final Item SHEATHE = registerItem("sheathe", new Item(new FabricItemSettings()));
     public static final Item OPTICAL_FIBER = registerItem("optical_fiber", new Item(new FabricItemSettings()));

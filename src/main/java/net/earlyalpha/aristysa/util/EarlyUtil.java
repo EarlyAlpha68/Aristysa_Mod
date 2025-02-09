@@ -25,6 +25,7 @@ public class EarlyUtil {
         //Init the key to sort the custom item
         syringeType.put("crimsonLace", 0);
         syringeType.put("phantomElixir", 1);
+        syringeType.put("shadowHaste", 2);
         //
         implantType.put("cyberLegTier", 0);
         implantType.put("enderEyeTier", 1);
@@ -75,6 +76,9 @@ public class EarlyUtil {
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 6000, 4, true, true, true));
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 6000, 2, true, true, true));
                 break;
+            case 2 :
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.HASTE, 6000, 3, true, true, true));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 6000, 1, true, true, true));
             default:
                 break;
         }
@@ -143,6 +147,13 @@ public class EarlyUtil {
                     tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
                 }
                 break;
+            case 2:
+                if (Screen.hasShiftDown()) {
+                    tooltip.add(Text.translatable("tooltip.aristysa.shadow_haste_shift0"));
+                    tooltip.add(Text.translatable("tooltip.aristysa.shadow_haste_shift1"));
+                } else {
+                    tooltip.add(Text.translatable("tooltip.aristysa.hold_shift"));
+                }
             default:
                 break;
         }

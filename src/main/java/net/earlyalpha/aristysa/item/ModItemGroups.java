@@ -3,7 +3,6 @@ package net.earlyalpha.aristysa.item;
 import net.earlyalpha.aristysa.Aristysa;
 import net.earlyalpha.aristysa.block.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -29,6 +28,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ALUMINUM_PLATE);
                         entries.add(ModItems.CRIMSON_LACE);
                         entries.add(ModItems.PHANTOM_ELIXIR);
+                        entries.add(ModItems.SHADOW_HASTE);
                         entries.add(ModItems.MICRO_CHIP);
                         entries.add(ModItems.SYNTHETIC_MUSCLE);
                         entries.add(ModItems.SHEATHE);

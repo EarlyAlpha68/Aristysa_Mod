@@ -3,7 +3,6 @@ package net.earlyalpha.aristysa.datagen.recipe;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.earlyalpha.aristysa.Aristysa;
-import net.earlyalpha.aristysa.recipe.FusionCrafterRecipe;
 import net.earlyalpha.aristysa.recipe.LabotaryTrayRecipe;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementRewards;

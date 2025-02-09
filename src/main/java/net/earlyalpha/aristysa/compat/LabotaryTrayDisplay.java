@@ -5,7 +5,6 @@ import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
 import me.shedaniel.rei.api.common.util.EntryStacks;
-import net.earlyalpha.aristysa.recipe.FusionCrafterRecipe;
 import net.earlyalpha.aristysa.recipe.LabotaryTrayRecipe;
 
 import java.util.ArrayList;

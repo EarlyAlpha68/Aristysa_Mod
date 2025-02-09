@@ -1,0 +1,25 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "aristysa:item/shadow_haste"
+  },
+  "overrides": [
+    {
+      "predicate": { "aristysa:usage_ticks": 0.25 },
+      "model": "aristysa:item/shadow_haste_stage_1"
+    },
+    {
+      "predicate": { "aristysa:usage_ticks": 0.5 },
+      "model": "aristysa:item/shadow_haste_stage_2"
+    },
+    {
+      "predicate": { "aristysa:usage_ticks": 0.75 },
+      "model": "aristysa:item/shadow_haste_stage_3"
+    },
+    {
+      "predicate": { "aristysa:usage_ticks": 1.0 },
+      "model": "aristysa:item/syringe_stage_4"
+    }
+
+  ]
+}

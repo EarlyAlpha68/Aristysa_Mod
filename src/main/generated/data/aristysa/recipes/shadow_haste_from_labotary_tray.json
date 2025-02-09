@@ -1,0 +1,14 @@
+{
+  "type": "aristysa:labotary_tray",
+  "ingredients": [
+    {
+      "item": "aristysa:wither_compound"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ],
+  "output": {
+    "item": "aristysa:shadow_haste"
+  }
+}

@@ -331,9 +331,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                     , ModItems.WITHER_COMPOUND, 1).offerTo(exporter, "wither_compound");
             new LabotaryTrayRecipeBuilder(new ItemConvertible[]{ModItems.WITHER_COMPOUND, Items.PHANTOM_MEMBRANE}
                     , ModItems.PHANTOM_ELIXIR, 1).offerTo(exporter, "phantom_elixir");
-
-
-
+            new LabotaryTrayRecipeBuilder(new ItemConvertible[]{ModItems.WITHER_COMPOUND, Items.GUNPOWDER}
+                    , ModItems.SHADOW_HASTE, 1).offerTo(exporter, "phantom_elixir");
         }
     }
 }
