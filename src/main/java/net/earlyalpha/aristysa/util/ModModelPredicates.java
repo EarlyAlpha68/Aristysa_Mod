@@ -13,9 +13,9 @@ public class ModModelPredicates {
                         NbtCompound nbt = stack.getNbt();
                         if (nbt != null) {
                             int usageTicks = nbt.getInt("UsageTicks");
-                            if (usageTicks >= 35) {
+                            if (usageTicks >= 30) {
                                 return 1.0F;
-                            } else if (usageTicks >= 25) {
+                            } else if (usageTicks >= 23) {
                                 return 0.75F;
                             } else if (usageTicks >= 15) {
                                 return 0.5F;
@@ -33,9 +33,9 @@ public class ModModelPredicates {
                         NbtCompound nbt = stack.getNbt();
                         if (nbt != null) {
                             int usageTicks = nbt.getInt("UsageTicks");
-                            if (usageTicks >= 35) {
+                            if (usageTicks >= 30) {
                                 return 1.0F;
-                            } else if (usageTicks >= 25) {
+                            } else if (usageTicks >= 23) {
                                 return 0.75F;
                             } else if (usageTicks >= 15) {
                                 return 0.5F;
@@ -53,9 +53,9 @@ public class ModModelPredicates {
                         NbtCompound nbt = stack.getNbt();
                         if (nbt != null) {
                             int usageTicks = nbt.getInt("UsageTicks");
-                            if (usageTicks >= 35) {
+                            if (usageTicks >= 30) {
                                 return 1.0F;
-                            } else if (usageTicks >= 25) {
+                            } else if (usageTicks >= 23) {
                                 return 0.75F;
                             } else if (usageTicks >= 15) {
                                 return 0.5F;
