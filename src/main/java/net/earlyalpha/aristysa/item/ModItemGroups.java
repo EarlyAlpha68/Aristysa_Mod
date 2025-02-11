@@ -38,6 +38,7 @@ public class ModItemGroups {
                         entries.add(ModItems.EMPTY_SYRINGE);
                         entries.add(ModItems.WITHER_COMPOUND);
                         entries.add(ModBlocks.FUSION_CRAFTER);
+                        entries.add(ModBlocks.LABOTARY_TRAY);
                         entries.add(ModItems.OPTICAL_CAMO_1);
                         entries.add(ModItems.OPTICAL_CAMO_2);
                         entries.add(ModItems.OPTICAL_CAMO_3);

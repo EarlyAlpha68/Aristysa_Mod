@@ -5,19 +5,25 @@ import net.earlyalpha.aristysa.item.ModItems;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeInstance;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 public class EarlyUtil {
     public static boolean drinkingMilk = false;
@@ -66,6 +72,68 @@ public class EarlyUtil {
         //Allow to change the nbt data of the player
         NbtCompound nbt = player.getPersistentData();
         nbt.putInt(nbt_data, tierAdd);
+    }
+    public static void applyModifier(ServerPlayerEntity player, EntityAttribute attribute, UUID modifierId, double value) {
+        EntityAttributeInstance attributeInstance = player.getAttributeInstance(attribute);
+        if (attributeInstance != null) {
+            EntityAttributeModifier existingModifier = attributeInstance.getModifier(modifierId);
+            if (existingModifier != null) {
+                attributeInstance.removeModifier(modifierId);
+            }
+            attributeInstance.addPersistentModifier(new EntityAttributeModifier(modifierId, "Attribute Modifier", value, EntityAttributeModifier.Operation.ADDITION));
+        }
+    }
+    public static void teleportEnderEyePlayer(PlayerEntity player) {
+        int currentTeleportDistance = EarlyUtil.getCurrentTeleportDistance(player);
+        BlockHitResult hitResult = EarlyUtil.getHitBlock(player,currentTeleportDistance);
+        if (hitResult.getType() == HitResult.Type.BLOCK) {
+            Vec3d hitPos = hitResult.getPos();
+            player.teleport(hitPos.getX(), hitPos.getY()+ 1, hitPos.getZ());
+            switch (EarlyUtil.getImplantTier(player,"enderEyeTier")) {
+                case 1:
+                    player.addStatusEffect(new StatusEffectInstance(ModEffects.ENDER_EYE_COOLDOWN,1800,0,false,false,true));
+                    break;
+                case 2:
+                    player.addStatusEffect(new StatusEffectInstance(ModEffects.ENDER_EYE_COOLDOWN,1200,0,false,false,true));
+                    break;
+                case 3:
+                    player.addStatusEffect(new StatusEffectInstance(ModEffects.ENDER_EYE_COOLDOWN,600,0,false,false,true));
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    public static double getArmorValueModifier(int tier) {
+        double baseArmorValue = switch (tier) {
+            case 1 -> 5.0;
+            case 2 -> 7.0;
+            case 3 -> 10.0;
+            default -> 0.0;
+        };
+        return baseArmorValue;
+    }
+    public static double getGolemArmModifierValue(int tier, String key) {
+        return switch (key) {
+            case "knockbach" -> switch (tier) {
+                case 1 -> 3.0;
+                case 2 -> 4.0;
+                case 3 -> 5.0;
+                default -> 0.0;
+            };
+            case "attack" -> switch (tier) {
+                case 1 -> 3.0;
+                case 2 -> 5.0;
+                case 3 -> 7.0;
+                default -> 2.0;
+            };
+            case "speed" -> switch (tier) {
+                case 1, 2, 3 -> 2.0;
+                default -> 4.0;
+            };
+            default ->0;
+        };
+
     }
     public static int getCurrentTeleportDistance(PlayerEntity player) {
         int currentTeleportDistance = switch (EarlyUtil.getImplantTier(player, "enderEyeTier")) {
