@@ -11,6 +11,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
@@ -46,6 +49,7 @@ public class EarlyUtil {
         return implantType.getOrDefault(nbtTag, -1);
         //give the attached number of order of a specific implant
     }
+
     public static String getImplantName(String nbtTag) {
         return implantName.getOrDefault(nbtTag, "");
         //give the attached number of order of a specific implant
@@ -63,7 +67,33 @@ public class EarlyUtil {
         NbtCompound nbt = player.getPersistentData();
         nbt.putInt(nbt_data, tierAdd);
     }
+    public static int getCurrentTeleportDistance(PlayerEntity player) {
+        int currentTeleportDistance = switch (EarlyUtil.getImplantTier(player, "enderEyeTier")) {
+            case 1 -> 10;
+            case 2 -> 20;
+            case 3 -> 40;
+            default -> 0;
+        };
+        return currentTeleportDistance;
+    }
+    public static BlockHitResult getHitBlock(PlayerEntity player, int currentTeleportDistance ) {
+        //Utility for the enderEye(calculation of the block to teleport to)
+        World world = player.getWorld();
+        Vec3d startVec = player.getCameraPosVec(1.0F);
+        Vec3d lookVec = player.getRotationVec(1.0F);
+        Vec3d endVec = startVec.add(lookVec.x * currentTeleportDistance, lookVec.y * currentTeleportDistance, lookVec.z * currentTeleportDistance);
+
+        BlockHitResult hitResult = world.raycast(new RaycastContext(
+                startVec,
+                endVec,
+                RaycastContext.ShapeType.OUTLINE,
+                RaycastContext.FluidHandling.NONE,
+                player
+        ));
+        return hitResult;
+    }
     public static void SyringeInject(LivingEntity player, String key) {
+        //Utility for the effect of the custom SyringeItem class
         switch (getSyringeType(key)) {
             case 0 :
                 player.addStatusEffect(new StatusEffectInstance(ModEffects.CRIMSON_WOUND, 12000, 0, true, true, true));
@@ -127,8 +157,10 @@ public class EarlyUtil {
         };
 
     }
-
+    // ************************************************************************************************************************************** \\
+    // All Custom Item Tooltip
     public static void SyringeItemToolTip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, int type) {
+        //Utility for the tooltip of the custom SyringeItem class
         switch (type) {
             case 0:
                 if (Screen.hasShiftDown()) {

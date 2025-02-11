@@ -1,6 +1,7 @@
 package net.earlyalpha.aristysa.mixin;
 
 import net.earlyalpha.aristysa.effect.ModEffects;
+import net.earlyalpha.aristysa.util.EarlyUtil;
 import net.earlyalpha.aristysa.util.EnderEyeTp;
 import net.earlyalpha.aristysa.util.IEntityDataSaver;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -70,38 +71,50 @@ public abstract class PlayerEntityMixin implements EnderEyeTp {
             NbtCompound persistentData = ((IEntityDataSaver) player).getPersistentData();
 
                 int tier = persistentData.getInt("golemArmTier");
-                double baseKnockbackValue;
-                double baseAttackValue;
-                double baseSpeedValue;
+                double KnockbackValue = getGolemArmModifierValue(tier,"knockback");
+                double AttackValue = getGolemArmModifierValue(tier,"attack");
+                double SpeedValue = getGolemArmModifierValue(tier,"speed");
 
                 switch (tier) {
                     case 1:
-                        baseKnockbackValue = 3.0;
-                        baseAttackValue = 3.0;
-                        baseSpeedValue = 2.0;
+                        KnockbackValue = 3.0;
+                        AttackValue = 3.0;
+                        SpeedValue = 2.0;
                         break;
                     case 2:
-                        baseKnockbackValue = 4.0;
-                        baseAttackValue = 5.0;
-                        baseSpeedValue = 2.0;
+                        KnockbackValue = 4.0;
+                        AttackValue = 5.0;
+                        SpeedValue = 2.0;
                         break;
                     case 3:
-                        baseKnockbackValue = 5.0;
-                        baseAttackValue = 7.0;
-                        baseSpeedValue = 2.0;
+                        KnockbackValue = 5.0;
+                        AttackValue = 7.0;
+                        SpeedValue = 2.0;
                         break;
                     default:
-                        baseKnockbackValue = 0.0;
-                        baseAttackValue = 2.0;
-                        baseSpeedValue = 4.0;
+                        KnockbackValue = 0.0;
+                        AttackValue = 2.0;
+                        SpeedValue = 4.0;
                         break;
                 }
 
-                applyModifier(player, EntityAttributes.GENERIC_ATTACK_DAMAGE, ATTACK_DAMAGE_MODIFIER_ID, baseAttackValue);
-                applyModifier(player, EntityAttributes.GENERIC_ATTACK_KNOCKBACK, ATTACK_KNOCKBACK_MODIFIER_ID, baseKnockbackValue);
-                applyModifier(player, EntityAttributes.GENERIC_ATTACK_SPEED, ATTACK_SPEED_MODIFIER_ID, baseSpeedValue);
+                applyModifier(player, EntityAttributes.GENERIC_ATTACK_DAMAGE, ATTACK_DAMAGE_MODIFIER_ID, AttackValue);
+                applyModifier(player, EntityAttributes.GENERIC_ATTACK_KNOCKBACK, ATTACK_KNOCKBACK_MODIFIER_ID, KnockbackValue);
+                applyModifier(player, EntityAttributes.GENERIC_ATTACK_SPEED, ATTACK_SPEED_MODIFIER_ID, SpeedValue);
         }
     }
+
+    private double getGolemArmModifierValue(int tier, String key) {
+        return switch (key) {
+            case "knockbach" -> switch (tier) {
+                case 1 -> 3.0;
+                default -> 0;
+            };
+            default ->0;
+        };
+
+    }
+
 
     private void applyModifier(ServerPlayerEntity player, EntityAttribute attribute, UUID modifierId, double value) {
         EntityAttributeInstance attributeInstance = player.getAttributeInstance(attribute);
@@ -122,41 +135,19 @@ public abstract class PlayerEntityMixin implements EnderEyeTp {
             shouldTeleport = false;
         }
     }
+    public void triggerTeleport(){
+        if (!shouldTeleport) {
+            shouldTeleport = true;
+        }
+    }
 
     public void teleportPlayer(PlayerEntity player) {
-        int currentTeleportDistance;
-        switch (((IEntityDataSaver) player).getPersistentData().getInt("enderEyeTier")) {
-            case 1:
-                currentTeleportDistance = 10 ;
-                break;
-            case 2:
-                currentTeleportDistance = 20 ;
-                break;
-            case 3:
-                currentTeleportDistance = 40;
-                break;
-            default:
-                currentTeleportDistance = 0;
-                break;
-        }
-        World world = player.getWorld();
-        Vec3d startVec = player.getCameraPosVec(1.0F);
-        Vec3d lookVec = player.getRotationVec(1.0F);
-        Vec3d endVec = startVec.add(lookVec.x * currentTeleportDistance, lookVec.y * currentTeleportDistance, lookVec.z * currentTeleportDistance);
-
-        BlockHitResult hitResult = world.raycast(new RaycastContext(
-                startVec,
-                endVec,
-                RaycastContext.ShapeType.OUTLINE,
-                RaycastContext.FluidHandling.NONE,
-                player
-        ));
-
+        int currentTeleportDistance = EarlyUtil.getCurrentTeleportDistance(player);
+        BlockHitResult hitResult = EarlyUtil.getHitBlock(player,currentTeleportDistance);
         if (hitResult.getType() == HitResult.Type.BLOCK) {
-
             Vec3d hitPos = hitResult.getPos();
             player.teleport(hitPos.getX(), hitPos.getY()+ 1, hitPos.getZ());
-            switch (((IEntityDataSaver) player).getPersistentData().getInt("enderEyeTier")) {
+            switch (EarlyUtil.getImplantTier(player,"enderEyeTier")) {
                 case 1:
                     player.addStatusEffect(new StatusEffectInstance(ModEffects.ENDER_EYE_COOLDOWN,1800,0,false,false,true));
                     break;
@@ -169,11 +160,6 @@ public abstract class PlayerEntityMixin implements EnderEyeTp {
                 default:
                     break;
             }
-        }
-    }
-public void triggerTeleport(){
-        if (!shouldTeleport) {
-            shouldTeleport = true;
         }
     }
 }
