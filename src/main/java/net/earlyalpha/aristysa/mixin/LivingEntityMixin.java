@@ -15,6 +15,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -26,6 +27,8 @@ import java.util.List;
 @Debug(export = true)
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+    @Shadow public abstract void pushAwayFrom(Entity entity);
+
     private StatusEffectInstance beingRemoved = null;
 
     @WrapWithCondition(method = "clearStatusEffects", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;onStatusEffectRemoved(Lnet/minecraft/entity/effect/StatusEffectInstance;)V"))
@@ -59,33 +62,21 @@ public abstract class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
 
         if (entity instanceof ServerPlayerEntity player) {
-            if (((IEntityDataSaver) player).getPersistentData().getInt("wardenHeartTier") > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN)) {
-                switch (((IEntityDataSaver) player).getPersistentData().getInt("wardenHeartTier")){
+            int tier = EarlyUtil.getImplantTier(player,"wardenHeartTier");
+            if (tier > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN)) {
+                switch (tier){
                     case 1:
-                        player.setHealth(1.0F);
-                        player.clearStatusEffects();
-                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,18000,0,false,false,true));
-                        player.setHealth(player.getMaxHealth());
-                        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                        wardenHeartEffect(player,tier);
                         cir.setReturnValue(true);
                         applyEffectToNearbyEntities(player,3);
                         break;
                     case 2:
-                        player.setHealth(1.0F);
-                        player.clearStatusEffects();
-                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,12000,0,false,false,true));
-                        player.setHealth(player.getMaxHealth());
-                        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                        wardenHeartEffect(player,tier);
                         cir.setReturnValue(true);
                         applyEffectToNearbyEntities(player,6);
-
                         break;
                     case 3:
-                        player.setHealth(1.0F);
-                        player.clearStatusEffects();
-                        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,6000,0,false,false,true));
-                        player.setHealth(player.getMaxHealth());
-                        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                        wardenHeartEffect(player,tier);
                         cir.setReturnValue(true);
                         applyEffectToNearbyEntities(player,10);
                         break;
@@ -96,6 +87,15 @@ public abstract class LivingEntityMixin {
         }
 
     }
+
+    private void wardenHeartEffect(ServerPlayerEntity player ,int tier) {
+        player.setHealth(1.0F);
+        player.clearStatusEffects();
+        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,18000/tier,0,false,false,true));
+        player.setHealth(player.getMaxHealth());
+        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
+    }
+
     private void applyEffectToNearbyEntities(ServerPlayerEntity player,int radius) {
         List<Entity> nearbyEntities = player.getWorld().getOtherEntities(player, player.getBoundingBox().expand(radius));
 
