@@ -7,7 +7,6 @@
 		"PlayerEntityMixin",
 		"MilkBucketMixin",
 		"LivingEntityMixin"
-
 	],
 	"injectors": {
 		"defaultRequire": 1
