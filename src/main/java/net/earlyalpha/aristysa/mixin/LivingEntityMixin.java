@@ -24,10 +24,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Iterator;
 import java.util.List;
 
+
 @Debug(export = true)
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
-    @Shadow public abstract void pushAwayFrom(Entity entity);
+    @Shadow
+    public abstract void pushAwayFrom(Entity entity);
 
     private StatusEffectInstance beingRemoved = null;
 
@@ -50,10 +52,10 @@ public abstract class LivingEntityMixin {
 
         return EarlyUtil.drinkingMilk && beingRemoved != null && (
                 beingRemoved.getEffectType() == ModEffects.WARDEN_HEART_COOLDOWN ||
-                beingRemoved.getEffectType() == ModEffects.ENDER_EYE_COOLDOWN ||
-                beingRemoved.getEffectType() == ModEffects.OPTICAL_CAMO_COOLDOWN ||
-                beingRemoved.getEffectType() == ModEffects.CYBERLEG_COOLDOWN ||
-                beingRemoved.getEffectType() == ModEffects.CRIMSON_WOUND
+                        beingRemoved.getEffectType() == ModEffects.ENDER_EYE_COOLDOWN ||
+                        beingRemoved.getEffectType() == ModEffects.OPTICAL_CAMO_COOLDOWN ||
+                        beingRemoved.getEffectType() == ModEffects.CYBERLEG_COOLDOWN ||
+                        beingRemoved.getEffectType() == ModEffects.CRIMSON_WOUND
         );
     }
 
@@ -62,49 +64,12 @@ public abstract class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
 
         if (entity instanceof ServerPlayerEntity player) {
-            int tier = EarlyUtil.getImplantTier(player,"wardenHeartTier");
+            int tier = EarlyUtil.getImplantTier(player, "wardenHeartTier");
             if (tier > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN)) {
-                switch (tier){
-                    case 1:
-                        wardenHeartEffect(player,tier);
-                        cir.setReturnValue(true);
-                        applyEffectToNearbyEntities(player,3);
-                        break;
-                    case 2:
-                        wardenHeartEffect(player,tier);
-                        cir.setReturnValue(true);
-                        applyEffectToNearbyEntities(player,6);
-                        break;
-                    case 3:
-                        wardenHeartEffect(player,tier);
-                        cir.setReturnValue(true);
-                        applyEffectToNearbyEntities(player,10);
-                        break;
-                    default:
-                        break;
-                }
+                EarlyUtil.wardenHeartEffect(player, tier);
+                cir.setReturnValue(true);
             }
         }
 
-    }
-
-    private void wardenHeartEffect(ServerPlayerEntity player ,int tier) {
-        player.setHealth(1.0F);
-        player.clearStatusEffects();
-        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,18000/tier,0,false,false,true));
-        player.setHealth(player.getMaxHealth());
-        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
-    }
-
-    private void applyEffectToNearbyEntities(ServerPlayerEntity player,int radius) {
-        List<Entity> nearbyEntities = player.getWorld().getOtherEntities(player, player.getBoundingBox().expand(radius));
-
-        for (Entity entity : nearbyEntities) {
-            if (entity instanceof LivingEntity && entity != player) {
-                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 600, 1));
-            }
-        }
     }
 }
-
-

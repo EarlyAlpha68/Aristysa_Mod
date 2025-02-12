@@ -4,6 +4,7 @@ import net.earlyalpha.aristysa.effect.ModEffects;
 import net.earlyalpha.aristysa.item.ModItems;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
@@ -14,6 +15,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -73,7 +76,38 @@ public class EarlyUtil {
         NbtCompound nbt = player.getPersistentData();
         nbt.putInt(nbt_data, tierAdd);
     }
-    public static void applyModifier(ServerPlayerEntity player, EntityAttribute attribute, UUID modifierId, double value) {
+    public static void wardenHeartEffect(ServerPlayerEntity player ,int tier) {
+        int duration = getWardenHeartDuration(tier);
+        player.setHealth(1.0F);
+        player.clearStatusEffects();
+        player.addStatusEffect(new StatusEffectInstance(ModEffects.WARDEN_HEART_COOLDOWN,duration,0,false,false,true));
+        player.setHealth(player.getMaxHealth());
+        player.getWorld().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.BLOCK_SCULK_SHRIEKER_SHRIEK, SoundCategory.PLAYERS, 1.0f, 1.0f);
+        applyEffectToNearbyEntities(player,tier*3);
+    }
+
+    public static int getWardenHeartDuration(int tier) {
+        return switch(tier){
+            case 1 ->18000;
+            case 2 ->12000;
+            case 3 ->6000;
+            default -> 0;
+        };
+    }
+
+    public static void applyEffectToNearbyEntities(ServerPlayerEntity player,int radius) {
+        List<Entity> nearbyEntities = player.getWorld().getOtherEntities(player, player.getBoundingBox().expand(radius));
+
+        for (Entity entity : nearbyEntities) {
+            if (entity instanceof LivingEntity && entity != player) {
+                ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 600, 1));
+            }
+        }
+    }
+
+
+
+public static void applyModifier(ServerPlayerEntity player, EntityAttribute attribute, UUID modifierId, double value) {
         EntityAttributeInstance attributeInstance = player.getAttributeInstance(attribute);
         if (attributeInstance != null) {
             EntityAttributeModifier existingModifier = attributeInstance.getModifier(modifierId);
