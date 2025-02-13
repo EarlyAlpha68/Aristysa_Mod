@@ -54,17 +54,17 @@ public class EarlyUtil {
         implantName.put("wardenHeartTier","Warden Heart");
     }
 
-    public static int getImplantType(String nbtTag) {
-        return implantType.getOrDefault(nbtTag, -1);
+    public static int getImplantType(String key) {
+        return implantType.getOrDefault(key, -1);
         //give the attached number of order of a specific implant
     }
 
-    public static String getImplantName(String nbtTag) {
-        return implantName.getOrDefault(nbtTag, "");
+    public static String getImplantName(String key) {
+        return implantName.getOrDefault(key, "");
         //give the attached number of order of a specific implant
     }
-    public static int getSyringeType(String nbtTag) {
-        return syringeType.getOrDefault(nbtTag, -1);
+    public static int getSyringeType(String key) {
+        return syringeType.getOrDefault(key, -1);
         //give the attached number of order of a specific implant
     }
     public static int getImplantTier(PlayerEntity player ,String key) {
