@@ -60,7 +60,7 @@ public class ImplantUsage {
         }
     }
 
-    private static void Dash (ServerPlayerEntity player){
+    private static void Dash (ServerPlayerEntity player) {
         Vec3d lookVec = player.getRotationVec(1.0F);
         Vec3d dashVec = lookVec.multiply(1);
         player.addVelocity(dashVec.x, dashVec.y, dashVec.z);

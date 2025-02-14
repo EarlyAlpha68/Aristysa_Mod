@@ -45,7 +45,7 @@ public class KeyInputHandler {
                 ClientPlayNetworking.send(NetworkingsMessages.CYBERLEG_USE_ID, PacketByteBufs.create());
             }
         });
-       ClientTickEvents.END_CLIENT_TICK.register(client ->{
+        ClientTickEvents.END_CLIENT_TICK.register(client ->{
             if (cyberImplantScreenOpen.wasPressed()) {
                 if (client.player != null) {
                     ClientPlayNetworking.send(NetworkingsMessages.NBT_TAGC2S_ID_SYNC, PacketByteBufs.create());
