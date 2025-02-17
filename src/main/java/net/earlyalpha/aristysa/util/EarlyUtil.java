@@ -139,13 +139,12 @@ public static void applyModifier(ServerPlayerEntity player, EntityAttribute attr
         }
     }
     public static double getArmorValueModifier(int tier) {
-        double baseArmorValue = switch (tier) {
+        return switch (tier) {
             case 1 -> 5.0;
             case 2 -> 7.0;
             case 3 -> 10.0;
             default -> 0.0;
         };
-        return baseArmorValue;
     }
     public static double getGolemArmModifierValue(int tier, String key) {
         return switch (key) {

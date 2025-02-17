@@ -50,4 +50,5 @@ public class CrimsonWound extends StatusEffect {
             entity.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).removeModifier(HALF_MAX_HEALTH_UUID);
         }
     }
+
 }
