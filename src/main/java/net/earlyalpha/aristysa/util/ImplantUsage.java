@@ -32,9 +32,7 @@ public class ImplantUsage {
 
     public static void EnderEye(ServerPlayerEntity player) {
         if ((!player.hasStatusEffect(ModEffects.ENDER_EYE_COOLDOWN)) && ((IEntityDataSaver) player).getPersistentData().getInt("enderEyeTier") > 0) {
-            if (player instanceof EnderEyeTp teleportation) {
-                teleportation.triggerTeleport();
-            }
+           EarlyUtil.teleportEnderEyePlayer(player);
         }
     }
 

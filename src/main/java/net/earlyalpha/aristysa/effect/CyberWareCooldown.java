@@ -17,4 +17,5 @@ public class CyberWareCooldown extends StatusEffect {
     public boolean canApplyUpdateEffect(int pDuration, int pAmplifier) {
         return false;
     }
+
 }

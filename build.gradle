@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.9-SNAPSHOT'
+	id 'fabric-loom' version '1.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -16,7 +16,11 @@ repositories {
 	}
 	maven { url "https://maven.shedaniel.me"
 	}
-	mavenCentral()
+	maven {
+		name = 'Sonatype Snapshots'
+		url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+	}
+		mavenCentral()
 }
 
 fabricApi {

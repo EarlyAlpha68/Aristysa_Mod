@@ -1,28 +1,23 @@
 package net.earlyalpha.aristysa.event;
 
-import net.earlyalpha.aristysa.effect.ModEffects;
 import net.earlyalpha.aristysa.item.ModItems;
-import net.earlyalpha.aristysa.util.IEntityDataSaver;
-import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
-import net.minecraft.item.Items;
+import net.earlyalpha.aristysa.util.EarlyUtil;
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.world.World;
 
 public class PlayerDeathHandler {
     public static void register() {
-        ServerPlayerEvents.ALLOW_DEATH.register((player, damageSource, damageAmount) -> {
-            onPlayerDeath(player);
-            return true;
+        ServerLivingEntityEvents.AFTER_DEATH.register((entity, damageSource ) -> {
+            onPlayerDeath(entity);
         });
     }
-    private static void onPlayerDeath(ServerPlayerEntity player) {
-        World world = player.getWorld();
-        boolean hasTotem = player.getMainHandStack().getItem() == Items.TOTEM_OF_UNDYING
-                || player.getOffHandStack().getItem() == Items.TOTEM_OF_UNDYING;
-        boolean hasWardenHearthReady = ((IEntityDataSaver) player).getPersistentData().getInt("wardenHeartTier") > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN);
-        if (!world.isClient() && player.getHealth() <= 0 && !hasTotem && !hasWardenHearthReady) {
-            switch (((IEntityDataSaver) player).getPersistentData().getInt("opticalCamoTier")) {
-                case 1:
+    private static void onPlayerDeath(LivingEntity entity) {
+        if (entity instanceof ServerPlayerEntity) {
+            ServerPlayerEntity player = (ServerPlayerEntity) entity;
+
+                switch (EarlyUtil.getImplantTier(player,"opticalCamoTier")) {
+                    case 1:
                         player.dropItem(ModItems.OPTICAL_CAMO_1);
                         break;
                     case 2:
@@ -34,7 +29,7 @@ public class PlayerDeathHandler {
                     default:
                         break;
                 }
-                switch (((IEntityDataSaver) player).getPersistentData().getInt("golemArmTier")) {
+                switch (EarlyUtil.getImplantTier(player,"golemArmTier")) {
                     case 1:
                         player.dropItem(ModItems.GOLEMARM_1);
                         break;
@@ -47,7 +42,7 @@ public class PlayerDeathHandler {
                     default:
                         break;
                 }
-                switch (((IEntityDataSaver) player).getPersistentData().getInt("enderEyeTier")) {
+                switch (EarlyUtil.getImplantTier(player,"enderEyeTier")) {
                     case 1:
                         player.dropItem(ModItems.ENDEREYE_1);
                         break;
@@ -60,7 +55,7 @@ public class PlayerDeathHandler {
                     default:
                         break;
                 }
-                switch (((IEntityDataSaver) player).getPersistentData().getInt("subdermalArmorTier")) {
+                switch (EarlyUtil.getImplantTier(player,"subdermalArmorTier")) {
                     case 1:
                         player.dropItem(ModItems.SUBDERMAL_ARMOR_1);
                         break;
@@ -73,32 +68,32 @@ public class PlayerDeathHandler {
                     default:
                         break;
                 }
-            switch (((IEntityDataSaver) player).getPersistentData().getInt("wardenHearthTier")) {
-                case 1:
-                    player.dropItem(ModItems.WARDEN_HEART_1);
-                    break;
-                case 2:
-                    player.dropItem(ModItems.WARDEN_HEART_2);
-                    break;
-                case 3:
-                    player.dropItem(ModItems.WARDEN_HEART_3);
-                    break;
-                default:
-                    break;
-            }
-            switch (((IEntityDataSaver) player).getPersistentData().getInt("cyberLegTier")) {
-                case 1:
-                    player.dropItem(ModItems.CYBERLEG_1);
-                    break;
-                case 2:
-                    player.dropItem(ModItems.CYBERLEG_2);
-                    break;
-                case 3:
-                    player.dropItem(ModItems.CYBERLEG_3);
-                    break;
-                default:
-                    break;
-            }
+                switch (EarlyUtil.getImplantTier(player,"wardenHeartTier")) {
+                    case 1:
+                        player.dropItem(ModItems.WARDEN_HEART_1);
+                        break;
+                    case 2:
+                        player.dropItem(ModItems.WARDEN_HEART_2);
+                        break;
+                    case 3:
+                        player.dropItem(ModItems.WARDEN_HEART_3);
+                        break;
+                    default:
+                        break;
+                }
+                switch (EarlyUtil.getImplantTier(player,"cyberLegTier")) {
+                    case 1:
+                        player.dropItem(ModItems.CYBERLEG_1);
+                        break;
+                    case 2:
+                        player.dropItem(ModItems.CYBERLEG_2);
+                        break;
+                    case 3:
+                        player.dropItem(ModItems.CYBERLEG_3);
+                        break;
+                    default:
+                        break;
+                }
         }
     }
 }

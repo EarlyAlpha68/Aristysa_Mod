@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+
 public class ModItems {
 
     public static final Item OPTICAL_CAMO_1 = registerItem("optical_camo_1", new CyberwareItem(new FabricItemSettings(),1,"opticalCamoTier"));
