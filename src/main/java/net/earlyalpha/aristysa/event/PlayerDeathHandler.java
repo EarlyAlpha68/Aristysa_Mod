@@ -5,6 +5,7 @@ import net.earlyalpha.aristysa.util.EarlyUtil;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.world.World;
 
 public class PlayerDeathHandler {
     public static void register() {
@@ -13,7 +14,8 @@ public class PlayerDeathHandler {
         });
     }
     private static void onPlayerDeath(LivingEntity entity) {
-        if (entity instanceof ServerPlayerEntity) {
+        World world = entity.getWorld();
+        if (!world.isClient() && entity instanceof ServerPlayerEntity) {
             ServerPlayerEntity player = (ServerPlayerEntity) entity;
 
                 switch (EarlyUtil.getImplantTier(player,"opticalCamoTier")) {

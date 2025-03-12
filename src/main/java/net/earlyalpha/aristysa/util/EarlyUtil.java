@@ -45,6 +45,7 @@ public class EarlyUtil {
         implantType.put("opticalCamoTier", 3);
         implantType.put("subdermalArmorTier", 4);
         implantType.put("wardenHeartTier", 5);
+        implantType.put("scarabTier", 6);
         //Init the implants name in their specific order
         implantName.put("cyberLegTier","Cyber Leg");
         implantName.put("enderEyeTier","Ender Eye");
@@ -52,6 +53,7 @@ public class EarlyUtil {
         implantName.put("opticalCamoTier","Optical Camo");
         implantName.put("subdermalArmorTier","SubDermal Armor");
         implantName.put("wardenHeartTier","Warden Heart");
+        implantName.put("scarabTier", "Scarab");
     }
 
     public static int getImplantType(String key) {

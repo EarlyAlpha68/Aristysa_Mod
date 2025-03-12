@@ -25,22 +25,25 @@ public class ServerPlayerTickEvent implements ServerTickEvents.StartTick{
 
     private static void subdermalArmorTicking(ServerPlayerEntity player) {
         int tier = EarlyUtil.getImplantTier(player,"subdermalArmorTier");
-        double baseArmorValue = EarlyUtil.getArmorValueModifier(tier);
-
-        EntityAttributeInstance armorAttribute = player.getAttributeInstance(EntityAttributes.GENERIC_ARMOR);
-        if (armorAttribute != null) {
-            armorAttribute.setBaseValue(baseArmorValue);
+        if (tier > 0) {
+            double baseArmorValue = EarlyUtil.getArmorValueModifier(tier);
+            EntityAttributeInstance armorAttribute = player.getAttributeInstance(EntityAttributes.GENERIC_ARMOR);
+            if (armorAttribute != null) {
+                armorAttribute.setBaseValue(baseArmorValue);
+            }
         }
     }
 
     private static void golemArmTicking(ServerPlayerEntity player) {
-        int tier = EarlyUtil.getImplantTier(player,"golemArmTier");
-        double KnockbackValue = EarlyUtil.getGolemArmModifierValue(tier,"knockback");
-        double AttackValue = EarlyUtil.getGolemArmModifierValue(tier,"attack");
-        double SpeedValue = EarlyUtil.getGolemArmModifierValue(tier,"speed");
+        int tier = EarlyUtil.getImplantTier(player, "golemArmTier");
+        if (tier > 0) {
+            double KnockbackValue = EarlyUtil.getGolemArmModifierValue(tier, "knockback");
+            double AttackValue = EarlyUtil.getGolemArmModifierValue(tier, "attack");
+            double SpeedValue = EarlyUtil.getGolemArmModifierValue(tier, "speed");
 
-        EarlyUtil.applyModifier(player, EntityAttributes.GENERIC_ATTACK_DAMAGE, ATTACK_DAMAGE_MODIFIER_ID, AttackValue);
-        EarlyUtil.applyModifier(player, EntityAttributes.GENERIC_ATTACK_KNOCKBACK, ATTACK_KNOCKBACK_MODIFIER_ID, KnockbackValue);
-        EarlyUtil.applyModifier(player, EntityAttributes.GENERIC_ATTACK_SPEED, ATTACK_SPEED_MODIFIER_ID, SpeedValue);
+            EarlyUtil.applyModifier(player, EntityAttributes.GENERIC_ATTACK_DAMAGE, ATTACK_DAMAGE_MODIFIER_ID, AttackValue);
+            EarlyUtil.applyModifier(player, EntityAttributes.GENERIC_ATTACK_KNOCKBACK, ATTACK_KNOCKBACK_MODIFIER_ID, KnockbackValue);
+            EarlyUtil.applyModifier(player, EntityAttributes.GENERIC_ATTACK_SPEED, ATTACK_SPEED_MODIFIER_ID, SpeedValue);
+        }
     }
 }
