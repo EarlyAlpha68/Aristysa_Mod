@@ -15,13 +15,14 @@ public class PlayerAllowDeathEvent implements ServerLivingEntityEvents.AllowDeat
             if (damageSource.isIn(DamageTypeTags.BYPASSES_INVULNERABILITY)) {
                 return true;
             } else {
-            int tier = EarlyUtil.getImplantTier(player, "wardenHeartTier");
-            if (tier > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN)) {
+                int tier = EarlyUtil.getImplantTier(player, "wardenHeartTier");
+                if (tier > 0 && !player.hasStatusEffect(ModEffects.WARDEN_HEART_COOLDOWN)) {
                 EarlyUtil.wardenHeartEffect(player, tier);
                 return false;
+                }else {
+                    return true;
+                }
             }
-        }
-        return false;
         } else {
             return true;
         }

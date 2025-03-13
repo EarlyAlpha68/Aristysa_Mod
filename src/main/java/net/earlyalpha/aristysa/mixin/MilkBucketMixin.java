@@ -17,11 +17,11 @@ public class MilkBucketMixin {
 
     @Inject(method = "finishUsing", at = @At("HEAD"))
     private void setBoolTrue(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir){
-        EarlyUtil.drinkingMilkORTotemUse = true;
+        EarlyUtil.drinkingMilkORTotemUse.put(user,true);
     }
 
     @Inject(method = "finishUsing", at = @At("RETURN"))
     private void resetBool(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable<ItemStack> cir){
-        EarlyUtil.drinkingMilkORTotemUse = false;
+        EarlyUtil.drinkingMilkORTotemUse.put(user,false);
     }
 }

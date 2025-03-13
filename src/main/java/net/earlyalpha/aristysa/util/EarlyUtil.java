@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class EarlyUtil {
-    public static boolean drinkingMilkORTotemUse = false;
+    public static HashMap<LivingEntity,Boolean> drinkingMilkORTotemUse = new HashMap<>();
     public static HashMap<String, Integer> implantType = new HashMap<>();
     public static HashMap<String, String> implantName = new HashMap<>();
     public static HashMap<String, Integer> syringeType = new HashMap<>();
